@@ -1,0 +1,53 @@
+{
+  "meta": { "instanceId": "ajb_premium_v7" },
+  "nodes": [
+    {
+      "id": "webhook-01",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ajb-contact-form",
+        "options": { "responseMode": "onReceived" }
+      }
+    },
+    {
+      "id": "email-ajb-01",
+      "name": "Notificacion para AJB",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [500, 180],
+      "parameters": {
+        "fromEmail": "soporte@dykanproject.com",
+        "toEmail": "ajbcleanningservicesny@gmail.com",
+        "subject": "=Nueva Cotizacion Web: {{ $json.body.name || $json.name || 'Sin nombre' }}",
+        "emailFormat": "html",
+        "html": "=<html><body style=\"margin:0;padding:0;background:#f0ede8;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td align=\"center\" style=\"padding:30px 0;\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:10px;overflow:hidden;\"><tr><td bgcolor=\"#0d1310\" style=\"padding:35px 40px;text-align:center;\"><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\"><tr><td style=\"border:2px solid #c6a56a;padding:12px 28px;\"><span style=\"color:#c6a56a;font-family:Georgia,serif;font-size:28px;letter-spacing:8px;\">A J B</span></td></tr><tr><td align=\"center\" style=\"padding-top:10px;\"><span style=\"color:#b9b19f;font-size:10px;letter-spacing:3px;font-family:Arial,sans-serif;\">PROFESSIONAL CLEANING SERVICES</span></td></tr></table></td></tr><tr><td style=\"padding:35px 40px;font-family:Arial,sans-serif;\"><h2 style=\"color:#0d1310;font-size:18px;border-bottom:2px solid #c6a56a;padding-bottom:10px;margin:0 0 20px;\">Nueva Solicitud de Cotizacion</h2><table width=\"100%\" cellpadding=\"12\" cellspacing=\"0\" bgcolor=\"#f9f7f4\"><tr><td style=\"border-bottom:1px solid #eeeeee;\"><span style=\"font-size:11px;color:#999999;\">CLIENTE</span><br><strong style=\"color:#0d1310;font-size:16px;\">{{ $json.body.name || $json.name }}</strong></td></tr><tr><td style=\"border-bottom:1px solid #eeeeee;\"><span style=\"font-size:11px;color:#999999;\">TELEFONO</span><br><strong style=\"color:#0d1310;\">{{ $json.body.phone || $json.phone }}</strong></td></tr><tr><td style=\"border-bottom:1px solid #eeeeee;\"><span style=\"font-size:11px;color:#999999;\">EMAIL</span><br><strong style=\"color:#0d1310;\">{{ $json.body.email || $json.email }}</strong></td></tr><tr><td><span style=\"font-size:11px;color:#999999;\">SERVICIO SOLICITADO</span><br><strong style=\"color:#c6a56a;font-size:15px;\">{{ $json.body.service || $json.service }}</strong></td></tr></table><p style=\"color:#555555;margin:20px 0 8px;\"><strong>Mensaje del Cliente:</strong></p><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td bgcolor=\"#fffaf0\" style=\"padding:15px;border-left:4px solid #c6a56a;\"><em style=\"color:#333333;\">{{ $json.body.message || $json.message }}</em></td></tr></table><br><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"margin:0 auto 25px;\"><tr><td bgcolor=\"#25D366\" style=\"border-radius:6px;padding:16px 32px;\"><a href=\"https://wa.me/{{ ($json.body.phone || $json.phone).replace(/[^0-9]/g, '') }}?text=Hola%20{{ encodeURIComponent($json.body.name || $json.name) }}%2C%20soy%20del%20equipo%20AJB%20Cleaning%20Services.%20Recibimos%20tu%20solicitud%20y%20con%20gusto%20te%20ayudamos.\" style=\"color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;font-family:Arial,sans-serif;\">Contactar Cliente por WhatsApp</a></td></tr></table></td></tr><tr><td bgcolor=\"#0d1310\" style=\"padding:16px 40px;text-align:center;\"><span style=\"color:#b9b19f;font-size:11px;font-family:Arial,sans-serif;\">Sistema de Gestion AJB | {{ $json.body.submittedAt || $json.submittedAt }}</span></td></tr></table></td></tr></table></body></html>"
+      }
+    },
+    {
+      "id": "email-client-01",
+      "name": "Confirmacion para el Cliente",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [500, 420],
+      "parameters": {
+        "fromEmail": "soporte@dykanproject.com",
+        "toEmail": "={{ $json.body.email || $json.email }}",
+        "subject": "Confirmacion de tu Solicitud - AJB Cleaning Services",
+        "emailFormat": "html",
+        "html": "=<html><body style=\"margin:0;padding:0;background:#f0ede8;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td align=\"center\" style=\"padding:30px 0;\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:10px;overflow:hidden;\"><tr><td bgcolor=\"#0d1310\" style=\"padding:40px;text-align:center;\"><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\"><tr><td style=\"border:2px solid #c6a56a;padding:15px 35px;\"><span style=\"color:#c6a56a;font-family:Georgia,serif;font-size:32px;letter-spacing:10px;\">A J B</span></td></tr><tr><td align=\"center\" style=\"padding-top:12px;\"><span style=\"color:#b9b19f;font-size:11px;letter-spacing:3px;font-family:Arial,sans-serif;\">CLEANING SERVICES</span></td></tr></table></td></tr><tr><td style=\"padding:50px 40px;text-align:center;font-family:Arial,sans-serif;\"><h2 style=\"color:#0d1310;margin:0 0 20px;\">Gracias, {{ $json.body.name || $json.name }}!</h2><p style=\"color:#555555;line-height:1.7;font-size:15px;margin:0 0 15px;\">Hemos recibido correctamente tu solicitud para:</p><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"margin:0 auto 25px;\"><tr><td bgcolor=\"#0d1310\" style=\"border-radius:6px;padding:12px 28px;\"><span style=\"color:#c6a56a;font-weight:bold;letter-spacing:1px;font-family:Arial,sans-serif;\">{{ $json.body.service || $json.service }}</span></td></tr></table><p style=\"color:#555555;line-height:1.7;margin:0 0 30px;\">Un especialista revisara tu solicitud y te contactara dentro de las proximas <strong>24 horas</strong> para coordinar una evaluacion personalizada completamente gratuita y sin compromiso.</p><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid #c6a56a;border-radius:8px;margin:0 0 25px;\"><tr><td style=\"padding:25px;text-align:center;\"><p style=\"color:#0d1310;font-weight:bold;margin:0 0 20px;font-size:15px;\">Necesitas atencion inmediata?</p><table cellpadding=\"0\" cellspacing=\"8\" align=\"center\"><tr><td bgcolor=\"#25D366\" style=\"border-radius:6px;padding:13px 22px;\"><a href=\"https://wa.me/18609312274\" style=\"color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;font-family:Arial,sans-serif;\">WhatsApp +1 860 931 2274</a></td></tr><tr><td bgcolor=\"#128C7E\" style=\"border-radius:6px;padding:13px 22px;\"><a href=\"https://wa.me/18603350967\" style=\"color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;font-family:Arial,sans-serif;\">WhatsApp +1 860 335 0967</a></td></tr></table></td></tr></table><p style=\"color:#999999;font-size:13px;font-style:italic;margin:0;\">More than cleaning, a sustainable space for your comfort.</p></td></tr><tr><td bgcolor=\"#0d1310\" style=\"padding:25px 40px;text-align:center;\"><p style=\"color:#c6a56a;font-size:12px;margin:0 0 6px;font-family:Arial,sans-serif;\">AJB Cleaning Services, LLC</p><p style=\"color:#b9b19f;font-size:11px;margin:0;font-family:Arial,sans-serif;\">NY - NJ - CT - PA | 2026 Todos los derechos reservados.</p></td></tr></table></td></tr></table></body></html>"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[
+        { "node": "Notificacion para AJB", "type": "main", "index": 0 },
+        { "node": "Confirmacion para el Cliente", "type": "main", "index": 0 }
+      ]]
+    }
+  }
+}
