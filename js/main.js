@@ -462,4 +462,14 @@
     });
   }
 
+  // ===== GLOBAL IMAGE ERROR HANDLER (Clean deployment) =====
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      console.warn("AJB: Image failed to load:", this.src);
+      this.style.opacity = '0.5'; // Allow CSS placeholder background to show
+      // Using a transparent 1x1 base64 to hide the broken icon
+      this.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    });
+  });
+
 })();
