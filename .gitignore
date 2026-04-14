@@ -1,0 +1,28 @@
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Temporary files
+*.tmp
+~$*
+*.docx
+*.pptx
+
+# Web development
+node_modules/
+dist/
+build/
+.env
+
+# Project specific
+import_research.ps1
+fill_notebooks.ps1
+read_docx.py
+ajb_client_notes.md
+dykan_ajb_interno.md
+propuesta_empresarial_content.txt
+AJB_Propuesta_Empresarial_Final.md
+ajb_propuesta_cliente.md
+ajb_propuesta_ejecutiva.md
+ajb_propuesta_visual.doc

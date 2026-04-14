@@ -51,14 +51,22 @@
   } else {
     // No launch screen — reveal immediately
     document.addEventListener('DOMContentLoaded', () => {
+      console.log('AJB: DOMContentLoaded - No launch screen, revealing content.');
       try {
         triggerReveal3D();
         triggerRevealUp();
       } catch (e) {
-        console.warn("Immediate reveal failed: ", e);
+        console.error("AJB: Immediate reveal failed: ", e);
       }
     });
   }
+
+  // Failsafe: If for any reason content is still hidden after 5 seconds, show it
+  setTimeout(() => {
+    document.querySelectorAll('.reveal-up:not(.is-visible), .reveal-3d:not(.is-visible)').forEach(el => {
+      el.classList.add('is-visible');
+    });
+  }, 5000);
 
   // ===== REVEAL 3D (hero elements) =====
   function triggerReveal3D() {
@@ -78,7 +86,7 @@
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
   );
 
   function triggerRevealUp() {
@@ -172,7 +180,8 @@
     const filters = document.querySelectorAll('.filter-btn');
     let active = 0;
     let autoPlay;
-    let visibleSlides = slides;
+    let visibleSlides = [...slides]; // Start with all visible
+    console.log('AJB: Gallery found, initializing with', slides.length, 'slides');
 
     function buildDots() {
       if (!dotsWrap) return;
@@ -261,7 +270,7 @@
     gallery.addEventListener('touchend', e => { 
       touchendX = e.changedTouches[0].screenX; 
       if (touchstartX - touchendX > 50) setActive(active + 1);
-      if (touchendX - touchstartX > 50) setActive(active - 1);
+      if (touchendX - touchstartX > 50) setActive(active - -1);
       startAutoPlay();
     }, {passive: true});
 
@@ -344,31 +353,21 @@
   // --- CONTACT FORM: PHONE MASK ---
   const phoneInput = document.getElementById('contactPhone');
   if (phoneInput) {
-    phoneInput.addEventListener('input', function (e) {
-      let cursor = this.selectionStart;
+    phoneInput.addEventListener('input', function () {
       let raw = this.value.replace(/\D/g, ''); // digits only
 
-      // If typed 1 at start, keep it for cleaning but skip it for formatting
-      if (raw.startsWith('1') && raw.length > 1) raw = raw.slice(1);
-      else if (raw === '1') raw = ''; // Don't let them just start with 1
+      // Remove leading 1 if user typed it
+      if (raw.startsWith('1')) raw = raw.slice(1);
 
       // Limit to 10 digits
       raw = raw.slice(0, 10);
 
-      let formatted = '';
-      if (raw.length > 0) {
-        formatted = '+1 (' + raw.slice(0, 3);
-        if (raw.length > 3) formatted += ') ' + raw.slice(3, 6);
-        if (raw.length > 6) formatted += '-' + raw.slice(6, 10);
-      }
+      let formatted = '+1 ';
+      if (raw.length > 0) formatted += '(' + raw.slice(0, 3);
+      if (raw.length >= 3) formatted += ') ' + raw.slice(3, 6);
+      if (raw.length >= 6) formatted += '-' + raw.slice(6, 10);
 
-      const prevValue = this.value;
-      this.value = formatted;
-      
-      // Basic cursor positioning logic
-      if (cursor <= 4 && prevValue.length < formatted.length) {
-        this.setSelectionRange(formatted.length, formatted.length);
-      }
+      this.value = formatted === '+1 ' ? '' : formatted;
     });
 
     phoneInput.addEventListener('keydown', function (e) {
@@ -398,7 +397,7 @@
       const emailErr   = document.getElementById('emailError');
       const phoneErr   = document.getElementById('phoneError');
 
-      // Name: allows letters, spaces, hyphens, and common international chars
+      // Name: letters, spaces, hyphens only
       const nameOk = /^[a-zA-ZÀ-ÿ\s'\-]{2,}$/.test(nameInput.value.trim());
       nameInput.classList.toggle('invalid', !nameOk);
       nameErr.classList.toggle('visible', !nameOk);
@@ -410,12 +409,9 @@
       emailErr.classList.toggle('visible', !emailOk);
       if (!emailOk) valid = false;
 
-      // Phone: must be exactly 10 digits formatted correctly
-      const phoneVal = phoneInp.value.trim().replace(/\D/g, ''); // just digits for length check
-      // Remove leading 1 if present
-      const cleanPhone = phoneVal.startsWith('1') ? phoneVal.slice(1) : phoneVal;
-      
-      const phoneOk  = cleanPhone.length === 10;
+      // Phone: must match +1 (xxx) xxx-xxxx or be empty
+      const phoneVal = phoneInp.value.trim();
+      const phoneOk  = phoneVal === '' || /^\+1 \(\d{3}\) \d{3}-\d{4}$/.test(phoneVal);
       phoneInp.classList.toggle('invalid', !phoneOk);
       phoneErr.classList.toggle('visible', !phoneOk);
       if (!phoneOk) valid = false;

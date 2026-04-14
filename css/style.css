@@ -1745,21 +1745,28 @@ a {
 
 .lightbox-close {
   position: absolute;
-  top: -60px;
-  right: 0;
-  background: none;
-  border: none;
+  top: 15px;
+  right: 15px;
+  background: rgba(2, 11, 24, 0.4);
+  border: 1px solid rgba(255,255,255,0.1);
   color: var(--white);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 10px;
-  line-height: 1;
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
 }
 
 .lightbox-close:hover {
-  transform: rotate(90deg) scale(1.1);
-  color: var(--gold-400);
+  background: var(--gold-500);
+  color: var(--navy-900);
+  transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
@@ -1822,8 +1829,8 @@ a {
     translateZ(calc(var(--abs) * -400px))
     rotateY(calc(var(--offset) * -15deg)) 
     scale(calc(1 - (var(--abs) * 0.05)));
-  opacity: calc(1 - (var(--abs) * 0.25));
-  filter: brightness(calc(0.7 - (var(--abs) * 0.2)));
+  opacity: calc(1 - (var(--abs) * 0.18));
+  filter: brightness(calc(0.8 - (var(--abs) * 0.15)));
   z-index: calc(30 - var(--abs));
   transition: transform 0.6s cubic-bezier(.22,1,.36,1), 
               opacity 0.6s cubic-bezier(.22,1,.36,1), 
@@ -1960,7 +1967,7 @@ a {
 }
 
 .ajb-gallery-dot {
-  width: 10px;
+  width: 100%;
   height: 10px;
   border-radius: 50%;
   border: none;
@@ -2003,8 +2010,3 @@ a {
       display: none;
   }
 }
-
-/* ===== AJB 3D GALLERY REFINEMENTS ===== */
-.ajb-gallery-slide { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, opacity; }
-.ajb-gallery-card { min-height: 450px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; overflow: hidden; position: relative; }
-.ajb-gallery-card img { width: 100%; height: 100%; object-fit: cover; flex: 1; background-color: #020b18; }
