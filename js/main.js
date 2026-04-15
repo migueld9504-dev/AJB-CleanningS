@@ -13,7 +13,7 @@
 
   // ===== 3D LAUNCH SCREEN =====
   const launchScreen = document.getElementById('launchScreen');
-  const launchBar    = document.getElementById('launchBar');
+  const launchBar = document.getElementById('launchBar');
   const LAUNCH_DURATION = 3200; // ms total before dismissal
   let launchStart = null;
 
@@ -51,22 +51,14 @@
   } else {
     // No launch screen — reveal immediately
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('AJB: DOMContentLoaded - No launch screen, revealing content.');
       try {
         triggerReveal3D();
         triggerRevealUp();
       } catch (e) {
-        console.error("AJB: Immediate reveal failed: ", e);
+        console.warn("Immediate reveal failed: ", e);
       }
     });
   }
-
-  // Failsafe: If for any reason content is still hidden after 5 seconds, show it
-  setTimeout(() => {
-    document.querySelectorAll('.reveal-up:not(.is-visible), .reveal-3d:not(.is-visible)').forEach(el => {
-      el.classList.add('is-visible');
-    });
-  }, 5000);
 
   // ===== REVEAL 3D (hero elements) =====
   function triggerReveal3D() {
@@ -86,7 +78,7 @@
         }
       });
     },
-    { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
+    { threshold: 0.12 }
   );
 
   function triggerRevealUp() {
@@ -96,14 +88,20 @@
   // ===== NAVBAR SCROLL =====
   const navbar = document.getElementById('navbar');
   if (navbar) {
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+    function handleScroll() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
   }
 
   // ===== MOBILE NAV TOGGLE =====
   const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
+  const navLinks = document.getElementById('navLinks');
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(link => {
@@ -159,7 +157,7 @@
   if (heroSlider) {
     const heroSlides = heroSlider.querySelectorAll('.hero-slide');
     let currentHeroSlide = 0;
-    
+
     // Initial check
     if (heroSlides.length > 1) {
       setInterval(() => {
@@ -180,8 +178,7 @@
     const filters = document.querySelectorAll('.filter-btn');
     let active = 0;
     let autoPlay;
-    let visibleSlides = [...slides]; // Start with all visible
-    console.log('AJB: Gallery found, initializing with', slides.length, 'slides');
+    let visibleSlides = slides;
 
     function buildDots() {
       if (!dotsWrap) return;
@@ -197,24 +194,26 @@
     }
 
     function setActive(index) {
-      if (visibleSlides.length === 0) return;
+      if (!visibleSlides || visibleSlides.length === 0) return;
       active = (index + visibleSlides.length) % visibleSlides.length;
-      
-      visibleSlides.forEach((slide, i) => {
-        const rawOffset = i - active;
-        const wrappedOffset = rawOffset > visibleSlides.length / 2
-          ? rawOffset - visibleSlides.length
-          : rawOffset < -visibleSlides.length / 2
-          ? rawOffset + visibleSlides.length
-          : rawOffset;
 
-        slide.style.setProperty('--offset', wrappedOffset);
-        slide.style.setProperty('--abs', Math.abs(wrappedOffset));
-        slide.classList.toggle('is-active', wrappedOffset === 0);
-        slide.style.display = 'block'; // Ensure it's shown if it's in the visible list
+      visibleSlides.forEach((slide, i) => {
+        let rawOffset = i - active;
+        
+        // Circular logic for the 3D gallery
+        if (rawOffset > visibleSlides.length / 2) rawOffset -= visibleSlides.length;
+        if (rawOffset < -visibleSlides.length / 2) rawOffset += visibleSlides.length;
+
+        slide.style.setProperty('--offset', rawOffset);
+        slide.style.setProperty('--abs', Math.abs(rawOffset));
+        
+        const isActive = rawOffset === 0;
+        slide.classList.toggle('is-active', isActive);
+        slide.style.display = 'block';
+        slide.style.zIndex = isActive ? '100' : (30 - Math.abs(rawOffset));
       });
 
-      // Hide slides not in the visible list
+      // Hide slides not in the current visible list
       slides.forEach(slide => {
         if (!visibleSlides.includes(slide)) {
           slide.style.display = 'none';
@@ -223,7 +222,7 @@
 
       const dots = [...gallery.querySelectorAll('.ajb-gallery-dot')];
       dots.forEach((dot, i) => {
-        dot.setAttribute('aria-current', i === active ? 'true' : 'false');
+        if (dot) dot.setAttribute('aria-current', i === active ? 'true' : 'false');
       });
     }
 
@@ -244,13 +243,13 @@
         filters.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        
+
         if (filter === 'all') {
           visibleSlides = slides;
         } else {
           visibleSlides = slides.filter(s => s.dataset.category === filter);
         }
-        
+
         buildDots();
         setActive(0);
         startAutoPlay();
@@ -259,20 +258,20 @@
 
     if (prevBtn) prevBtn.addEventListener('click', () => { setActive(active - 1); startAutoPlay(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { setActive(active + 1); startAutoPlay(); });
-    
+
     gallery.addEventListener('mouseenter', stopAutoPlay);
     gallery.addEventListener('mouseleave', startAutoPlay);
-    
+
     // Swipe support
     let touchstartX = 0;
     let touchendX = 0;
-    gallery.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; stopAutoPlay(); }, {passive: true});
-    gallery.addEventListener('touchend', e => { 
-      touchendX = e.changedTouches[0].screenX; 
+    gallery.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; stopAutoPlay(); }, { passive: true });
+    gallery.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX;
       if (touchstartX - touchendX > 50) setActive(active + 1);
-      if (touchendX - touchstartX > 50) setActive(active - -1);
+      if (touchendX - touchstartX > 50) setActive(active - 1);
       startAutoPlay();
-    }, {passive: true});
+    }, { passive: true });
 
     // Lightbox Logic
     const lightbox = document.getElementById('ajbLightbox');
@@ -290,11 +289,11 @@
         // ALWAYS trigger lightbox on click, removing is-active restriction for better UX
         e.preventDefault();
         e.stopPropagation();
-        
+
         const img = slide.querySelector('img');
         const titleEl = slide.querySelector('h3');
         const descEl = slide.querySelector('p');
-        
+
         const title = titleEl ? titleEl.textContent : "";
         const desc = descEl ? descEl.textContent : "";
 
@@ -328,15 +327,15 @@
   }
 
   // ===== REVIEWS SECTION TOGGLE =====
-  const navReviewsBtn    = document.getElementById('navReviewsBtn');
+  const navReviewsBtn = document.getElementById('navReviewsBtn');
   const footerReviewsBtn = document.getElementById('footerReviewsBtn');
   const viewAllReviewsBtn = document.getElementById('viewAllReviewsBtn');
-  const leaveReviewBtn   = document.getElementById('leaveReviewBtn');
-  const reviewsSection   = document.getElementById('reviewsIntegrated');
-  
+  const leaveReviewBtn = document.getElementById('leaveReviewBtn');
+  const reviewsSection = document.getElementById('reviewsIntegrated');
+
   const toggleReviews = (e) => {
-    if(e) e.preventDefault();
-    if(reviewsSection) {
+    if (e) e.preventDefault();
+    if (reviewsSection) {
       reviewsSection.classList.toggle('active');
       if (reviewsSection.classList.contains('active')) {
         const top = reviewsSection.getBoundingClientRect().top + window.scrollY - 80;
@@ -345,36 +344,43 @@
     }
   };
 
-  if (navReviewsBtn)     navReviewsBtn.addEventListener('click', toggleReviews);
-  if (footerReviewsBtn)  footerReviewsBtn.addEventListener('click', toggleReviews);
+  if (navReviewsBtn) navReviewsBtn.addEventListener('click', toggleReviews);
+  if (footerReviewsBtn) footerReviewsBtn.addEventListener('click', toggleReviews);
   if (viewAllReviewsBtn) viewAllReviewsBtn.addEventListener('click', toggleReviews);
-  if (leaveReviewBtn)    leaveReviewBtn.addEventListener('click', toggleReviews);
+  if (leaveReviewBtn) leaveReviewBtn.addEventListener('click', toggleReviews);
+  
+  // Ensure the button in nav always works even if script re-runs
+  window.toggleAJBReviews = toggleReviews;
 
   // --- CONTACT FORM: PHONE MASK ---
   const phoneInput = document.getElementById('contactPhone');
   if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
-      let raw = this.value.replace(/\D/g, ''); // digits only
-
-      // Remove leading 1 if user typed it
-      if (raw.startsWith('1')) raw = raw.slice(1);
-
-      // Limit to 10 digits
-      raw = raw.slice(0, 10);
-
-      let formatted = '+1 ';
-      if (raw.length > 0) formatted += '(' + raw.slice(0, 3);
-      if (raw.length >= 3) formatted += ') ' + raw.slice(3, 6);
-      if (raw.length >= 6) formatted += '-' + raw.slice(6, 10);
-
-      this.value = formatted === '+1 ' ? '' : formatted;
+    phoneInput.addEventListener('input', function (e) {
+      let raw = this.value.replace(/\D/g, ''); // keep only digits
+      
+      // If starts with 1 and is long, remove it for formatting
+      if (raw.startsWith('1') && raw.length > 10) {
+        raw = raw.slice(1);
+      }
+      
+      raw = raw.slice(0, 10); // max 10 digits
+      
+      let formatted = '';
+      if (raw.length > 0) {
+        formatted = '+1 (';
+        formatted += raw.slice(0, 3);
+        if (raw.length > 3) formatted += ') ' + raw.slice(3, 6);
+        if (raw.length > 6) formatted += '-' + raw.slice(6, 10);
+      }
+      
+      this.value = formatted;
     });
 
-    phoneInput.addEventListener('keydown', function (e) {
-      // Allow backspace/tab/enter/delete/arrows
-      if ([8, 9, 13, 46, 37, 39].includes(e.keyCode)) return;
-      // Allow only digits
-      if (!/^\d$/.test(e.key) && !e.ctrlKey && !e.metaKey) e.preventDefault();
+    // Prevent typing non-digits
+    phoneInput.addEventListener('keypress', function(e) {
+      if (!/\d/.test(e.key)) {
+        e.preventDefault();
+      }
     });
   }
 
@@ -387,36 +393,44 @@
       e.preventDefault();
       console.log('AJB: Form submission detected!');
 
-      // --- Validation ---
+      // Validation Logic
       let valid = true;
+      const nameInp = document.getElementById('contactName');
+      const emailInp = document.getElementById('contactEmail');
+      const phoneInp = document.getElementById('contactPhone');
+      
+      const nameErr = document.getElementById('nameError');
+      const emailErr = document.getElementById('emailError');
+      const phoneErr = document.getElementById('phoneError');
 
-      const nameInput  = document.getElementById('contactName');
-      const emailInput = document.getElementById('contactEmail');
-      const phoneInp   = document.getElementById('contactPhone');
-      const nameErr    = document.getElementById('nameError');
-      const emailErr   = document.getElementById('emailError');
-      const phoneErr   = document.getElementById('phoneError');
-
-      // Name: letters, spaces, hyphens only
-      const nameOk = /^[a-zA-ZÀ-ÿ\s'\-]{2,}$/.test(nameInput.value.trim());
-      nameInput.classList.toggle('invalid', !nameOk);
-      nameErr.classList.toggle('visible', !nameOk);
+      // Name: MUST NOT contain numbers, must be at least 2 chars
+      const nameVal = nameInp.value.trim();
+      const hasNumber = /\d/.test(nameVal);
+      const nameOk = nameVal.length >= 2 && !hasNumber && /^[a-zA-ZÀ-ÿ\s'\-]+$/.test(nameVal);
+      
+      nameInp.classList.toggle('invalid', !nameOk);
+      if (nameErr) nameErr.classList.toggle('visible', !nameOk);
       if (!nameOk) valid = false;
 
-      // Email
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-      emailInput.classList.toggle('invalid', !emailOk);
-      emailErr.classList.toggle('visible', !emailOk);
+      // Email: must contain @
+      const emailVal = emailInp.value.trim();
+      const emailOk = emailVal.includes('@') && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+      emailInp.classList.toggle('invalid', !emailOk);
+      if (emailErr) emailErr.classList.toggle('visible', !emailOk);
       if (!emailOk) valid = false;
 
-      // Phone: must match +1 (xxx) xxx-xxxx or be empty
-      const phoneVal = phoneInp.value.trim();
-      const phoneOk  = phoneVal === '' || /^\+1 \(\d{3}\) \d{3}-\d{4}$/.test(phoneVal);
+      // Phone: must be valid US format
+      const digits = phoneInp.value.replace(/\D/g, '');
+      const cleanDigits = digits.startsWith('1') ? digits.slice(1) : digits;
+      const phoneOk = cleanDigits.length === 10;
       phoneInp.classList.toggle('invalid', !phoneOk);
-      phoneErr.classList.toggle('visible', !phoneOk);
+      if (phoneErr) phoneErr.classList.toggle('visible', !phoneOk);
       if (!phoneOk) valid = false;
 
-      if (!valid) return;
+      if (!valid) {
+        console.warn('AJB: Form validation failed.');
+        return false;
+      }
 
       const btn = contactForm.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
@@ -424,12 +438,12 @@
       // Gather data and transform to uppercase
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
-      
+
       // Auto-uppercase all text values before sending
       if (data.name) data.name = data.name.toUpperCase();
       if (data.service) data.service = data.service.toUpperCase();
       if (data.email) data.email = data.email.toLowerCase(); // Email usually lowercase
-      
+
       data.source = 'AJB Website';
       data.submittedAt = new Date().toLocaleString();
 
@@ -461,15 +475,5 @@
       }
     });
   }
-
-  // ===== GLOBAL IMAGE ERROR HANDLER (Clean deployment) =====
-  document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('error', function() {
-      console.warn("AJB: Image failed to load:", this.src);
-      this.style.opacity = '0.5'; // Allow CSS placeholder background to show
-      // Using a transparent 1x1 base64 to hide the broken icon
-      this.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-    });
-  });
 
 })();
