@@ -206,7 +206,7 @@
       const tag = tagEl ? tagEl.innerHTML : "";
 
       if (isVideo) {
-        const videoSrc = slide.querySelector('.video-src').textContent.trim();
+        const videoSrc = slide.querySelector('.video-src').getAttribute('src');
         const video = document.createElement('video');
         video.src = videoSrc;
         video.autoplay = true;
@@ -371,11 +371,11 @@
       const descEl = slide.querySelector('p');
 
       if (isVideo) {
-        const videoSrc = slide.querySelector('.video-src').textContent;
+        const videoSrc = slide.querySelector('.video-src').getAttribute('src');
         if (lightboxVideo) {
           lightboxVideo.src = videoSrc;
           lightboxVideo.style.display = 'block';
-          lightboxVideo.play();
+          lightboxVideo.play().catch(e => console.log('Lightbox autoplay prevented:', e));
         }
         if (lightboxImg) lightboxImg.style.display = 'none';
       } else {
