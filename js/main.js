@@ -206,14 +206,26 @@
       const tag = tagEl ? tagEl.innerHTML : "";
 
       if (isVideo) {
-        const videoSrc = slide.querySelector('.video-src').textContent;
+        const videoSrc = slide.querySelector('.video-src').textContent.trim();
         const video = document.createElement('video');
         video.src = videoSrc;
         video.autoplay = true;
         video.muted = true;
         video.loop = true;
         video.playsInline = true;
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('loop', '');
+        video.setAttribute('playsinline', '');
         featuredContent.appendChild(video);
+        
+        // Force play
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
       } else {
         const newImg = document.createElement('img');
         newImg.src = img.src;
