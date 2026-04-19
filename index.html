@@ -272,221 +272,735 @@
       <!-- Filters -->
       <div class="gallery-filters reveal-up" id="galleryFilters">
         <button class="filter-btn active" data-filter="all" data-t="cat_all">All</button>
-        <button class="filter-btn" data-filter="office" data-t="cat_office">Offices</button>
-        <button class="filter-btn" data-filter="medical" data-t="cat_medical">Medical</button>
-        <button class="filter-btn" data-filter="residential" data-t="cat_residential">Residential</button>
-        <button class="filter-btn" data-filter="construction" data-t="cat_construction">Construction</button>
-        <button class="filter-btn" data-filter="industrial" data-t="cat_industrial">Industrial</button>
+        <button class="filter-btn" data-filter="offices_recep" data-t="cat_offices_recep">Offices &amp; Receptions</button>
+        <button class="filter-btn" data-filter="classrooms" data-t="cat_classrooms">Classrooms / Schools</button>
+
+        <button class="filter-btn" data-filter="auditoriums" data-t="cat_auditoriums">Auditoriums</button>
+        <button class="filter-btn" data-filter="gym" data-t="cat_gym">Gym</button>
+        <button class="filter-btn" data-filter="dining" data-t="cat_dining">Dining Rooms</button>
+        <button class="filter-btn" data-filter="training" data-t="cat_training">Training Centers</button>
+        <button class="filter-btn" data-filter="church" data-t="cat_church">Churches</button>
+        <button class="filter-btn" data-filter="green_zones" data-t="cat_green_zones">Green Zones</button>
       </div>
 
-      <div class="ajb-gallery-3d" id="ajbGallery3D">
-        <div class="ajb-gallery-viewport">
-          <div class="ajb-gallery-track" id="galleryTrack">
-            <!-- Images are injected via JS or predefined here -->
-            <div class="ajb-gallery-slide is-active" data-index="0" data-category="office">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-1.jpg" alt="Office 1" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_office">Offices</span>
-                  <h3 data-t="g_title_off1">Corporate Building</h3>
-                  <p data-t="g_desc_off1">Impeccable workspaces for productivity.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="1" data-category="medical">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-2.jpg" alt="Medical 1" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_medical">Medical</span>
-                  <h3 data-t="g_title_med1">Dental Clinic</h3>
-                  <p data-t="g_desc_med1">High-level sanitization and safety.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="2" data-category="residential">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-3.jpg" alt="Residential 1" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_residential">Residential</span>
-                  <h3 data-t="g_title_res1">Luxury Condo</h3>
-                  <p data-t="g_desc_res1">White-glove care for your home.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="3" data-category="construction">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-4.jpg" alt="Construction 1" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_construction">Construction</span>
-                  <h3 data-t="g_title_con1">Apartment Renovation</h3>
-                  <p data-t="g_desc_con1">Ready for occupancy after builds.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="4" data-category="industrial">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-5.jpg" alt="Industrial 1" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_industrial">Industrial</span>
-                  <h3 data-t="g_title_ind1">Warehouse Facility</h3>
-                  <p data-t="g_desc_ind1">Large scale efficiency and detail.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="11" data-category="office">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-12.jpg" alt="Office 4" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_office">Offices</span>
-                  <h3 data-t="g_title_off4">Reception Area</h3>
-                  <p data-t="g_desc_off4">First impressions that matter.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="12" data-category="medical">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-13.jpg" alt="Medical 3" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_medical">Medical</span>
-                  <h3 data-t="g_title_med3">Surgical Room</h3>
-                  <p data-t="g_desc_med3">Highest standards of sterility.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="13" data-category="residential">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-14.jpg" alt="Residential 3" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_residential">Residential</span>
-                  <h3 data-t="g_title_res3">Family Estate</h3>
-                  <p data-t="g_desc_res3">Privacy and quality combined.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="14" data-category="construction">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-15.jpg" alt="Construction 3" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_construction">Construction</span>
-                  <h3 data-t="g_title_con3">New Development</h3>
-                  <p data-t="g_desc_con3">Large scale post-build care.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="15" data-category="industrial">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-16.jpg" alt="Industrial 3" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_industrial">Industrial</span>
-                  <h3 data-t="g_title_ind3">Storage Units</h3>
-                  <p data-t="g_desc_ind3">Safe and hygienic logistics.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="16" data-category="office">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-17.jpg" alt="Office 5" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_office">Offices</span>
-                  <h3 data-t="g_title_off5">Coworking Space</h3>
-                  <p data-t="g_desc_off5">Adaptive cleaning for shared areas.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="17" data-category="medical">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-18.jpg" alt="Medical 4" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_medical">Medical</span>
-                  <h3 data-t="g_title_med4">Patient Ward</h3>
-                  <p data-t="g_desc_med4">Comfort through meticulous hygiene.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="5" data-category="office">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-6.jpg" alt="Office 2" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_office">Offices</span>
-                  <h3 data-t="g_title_off2">Executive Suite</h3>
-                  <p data-t="g_desc_off2">Premium maintenance for boardrooms.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="6" data-category="office">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-7.jpg" alt="Office 3" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_office">Offices</span>
-                  <h3 data-t="g_title_off3">Open Workspace</h3>
-                  <p data-t="g_desc_off3">Dynamic cleaning for modern teams.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="7" data-category="medical">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-8.jpg" alt="Medical 2" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_medical">Medical</span>
-                  <h3 data-t="g_title_med2">Private Lab</h3>
-                  <p data-t="g_desc_med2">OSHA-compliant deep disinfection.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="8" data-category="residential">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-9.jpg" alt="Residential 2" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_residential">Residential</span>
-                  <h3 data-t="g_title_res2">Modern Flat</h3>
-                  <p data-t="g_desc_res2">Personalized routine for comfort.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="9" data-category="construction">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-10.jpg" alt="Construction 2" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_construction">Construction</span>
-                  <h3 data-t="g_title_con2">Retail Storefront</h3>
-                  <p data-t="g_desc_con2">Opening day perfection ensured.</p>
-                </div>
-              </article>
-            </div>
-            <div class="ajb-gallery-slide" data-index="10" data-category="industrial">
-              <article class="ajb-gallery-card">
-                <img src="img/gal-11.jpg" alt="Industrial 2" loading="lazy">
-                <div class="ajb-gallery-meta">
-                  <span class="ajb-gallery-tag" data-t="cat_industrial">Industrial</span>
-                  <h3 data-t="g_title_ind2">Loading Docks</h3>
-                  <p data-t="g_desc_ind2">Heavy duty sanitation protocols.</p>
-                </div>
-              </article>
-            </div>
-
+      <div class="ajb-netflix-gallery" id="ajbNetflixGallery">
+        <div class="gallery-featured" id="galleryFeatured">
+          <div class="featured-content" id="featuredContent">
+            <!-- Dynamically filled by JS -->
+          </div>
+          <button class="nav-arrow prev" id="galleryPrev">‹</button>
+          <button class="nav-arrow next" id="galleryNext">›</button>
+          
+          <div class="featured-meta" id="featuredMeta">
+            <span class="meta-tag" id="metaTag">Category</span>
+            <h3 id="metaTitle">Title</h3>
+            <p id="metaDesc">Description</p>
           </div>
         </div>
 
-        <div class="ajb-gallery-controls">
-          <button class="ajb-gallery-btn" type="button" id="ajbGalleryPrev" aria-label="Previous image">←</button>
-          <button class="ajb-gallery-btn" type="button" id="ajbGalleryNext" aria-label="Next image">→</button>
-        </div>
+        <div class="gallery-thumbnails-wrapper">
+          <div class="gallery-thumbnails" id="galleryThumbnails">
+            <!-- Hidden original slides to serve as data source -->
+            <div class="source-slides" style="display:none;">
+            <div class="ajb-gallery-track" id="galleryTrack">
+            <!-- Offices & Receptions -->
+            <div class="ajb-gallery-slide" data-index="0" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-1.jpg" alt="Office 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec1">Main Reception</h3>
+                  <p data-t="g_desc_off_rec1">First impressions with crystal clear surfaces.</p>
+                </div>
+              </article>
+            </div>
 
-        <div class="ajb-gallery-dots" id="ajbGalleryDots"></div>
+            <div class="ajb-gallery-slide" data-index="2" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-2.jpg" alt="Office 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec2">Corporate Office</h3>
+                  <p data-t="g_desc_off_rec2">Professional environment for high performance.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="3" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-3.jpg" alt="Office 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec3">Executive Lounge</h3>
+                  <p data-t="g_desc_off_rec3">Comfort and cleanliness in every corner.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="4" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-4.jpg" alt="Office 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec4">Lobby Area</h3>
+                  <p data-t="g_desc_off_rec4">Impeccable welcome management.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="5" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-5.jpg" alt="Office 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec5">Office Wing</h3>
+                  <p data-t="g_desc_off_rec5">Deep cleaning for workspaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="6" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-6.jpg" alt="Office 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec6">Meeting Room</h3>
+                  <p data-t="g_desc_off_rec6">Crystal clean glass and surfaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="47" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-7.jpg" alt="Office 7" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec7">Administrative Wing</h3>
+                  <p data-t="g_desc_off_rec7">Sanitized desks for administrative staff.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="48" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-8.jpg" alt="Office 8" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec8">Meeting Room</h3>
+                  <p data-t="g_desc_off_rec8">Crystal clean glass and surfaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="49" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-9.jpg" alt="Office 9" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec9">Open Office</h3>
+                  <p data-t="g_desc_off_rec9">Dynamic workspaces kept hygienic.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="50" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-10.jpg" alt="Office 10" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec10">Boardroom</h3>
+                  <p data-t="g_desc_off_rec10">Premium cleaning for executive meetings.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="51" data-category="offices_recep">
+              <article class="ajb-gallery-card">
+                <img src="img/oficina-recepcion-11.jpg" alt="Office 11" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_offices_recep">Offices &amp; Receptions</span>
+                  <h3 data-t="g_title_off_rec11">Break Area</h3>
+                  <p data-t="g_desc_off_rec11">Refreshment zones maintained spotless.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Classrooms (formerly Halls) -->
+            <div class="ajb-gallery-slide" data-index="7" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-1.jpg" alt="Classroom 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom1">Main Classroom</h3>
+                  <p data-t="g_desc_classroom1">Clean learning environments for students.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="8" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-2.jpg" alt="Classroom 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom2">Lecture Room</h3>
+                  <p data-t="g_desc_classroom2">Detailed cleaning for educational spaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="9" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-3.jpg" alt="Classroom 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom3">Study Area</h3>
+                  <p data-t="g_desc_classroom3">Dust-free zones for concentration.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="10" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-4.jpg" alt="Classroom 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom4">Faculty Lounge</h3>
+                  <p data-t="g_desc_classroom4">Hygienic spaces for staff and teachers.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="52" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-5.jpg" alt="Classroom 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom1">Laboratory</h3>
+                  <p data-t="g_desc_classroom1">High-standard sanitization for labs.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="53" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-6.jpg" alt="Classroom 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom2">Art Room</h3>
+                  <p data-t="g_desc_classroom2">Ready for creativity and learning.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="54" data-category="classrooms">
+              <article class="ajb-gallery-card">
+                <img src="img/salon-7.jpg" alt="Classroom 7" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_classrooms">Classrooms / Schools</span>
+                  <h3 data-t="g_title_classroom3">Library Hall</h3>
+                  <p data-t="g_desc_classroom3">Clean and quiet knowledge centers.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Auditoriums -->
+            <div class="ajb-gallery-slide" data-index="12" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-1.jpg" alt="Auditorium 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi1">Grand Auditorium</h3>
+                  <p data-t="g_desc_audi1">Large scale cleaning for public spaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="13" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-2.jpg" alt="Auditorium 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi2">Theater Area</h3>
+                  <p data-t="g_desc_audi2">Meticulous maintenance of seats and floors.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="14" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-3.jpg" alt="Auditorium 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi3">Lecture Hall</h3>
+                  <p data-t="g_desc_audi3">Clean spaces for mass communication.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="15" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-4.jpg" alt="Auditorium 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi4">Performance Stage</h3>
+                  <p data-t="g_desc_audi4">Spotless stage for your best moments.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="70" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-4.jpeg" alt="Auditorium 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi5">Auditorium</h3>
+                  <p data-t="g_desc_audi5">Deep cleaning of carpets and seating.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="71" data-category="auditoriums">
+              <article class="ajb-gallery-card">
+                <img src="img/auditorio-5.jpeg" alt="Auditorium 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_audi6">Auditorium</h3>
+                  <p data-t="g_desc_audi6">Surfaces ready for major events.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Gym -->
+            <div class="ajb-gallery-slide" data-index="16" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-1.jpg" alt="Gym 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym1">Fitness Center</h3>
+                  <p data-t="g_desc_gym1">Deep sanitization for health and safety.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="17" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-2.jpg" alt="Gym 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym2">Training Area</h3>
+                  <p data-t="g_desc_gym2">Fresh and hygienic environment for athletes.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="11" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/espejo-1.jpg" alt="Mirror 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Gym</span>
+                  <h3 data-t="g_title_gym_mir">Reflective Surfaces</h3>
+                  <p data-t="g_desc_gym_mir">Spotless mirrors without streaks.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="19" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-4.jpg" alt="Gym 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym4">Locker Rooms</h3>
+                  <p data-t="g_desc_gym4">High-standard hygiene in wet areas.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="64" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-5.jpg" alt="Gym 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym1">Main Gym Hall</h3>
+                  <p data-t="g_desc_gym1">Spacious and sanitized for member safety.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="65" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-6.jpg" alt="Gym 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym2">Cardio Zone</h3>
+                  <p data-t="g_desc_gym2">Detailed maintenance of cardio equipment.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="66" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-7.jpg" alt="Gym 7" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym3">Weight Area</h3>
+                  <p data-t="g_desc_gym3">Clean surfaces for heavy training.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="67" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-8.jpg" alt="Gym 8" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym4">Functional Training</h3>
+                  <p data-t="g_desc_gym4">Safe and hygienic floor for all exercises.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="68" data-category="gym">
+              <article class="ajb-gallery-card">
+                <img src="img/gym-9.jpg" alt="Gym 9" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_gym">Fitness Centers</span>
+                  <h3 data-t="g_title_gym1">Equipment Care</h3>
+                  <p data-t="g_desc_gym1">Surgical-level cleanliness on touch surfaces.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Dining Rooms -->
+            <div class="ajb-gallery-slide" data-index="20" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/comedor-1.jpg" alt="Dining 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_dining1">Executive Dining</h3>
+                  <p data-t="g_desc_dining1">High standards of hygiene in food areas.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="21" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/comedor-2.jpg" alt="Dining 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_dining2">Staff Canteen</h3>
+                  <p data-t="g_desc_dining2">Clean and pleasant spaces for breaks.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="22" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/comedor-3.jpg" alt="Dining 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_dining3">Restaurant Floor</h3>
+                  <p data-t="g_desc_dining3">Spotless environment for diners.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="23" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/comedor-4.jpg" alt="Dining 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_dining4">Kitchen Facility</h3>
+                  <p data-t="g_desc_dining4">Rigorous sanitation for food prep.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Cafeterias -->
+            <div class="ajb-gallery-slide" data-index="24" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/cafeteria-1.jpg" alt="Cafeteria 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_cafeteria1">Modern Cafeteria</h3>
+                  <p data-t="g_desc_cafeteria1">Flawless surfaces for food service.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="25" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/cafeteria-2.jpg" alt="Cafeteria 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_cafeteria2">Coffee Station</h3>
+                  <p data-t="g_desc_cafeteria2">Detail-oriented maintenance.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="26" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/cafeteria-3.jpg" alt="Cafeteria 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_cafeteria3">Bistro Area</h3>
+                  <p data-t="g_desc_cafeteria3">Welcoming and clean social spots.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="27" data-category="dining">
+              <article class="ajb-gallery-card">
+                <img src="img/cafeteria-4.jpg" alt="Cafeteria 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_dining">Dining Rooms</span>
+                  <h3 data-t="g_title_cafeteria4">Snack Bar</h3>
+                  <p data-t="g_desc_cafeteria4">Quick cleaning for busy areas.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Training Centers -->
+            <div class="ajb-gallery-slide" data-index="28" data-category="training">
+              <article class="ajb-gallery-card">
+                <img src="img/entrenamiento-universidad-1.jpg" alt="Training 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_training">Training Centers</span>
+                  <h3 data-t="g_title_training1">University Campus</h3>
+                  <p data-t="g_desc_training1">Inspirational spaces for learning.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="29" data-category="training">
+              <article class="ajb-gallery-card">
+                <img src="img/entrenamiento-universidad-2.jpg" alt="Training 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_training">Training Centers</span>
+                  <h3 data-t="g_title_training2">Training Center</h3>
+                  <p data-t="g_desc_training2">Productive environment for students.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="30" data-category="training">
+              <article class="ajb-gallery-card">
+                <img src="img/entrenamiento-universidad-3.jpg" alt="Training 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_training">Training Centers</span>
+                  <h3 data-t="g_title_training3">Study Lab</h3>
+                  <p data-t="g_desc_training3">Sanitized equipment and desks.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="31" data-category="training">
+              <article class="ajb-gallery-card">
+                <img src="img/entrenamiento-universidad-4.jpg" alt="Training 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_training">Training Centers</span>
+                  <h3 data-t="g_title_training4">College Library</h3>
+                  <p data-t="g_desc_training4">Quiet and dust-free knowledge centers.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Churches -->
+            <div class="ajb-gallery-slide" data-index="32" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-1.jpg" alt="Church 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church1">Main Sanctuary</h3>
+                  <p data-t="g_desc_church1">Respectful and thorough cleaning.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="33" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-2.jpg" alt="Church 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church2">Community Hall</h3>
+                  <p data-t="g_desc_church2">Welcoming spaces for congregations.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="34" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-3.jpg" alt="Church 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church3">Sacristy</h3>
+                  <p data-t="g_desc_church3">Meticulous care for sacred items.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="35" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-4.jpg" alt="Church 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church4">Main Sanctuary Interior</h3>
+                  <p data-t="g_desc_church4">Hygienic and respectful indoor spaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="55" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-5.jpg" alt="Church 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                <img src="img/iglesia-6.jpg" alt="Church 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church2">Chapel</h3>
+                  <p data-t="g_desc_church2">Deep cleaning for sacred spaces.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="57" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-7.jpg" alt="Church 7" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church3">Pews &amp; Aisles</h3>
+                  <p data-t="g_desc_church3">Attention to every detail.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="58" data-category="church">
+              <article class="ajb-gallery-card">
+                <img src="img/iglesia-8.jpg" alt="Church 8" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_church">Churches</span>
+                  <h3 data-t="g_title_church4">Altar Area</h3>
+                  <p data-t="g_desc_church4">Respectful maintenance of the altar.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Green Zones -->
+            <div class="ajb-gallery-slide" data-index="36" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-1.jpg" alt="Green Zone 1" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green1">Exterior Garden</h3>
+                  <p data-t="g_desc_green1">Meticulous care for green areas.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="37" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-2.jpg" alt="Green Zone 2" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green2">Park Area</h3>
+                  <p data-t="g_desc_green2">Clean spaces for outdoor relaxation.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="38" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-3.jpg" alt="Green Zone 3" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green3">Lawn Maintenance</h3>
+                  <p data-t="g_desc_green3">Professional landscape hygiene.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="39" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-4.jpg" alt="Green Zone 4" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green4">Pathways</h3>
+                  <p data-t="g_desc_green4">Keeping walkways clear and safe.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="59" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-5.jpg" alt="Green Zone 5" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green5">Building Courtyard</h3>
+                  <p data-t="g_desc_green5">Peaceful and pristine outdoor settings.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="60" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-6.jpg" alt="Green Zone 6" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green6">Exterior Surroundings</h3>
+                  <p data-t="g_desc_green6">Meticulous cleaning of the facility grounds.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="61" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-7.jpg" alt="Green Zone 7" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green7">Entrance Grounds</h3>
+                  <p data-t="g_desc_green7">First impressions start at the doorstep.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="62" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-8.jpg" alt="Green Zone 8" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green8">Private Grounds</h3>
+                  <p data-t="g_desc_green8">Secure and clean outdoor areas.</p>
+                </div>
+              </article>
+            </div>
+            <div class="ajb-gallery-slide" data-index="63" data-category="green_zones">
+              <article class="ajb-gallery-card">
+                <img src="img/zona-verde-9.jpg" alt="Green Zone 9" loading="lazy">
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_green_zones">Green Zones</span>
+                  <h3 data-t="g_title_green9">Social Surroundings</h3>
+                  <p data-t="g_desc_green9">Ideal environments for outdoor interaction.</p>
+                </div>
+              </article>
+            </div>
+
+
+            <!-- Videos Integrated -->
+            <div class="ajb-gallery-slide" data-index="44" data-category="auditoriums">
+              <article class="ajb-gallery-card video-card">
+                <img src="img/auditorio-1.jpg" alt="Auditorium Video" loading="lazy">
+                <div class="ajb-gallery-play-icon">▶</div>
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_auditoriums">Auditoriums</span>
+                  <h3 data-t="g_title_vid_aud">Auditorium Action</h3>
+                  <p data-t="g_desc_vid_aud">Watch our team transform the space.</p>
+                </div>
+                <span class="video-src" style="display:none;">img/auditorio-1.mp4</span>
+              </article>
+            </div>
+
+            <div class="ajb-gallery-slide" data-index="45" data-category="cafeteria">
+              <article class="ajb-gallery-card video-card">
+                <img src="img/cafeteria-1.jpg" alt="Cafeteria Video" loading="lazy">
+                <div class="ajb-gallery-play-icon">▶</div>
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_cafeteria">Cafeterias</span>
+                  <h3 data-t="g_title_vid_caf">Cafeteria Care</h3>
+                  <p data-t="g_desc_vid_caf">Professional sanitization video.</p>
+                </div>
+                <span class="video-src" style="display:none;">img/cafeteria-1.mp4</span>
+              </article>
+            </div>
+
+            <div class="ajb-gallery-slide" data-index="46" data-category="training">
+              <article class="ajb-gallery-card video-card">
+                <img src="img/entrenamiento-universidad-1.jpg" alt="Training Video" loading="lazy">
+                <div class="ajb-gallery-play-icon">▶</div>
+                <div class="ajb-gallery-meta">
+                  <span class="ajb-gallery-tag" data-t="cat_training">Training Centers</span>
+                  <h3 data-t="g_title_vid_uni">Campus Cleaning</h3>
+                  <p data-t="g_desc_vid_uni">Deep cleaning for educational facilities.</p>
+                </div>
+                <span class="video-src" style="display:none;">img/entrenamiento-universidad-1.mp4</span>
+              </article>
+            </div>
+
+            </div> <!-- End source-slides -->
+          </div>
+        </div>
+      </div>
+
+      <div class="ajb-gallery-dots" id="ajbGalleryDots" style="display:none;"></div>
+
       </div>
     </div>
   </section>
 
   <!-- ===== LIGHTBOX ===== -->
   <div class="ajb-lightbox" id="ajbLightbox">
-    <button class="lightbox-close" id="lightboxClose">×</button>
+    <button class="lightbox-close" id="lbClose">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev">&#10094;</button>
+    <button class="lightbox-nav lightbox-next" id="lbNext">&#10095;</button>
+    
     <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img src="" alt="Lightbox image" id="lightboxImg">
+      <div class="lightbox-media">
+        <img id="lightboxImg" src="" alt="Lightbox Image" style="display:none; width:100%; border-radius:15px;" />
+        <video id="lightboxVideo" controls style="display:none; width:100%; max-height:80vh; border-radius:15px;"></video>
       </div>
       <div class="lightbox-meta">
-        <h3 class="lightbox-title" id="lightboxTitle">Image Title</h3>
-        <p class="lightbox-desc" id="lightboxDesc">Description.</p>
+        <h3 class="lightbox-title" id="lbTitle" data-t="">Image Title</h3>
+        <p class="lightbox-desc" id="lbDesc" data-t="">Description.</p>
       </div>
     </div>
   </div>
@@ -506,25 +1020,35 @@
               data-t="values_title_gold">Define Us</span></h2>
           <div class="values-grid"
             style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:left;">
-            <div class="value-item">
+            <div class="value-item principal-value">
               <span class="value-icon">🤝</span>
-              <strong data-t="val1_title">Honesty &amp; Integrity</strong>
-              <p data-t="val1_desc">Long-term relationships built on reliability.</p>
+              <strong data-t="val1_title">Trust</strong>
+              <p data-t="val1_desc">Commitment to quality, responsibility, and fulfillment in every service.</p>
             </div>
-            <div class="value-item">
+            <div class="value-item principal-value">
               <span class="value-icon">🔒</span>
-              <strong data-t="val2_title">Trust &amp; Security</strong>
-              <p data-t="val2_desc">You invite us into your space — we honor that privilege.</p>
+              <strong data-t="val6_title">Security</strong>
+              <p data-t="val6_desc">Focus on protecting people, spaces, and assets.</p>
+            </div>
+            <div class="value-item principal-value">
+              <span class="value-icon">📋</span>
+              <strong data-t="val3_title">Responsibility</strong>
+              <p data-t="val3_desc">Dedication to punctual fulfillment and attention to detail.</p>
             </div>
             <div class="value-item">
-              <span class="value-icon">🔍</span>
-              <strong data-t="val3_title">Attention to Detail</strong>
-              <p data-t="val3_desc">Thorough, methodical cleaning every single visit.</p>
+              <span class="value-icon">⭐</span>
+              <strong data-t="val2_title">Integrity</strong>
+              <p data-t="val2_desc">Firm orientation towards honesty, ethics, and transparency in every action.</p>
             </div>
             <div class="value-item">
-              <span class="value-icon">👥</span>
-              <strong data-t="val4_title">People-First</strong>
-              <p data-t="val4_desc">Clients and collaborators are our greatest asset.</p>
+              <span class="value-icon">🥇</span>
+              <strong data-t="val4_title">Excellence</strong>
+              <p data-t="val4_desc">Constant search for high standards in every service.</p>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">🔄</span>
+              <strong data-t="val5_title">Adaptability</strong>
+              <p data-t="val5_desc">Ability to quickly adjust to each client's needs and environmental changes.</p>
             </div>
           </div>
         </div>
@@ -686,13 +1210,19 @@
               <label for="contactService" data-t="form_service">Service Type</label>
               <select id="contactService" name="service">
                 <option value="" data-t="form_service_default">Select a service...</option>
-                <option value="Office & Commercial">Office &amp; Commercial</option>
-                <option value="Healthcare / Medical">Healthcare / Medical</option>
-                <option value="Post-Construction">Post-Construction</option>
-                <option value="Luxury Residential">Luxury Residential</option>
-                <option value="Floor Treatment">Floor Treatment</option>
-                <option value="Pressure Washing">Pressure Washing</option>
-                <option value="Other / Not Sure">Other / Not Sure</option>
+                <option value="General Cleaning" data-t="form_svc_general">General Cleaning</option>
+                <option value="Offices" data-t="form_svc_offices">Offices</option>
+                <option value="Schools" data-t="form_svc_schools">Schools</option>
+                <option value="University" data-t="form_svc_university">University</option>
+                <option value="Churches" data-t="form_svc_church">Churches</option>
+                <option value="Halls / Classrooms" data-t="form_svc_halls">Halls / Classrooms</option>
+                <option value="Hospitals" data-t="form_svc_hospitals">Hospitals</option>
+                <option value="Luxury Residential" data-t="form_svc_luxury">Luxury Residential</option>
+                <option value="Move In / Move Out" data-t="form_svc_move">Move In / Move Out</option>
+                <option value="Deep Cleaning" data-t="form_svc_deep">Deep Cleaning</option>
+                <option value="Window Cleaning" data-t="form_svc_window">Window Cleaning</option>
+                <option value="Construction Cleanup" data-t="form_svc_construction">Construction Cleanup</option>
+                <option value="Other / Not Sure" data-t="form_svc_other">Other / Not Sure</option>
               </select>
             </div>
             <div class="form-group">
@@ -795,9 +1325,15 @@
           </div>
           <p data-t="footer_tagline">More than cleaning, we create a sustainable space for your comfort.</p>
           <div class="footer-social">
-            <a href="#" class="social-btn" id="footerIG" aria-label="Instagram">📷</a>
-            <a href="#" class="social-btn" id="footerTT" aria-label="TikTok">🎵</a>
-            <a href="#" class="social-btn" id="footerWA" aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-btn" id="footerIG" aria-label="Instagram" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20px; height: 20px; fill: currentColor;"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+            <a href="https://wa.me/18609312274?text=Hola,%20necesito%20más%20información%20sobre%20sus%20servicios%20de%20limpieza." class="social-btn" id="footerWA1" aria-label="WhatsApp 1" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20px; height: 20px; fill: currentColor;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </a>
+            <a href="https://wa.me/18603350967?text=Hola,%20me%20gustaría%20hacer%20una%20reserva%20de%20servicio." class="social-btn" id="footerWA2" aria-label="WhatsApp 2" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20px; height: 20px; fill: currentColor;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </a>
           </div>
         </div>
         <div class="footer-links">
@@ -834,9 +1370,9 @@
       </div>
     </div>
   </footer>
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/testimonials.js"></script>
+  <script src="js/i18n.js?v=1.3"></script>
+  <script src="js/main.js?v=1.3"></script>
+  <script src="js/testimonials.js?v=1.2"></script>
 
 
 </body>
