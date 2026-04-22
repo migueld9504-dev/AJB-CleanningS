@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJB Gallery Manager v2</title>
+    <style>
+        :root {
+            --navy: #0a1128;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --red: #e74c3c;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 { color: var(--gold); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .item-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.2s;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+        .img-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .field-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        input, textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .lang-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        .btn-delete { background-color: var(--red); color: white; }
+        .btn-save { background-color: var(--gold); color: var(--navy); }
+        button:hover { opacity: 0.8; }
+        
+        #outputArea {
+            margin-top: 50px;
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        pre { white-space: pre-wrap; word-wrap: break-word; color: #0f0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Gallery Content Manager v2</h1>
+    <p>Review and correct all gallery items, including NEWLY ADDED IMAGES. Click "Generate Update" when done.</p>
+</header>
+
+<div class="gallery-grid" id="managerGrid">
+    <!-- Items will be injected here -->
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+    <button class="btn-save" onclick="generateUpdate()" style="font-size: 1.2rem; padding: 15px 40px;">Generate Update Command</button>
+</div>
+
+<div id="outputArea">
+    <h3>Prepared Update:</h3>
+    <p>Copy this and send it back to Antigravity:</p>
+    <pre id="outputCode"></pre>
+</div>
+
+<script>
+    // Updated Gallery State (Snapshot with New Images)
+    const galleryData = [
+        { id: "off_rec1", img: "img/oficina-recepcion-1.jpg", cat: "offices_recep", title_en: "Main Reception", title_es: "Recepción Principal", desc_en: "First impressions with crystal clear surfaces.", desc_es: "Primeras impresiones con superficies cristalinas." },
+        { id: "off_rec2", img: "img/oficina-recepcion-2.jpg", cat: "offices_recep", title_en: "Corporate Office", title_es: "Oficina Corporativa", desc_en: "Professional environment for high performance.", desc_es: "Entorno profesional para alto rendimiento." },
+        { id: "off_rec3", img: "img/oficina-recepcion-3.jpg", cat: "offices_recep", title_en: "Executive Lounge", title_es: "Sala VIP / Lounge", desc_en: "Comfort and cleanliness in every corner.", desc_es: "Comodidad e higiene en cada rincón." },
+        { id: "off_rec4", img: "img/oficina-recepcion-4.jpg", cat: "offices_recep", title_en: "Lobby Area", title_es: "Área de Lobby", desc_en: "Impeccable welcome management.", desc_es: "Gestión de bienvenida impecable." },
+        { id: "off_rec5", img: "img/oficina-recepcion-5.jpg", cat: "offices_recep", title_en: "Office Wing", title_es: "Ala de Oficinas", desc_en: "Deep cleaning for workspaces.", desc_es: "Desinfectado y listo para el trabajo." },
+        { id: "off_rec6", img: "img/oficina-recepcion-6.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Atención a cada detalle." },
+        { id: "off_rec7", img: "img/oficina-recepcion-7.jpg", cat: "offices_recep", title_en: "Administrative Wing", title_es: "Ala Administrativa", desc_en: "Sanitized desks for administrative staff.", desc_es: "Escritorios sanitizados para el personal administrativo." },
+        { id: "off_rec8", img: "img/oficina-recepcion-8.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Vidrios y superficies cristalinas." },
+        { id: "off_rec9", img: "img/oficina-recepcion-9.jpg", cat: "offices_recep", title_en: "Open Office", title_es: "Oficina Abierta", desc_en: "Dynamic workspaces kept hygienic.", desc_es: "Espacios de trabajo dinámicos e higiénicos." },
+        { id: "off_rec10", img: "img/oficina-recepcion-10.jpg", cat: "offices_recep", title_en: "Boardroom", title_es: "Sala de Juntas", desc_en: "Premium cleaning for executive meetings.", desc_es: "Limpieza premium para reuniones ejecutivas." },
+        { id: "off_rec11", img: "img/oficina-recepcion-11.jpg", cat: "offices_recep", title_en: "Break Area", title_es: "Área de Descanso", desc_en: "Refreshment zones maintained spotless.", desc_es: "Zonas de refrigerio mantenidas impecables." },
+        
+        { id: "cls1", img: "img/salon-1.jpg", cat: "classrooms", title_en: "Main Classroom", title_es: "Salón de Clases", desc_en: "Clean learning environments for students.", desc_es: "Ambientes de aprendizaje limpios para estudiantes." },
+        { id: "cls2", img: "img/salon-2.jpg", cat: "classrooms", title_en: "Lecture Room", title_es: "Salón de Conferencias", desc_en: "Detailed cleaning for educational spaces.", desc_es: "Limpieza detallada para espacios educativos." },
+        { id: "cls3", img: "img/salon-3.jpg", cat: "classrooms", title_en: "Study Area", title_es: "Área de Estudio", desc_en: "Dust-free zones for concentration.", desc_es: "Zonas libres de polvo para la concentración." },
+        { id: "cls4", img: "img/salon-4.jpg", cat: "classrooms", title_en: "Faculty Lounge", title_es: "Sala de Profesores", desc_en: "Hygienic spaces for staff and teachers.", desc_es: "Espacios higiénicos para el personal y docentes." },
+        { id: "cls5", img: "img/salon-5.jpg", cat: "classrooms", title_en: "Laboratory", title_es: "Laboratorios", desc_en: "High-standard sanitization for labs.", desc_es: "Sanitización de alto estándar para laboratorios." },
+        { id: "cls6", img: "img/salon-6.jpg", cat: "classrooms", title_en: "Art Room", title_es: "Salón de Arte", desc_en: "Ready for creativity and learning.", desc_es: "Listo para la creatividad y el aprendizaje." },
+        { id: "cls7", img: "img/salon-7.jpg", cat: "classrooms", title_en: "Library Hall", title_es: "Biblioteca", desc_en: "Clean and quiet knowledge centers.", desc_es: "Centros de conocimiento limpios y tranquilos." },
+
+        { id: "aud1", img: "img/auditorio-1.jpg", cat: "auditoriums", title_en: "Grand Auditorium", title_es: "Gran Auditorio", desc_en: "Large scale cleaning for public spaces.", desc_es: "Limpieza a gran escala para espacios públicos." },
+        { id: "aud2", img: "img/auditorio-2.jpg", cat: "auditoriums", title_en: "Theater Area", title_es: "Auditorio", desc_en: "Meticulous maintenance of seats and floors.", desc_es: "Mantenimiento meticuloso de sillas y pisos." },
+        { id: "aud3", img: "img/auditorio-3.jpg", cat: "auditoriums", title_en: "Lecture Hall", title_es: "Auditorio", desc_en: "Clean spaces for mass communication.", desc_es: "Espacios limpios para comunicación masiva." },
+        { id: "aud4", img: "img/auditorio-4.jpg", cat: "auditoriums", title_en: "Performance Stage", title_es: "Auditorio", desc_en: "Spotless stage for your best moments.", desc_es: "Escenario impecable para tus mejores momentos." },
+        { id: "aud5", img: "img/auditorio-4.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Deep cleaning of carpets and seating.", desc_es: "Limpieza profunda de alfombras y butacas." },
+        { id: "aud6", img: "img/auditorio-5.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Surfaces ready for major events.", desc_es: "Superficies listas para grandes eventos." },
+
+        { id: "gym1", img: "img/gym-1.jpg", cat: "gym", title_en: "Fitness Center", title_es: "Centro de Fitness", desc_en: "Deep sanitization for health and safety.", desc_es: "Desinfección profunda para salud y seguridad." },
+        { id: "gym2", img: "img/gym-2.jpg", cat: "gym", title_en: "Weight Room", title_es: "Área de Pesas", desc_en: "Hygienic environment for high-traffic areas.", desc_es: "Ambiente higiénico para zonas de alto tráfico." },
+        { id: "gym_mir", img: "img/espejo-1.jpg", cat: "gym", title_en: "Reflective Surfaces", title_es: "Superficies Reflectantes", desc_en: "Spotless mirrors without streaks.", desc_es: "Espejos impecables y sin vetas en áreas de entrenamiento." },
+        { id: "gym5", img: "img/gym-5.jpg", cat: "gym", title_en: "Main Gym Hall", title_es: "Gimnasio Principal", desc_en: "Spacious and sanitized for member safety.", desc_es: "Espacioso y sanitizado para la seguridad de los socios." },
+        { id: "gym6", img: "img/gym-6.jpg", cat: "gym", title_en: "Cardio Zone", title_es: "Zona de Cardio", desc_en: "Detailed maintenance of cardio equipment.", desc_es: "Mantenimiento detallado de equipos de cardio." },
+        { id: "gym7", img: "img/gym-7.jpg", cat: "gym", title_en: "Weight Area", title_es: "Cuidado de pisos de madera", desc_en: "Clean surfaces for heavy training.", desc_es: "Superficies limpias cuidado especial en madera." },
+        { id: "gym9", img: "img/gym-9.jpg", cat: "gym", title_en: "Equipment Care", title_es: "Cuidado de Equipos", desc_en: "Surgical-level cleanliness on touch surfaces.", desc_es: "Limpieza de nivel quirúrgico en superficies de contacto." },
+
+        { id: "din1", img: "img/comedor-1.jpg", cat: "dining", title_en: "Executive Dining", title_es: "Comedor Ejecutivo", desc_en: "High standards of hygiene in food areas.", desc_es: "Altos estándares de higiene en áreas de comida." },
+        { id: "din2", img: "img/comedor-2.jpg", cat: "dining", title_en: "Staff Canteen", title_es: "Cafetería de Personal", desc_en: "Clean and pleasant spaces for breaks.", desc_es: "Espacios limpios y agradables para descansos." },
+        { id: "din3", img: "img/comedor-3.jpg", cat: "dining", title_en: "Restaurant Floor", title_es: "Piso de Restaurante", desc_en: "Spotless environment for diners.", desc_es: "Ambiente impecable para comensales." },
+
+        { id: "caf1", img: "img/cafeteria-1.jpg", cat: "dining", title_en: "Modern Cafeteria", title_es: "Cafetería Moderna", desc_en: "Flawless surfaces for food service.", desc_es: "Superficies impecables para servicio de alimentos." },
+        { id: "caf2", img: "img/cafeteria-2.jpg", cat: "dining", title_en: "Coffee Station", title_es: "Estación de Café", desc_en: "Detail-oriented maintenance.", desc_es: "Mantenimiento orientado al detalle." },
+        { id: "caf4", img: "img/cafeteria-4.jpg", cat: "dining", title_en: "Snack Bar", title_es: "Snack Bar", desc_en: "Quick cleaning for busy areas.", desc_es: "Limpieza rápida para áreas concurridas." },
+
+        { id: "trn1", img: "img/entrenamiento-universidad-1.jpg", cat: "training", title_en: "University Campus", title_es: "Campus Universitario", desc_en: "Inspirational spaces for learning.", desc_es: "Espacios inspiradores para el aprendizaje." },
+        { id: "trn2", img: "img/entrenamiento-universidad-2.jpg", cat: "training", title_en: "Training Center", title_es: "Centro de Capacitación", desc_en: "Productive environment for students.", desc_es: "Ambiente productivo para estudiantes." },
+        { id: "trn3", img: "img/entrenamiento-universidad-3.jpg", cat: "training", title_en: "Study Lab", title_es: "Laboratorio de Estudio", desc_en: "Sanitized equipment and desks.", desc_es: "Equipos y escritorios sanitizados." },
+        { id: "trn4", img: "img/entrenamiento-universidad-4.jpg", cat: "training", title_en: "College Library", title_es: "Biblioteca Universitaria", desc_en: "Quiet and dust-free knowledge centers.", desc_es: "Centros de conocimiento tranquilos y sin polvo." },
+
+        { id: "chu1", img: "img/iglesia-1.jpg", cat: "church", title_en: "Main Sanctuary", title_es: "Santuario Principal", desc_en: "Respectful and thorough cleaning.", desc_es: "Limpieza respetuosa y profunda." },
+        { id: "chu2", img: "img/iglesia-2.jpg", cat: "church", title_en: "Community Hall", title_es: "Salón Comunitario", desc_en: "Welcoming spaces for congregations.", desc_es: "Espacios acogedores para congregaciones." },
+        { id: "chu3", img: "img/iglesia-3.jpg", cat: "church", title_en: "Sacristy", title_es: "Sacristía", desc_en: "Meticulous care for sacred items.", desc_es: "Cuidado meticuloso para artículos sagrados." },
+        { id: "chu4", img: "img/iglesia-4.jpg", cat: "church", title_en: "Church Sanctuary", title_es: "Santuario de la Iglesia", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
+        { id: "chu5", img: "img/iglesia-5.jpg", cat: "church", title_en: "Church Entrance", title_es: "Entrada de la Iglesia", desc_en: "Welcoming and clean hallways.", desc_es: "Pasillos de bienvenida mantenidos impecables." },
+        { id: "chu6", img: "img/iglesia-6.jpg", cat: "church", title_en: "Chapel", title_es: "Capilla", desc_en: "Deep cleaning for sacred spaces.", desc_es: "Limpieza profunda para espacios sagrados." },
+        { id: "chu7", img: "img/iglesia-7.jpg", cat: "church", title_en: "Pews & Aisles", title_es: "Bancas y Pasillos", desc_en: "Attention to every detail.", desc_es: "Atención a cada detalle." },
+        { id: "chu8", img: "img/iglesia-8.jpg", cat: "church", title_en: "Altar Area", title_es: "Área del Altar", desc_en: "Respectful maintenance of the altar.", desc_es: "Mantenimiento respetuoso del altar." },
+
+        { id: "grn1", img: "img/zona-verde-1.jpg", cat: "green_zones", title_en: "Exterior Garden", title_es: "Jardín Exterior", desc_en: "Meticulous care for green areas.", desc_es: "Limpieza profesional de los entornos exteriores." },
+        { id: "grn2", img: "img/zona-verde-2.jpg", cat: "green_zones", title_en: "Park Area", title_es: "Zona de Parque", desc_en: "Clean spaces for outdoor relaxation.", desc_es: "Mantenimiento de pasillos y accesos externos." },
+        { id: "grn3", img: "img/zona-verde-3.jpg", cat: "green_zones", title_en: "Lawn Maintenance", title_es: "Mantenimiento de Césped", desc_en: "Professional landscape hygiene.", desc_es: "Cuidado del aspecto exterior del establecimiento." },
+        { id: "grn4", img: "img/zona-verde-4.jpg", cat: "green_zones", title_en: "Pathways", title_es: "Senderos Peatonales", desc_en: "Keeping walkways clear and safe.", desc_es: "Entradas despejadas y libres de residuos." },
+        { id: "grn5", img: "img/zona-verde-5.jpg", cat: "green_zones", title_en: "Building Courtyard", title_es: "Patio del Edificio", desc_en: "Peaceful and pristine outdoor settings.", desc_es: "Espacios funcionales exteriores siempre limpios." },
+        { id: "grn6", img: "img/zona-verde-6.jpg", cat: "green_zones", title_en: "Exterior Surroundings", title_es: "Alrededores Exteriores", desc_en: "Meticulous cleaning of the facility grounds.", desc_es: "Mantenimiento impecable de los alrededores." },
+        { id: "grn7", img: "img/zona-verde-7.jpg", cat: "green_zones", title_en: "Entrance Grounds", title_es: "Zonas Perimetrales", desc_en: "First impressions start at the doorstep.", desc_es: "Limpieza detallada de los límites del recinto." },
+        { id: "grn8", img: "img/zona-verde-8.jpg", cat: "green_zones", title_en: "Private Grounds", title_es: "Áreas de Paisajismo", desc_en: "Secure and clean outdoor areas.", desc_es: "Cuidado estético de las zonas comunes externas." },
+        { id: "grn9", img: "img/zona-verde-9.jpg", cat: "green_zones", title_en: "Social Surroundings", title_es: "Entorno Social Exterior", desc_en: "Ideal environments for outdoor interaction.", desc_es: "Espacios al aire libre listos para el uso público." },
+        
+        // NEWLY ADDED ITEMS (READY FOR LABELING)
+        { id: "hosp1", img: "img/hospital-1.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Instalación Médica", desc_en: "Sanitized environments for patient safety.", desc_es: "Ambientes sanitizados para la seguridad del paciente." },
+        { id: "hosp2", img: "img/consultorio-1.jpeg", cat: "hospitals", title_en: "Private Clinic", title_es: "Clínica Privada", desc_en: "Detailed cleaning for consultation rooms.", desc_es: "Limpieza detallada para salas de consulta." },
+        { id: "hosp3", img: "img/hospital-2.jpeg", cat: "hospitals", title_en: "Patient Room", title_es: "Habitación de Paciente", desc_en: "Hygienic maintenance.", desc_es: "Mantenimiento higiénico." },
+        { id: "hosp4", img: "img/hospital-3.jpeg", cat: "hospitals", title_en: "Medical Wing", title_es: "Ala Médica", desc_en: "Advanced disinfection protocols.", desc_es: "Protocolos avanzados de desinfección." },
+        { id: "hosp5", img: "img/hospital-4.jpeg", cat: "hospitals", title_en: "Clinic Area", title_es: "Área de Clínica", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
+        
+        { id: "mad1", img: "img/madera1.jpeg", cat: "gym", title_en: "Wood Floor Care", title_es: "Cuidado de Pisos de Madera", desc_en: "Specialized treatment for hardwood.", desc_es: "Tratamiento especializado para madera dura." },
+        { id: "mad2", img: "img/madera2.jpeg", cat: "gym", title_en: "Wood Polishing", title_es: "Pulido de Madera", desc_en: "Professional shine.", desc_es: "Brillo profesional." },
+        
+        { id: "tap1", img: "img/tapete-1.jpeg", cat: "offices_recep", title_en: "Premium Carpets", title_es: "Alfombras Premium", desc_en: "Deep extraction cleaning.", desc_es: "Limpieza de extracción profunda." },
+        { id: "tap2", img: "img/tapete-2.jpeg", cat: "offices_recep", title_en: "Rug Care", title_es: "Cuidado de Tapetes", desc_en: "Fiber protection.", desc_es: "Protección de fibras." },
+        
+        { id: "br1", img: "img/sala-juntas-1.jpeg", cat: "offices_recep", title_en: "Executive Boardroom", title_es: "Sala de Juntas Ejecutiva", desc_en: "Corporate cleaning.", desc_es: "Limpieza corporativa." },
+        { id: "br2", img: "img/sala-juntas-2.jpeg", cat: "offices_recep", title_en: "Meeting Space", title_es: "Espacio de Reunión", desc_en: "Hygienic workplace.", desc_es: "Lugar de trabajo higiénico." },
+        
+        { id: "extra_cls1", img: "img/salon-extra-esc-1.jpg", cat: "classrooms", title_en: "Staircase Area", title_es: "Área de Escaleras", desc_en: "Clean transit zones.", desc_es: "Zonas de tránsito limpias." },
+        { id: "extra_pas1", img: "img/salon-extra-pas-1.jpg", cat: "classrooms", title_en: "School Hallway", title_es: "Pasillo Escolar", desc_en: "Spotless corridors.", desc_es: "Pasillos impecables." }
+    ];
+
+    function render() {
+        const grid = document.getElementById('managerGrid');
+        grid.innerHTML = '';
+        galleryData.forEach((item, index) => {
+            if (item._deleted) return;
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            card.innerHTML = `
+                <img src="${item.img}" class="img-preview" alt="Preview">
+                <div style="font-size: 0.7rem; color: #888; margin-bottom: 10px;">ID: ${item.id} | FILE: ${item.img}</div>
+                
+                <div class="field-group">
+                    <label>Title</label>
+                    <div class="lang-split">
+                        <input type="text" placeholder="English" value="${item.title_en}" onchange="update(${index}, 'title_en', this.value)">
+                        <input type="text" placeholder="Spanish" value="${item.title_es}" onchange="update(${index}, 'title_es', this.value)">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label>Description</label>
+                    <div class="lang-split">
+                        <textarea rows="3" placeholder="English" onchange="update(${index}, 'desc_en', this.value)">${item.desc_en}</textarea>
+                        <textarea rows="3" placeholder="Spanish" onchange="update(${index}, 'desc_es', this.value)">${item.desc_es}</textarea>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-delete" onclick="markDeleted(${index})">Delete Item</button>
+                    <div style="color: var(--gold); font-size: 0.8rem;">Category: ${item.cat}</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function update(index, field, value) {
+        galleryData[index][field] = value;
+    }
+
+    function markDeleted(index) {
+        if (confirm('Are you sure you want to delete this item?')) {
+            galleryData[index]._deleted = true;
+            render();
+        }
+    }
+
+    function generateUpdate() {
+        const outputArea = document.getElementById('outputArea');
+        const outputCode = document.getElementById('outputCode');
+        
+        const activeItems = galleryData.filter(i => !i._deleted);
+        const deletedItems = galleryData.filter(i => i._deleted);
+        
+        const report = {
+            updates: activeItems,
+            deletions: deletedItems.map(i => i.id)
+        };
+        
+        outputCode.textContent = JSON.stringify(report, null, 2);
+        outputArea.style.display = 'block';
+        outputArea.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    render();
+</script>
+
+</body>
+</html>
