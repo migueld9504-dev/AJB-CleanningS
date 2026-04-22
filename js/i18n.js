@@ -207,6 +207,7 @@
       cat_church: 'Churches',
       cat_hospitals: 'Hospitals & Clinics',
       cat_green_zones: 'Green Zones',
+      cat_carpets: 'Carpets & Floors',
 
       // Gallery Items
       g_title_off_rec1: 'Main Reception',
@@ -229,8 +230,8 @@
       g_desc_off_rec9: 'Dynamic workspaces kept hygienic.',
       g_title_off_rec10: 'Boardroom',
       g_desc_off_rec10: 'Premium cleaning for executive meetings.',
-      g_title_off_rec11: 'Break Area',
-      g_desc_off_rec11: 'Refreshment zones maintained spotless.',
+      g_title_off_rec11: 'Industrial Floor Care',
+      g_desc_off_rec11: 'Deep scrubbing and maintenance for commercial floors.',
       g_title_cls1: 'Main Classroom',
       g_desc_cls1: 'Clean learning environments for students.',
       g_title_cls2: 'Lecture Room',
@@ -345,6 +346,8 @@
       g_desc_extra_cls1: 'Clean transit zones.',
       g_title_extra_pas1: 'School Hallway',
       g_desc_extra_pas1: 'Spotless corridors.',
+      g_title_wax1: 'Floor Waxing',
+      g_desc_wax1: 'Protective coating and high-gloss finish.',
 
       g_title_vid_aud: 'Auditorium Action',
       g_desc_vid_aud: 'Watch our team transform the space.',
@@ -551,6 +554,7 @@
       cat_church: 'Iglesias',
       cat_hospitals: 'Hospitales y Clínicas',
       cat_green_zones: 'Zonas Verdes',
+      cat_carpets: 'Tapetes y Pisos',
 
       // Gallery Items
       g_title_off_rec1: 'Recepción Principal',
@@ -573,8 +577,8 @@
       g_desc_off_rec9: 'Espacios de trabajo dinámicos e higiénicos.',
       g_title_off_rec10: 'Sala de Juntas',
       g_desc_off_rec10: 'Limpieza premium para reuniones ejecutivas.',
-      g_title_off_rec11: 'Área de Descanso',
-      g_desc_off_rec11: 'Zonas de refrigerio mantenidas impecables.',
+      g_title_off_rec11: 'Cuidado de Pisos Industriales',
+      g_desc_off_rec11: 'Limpieza profunda y mantenimiento para pisos comerciales.',
       g_title_cls1: 'Salón de Clases',
       g_desc_cls1: 'Ambientes de aprendizaje limpios para estudiantes.',
       g_title_cls2: 'Salón de lectura',
@@ -689,6 +693,8 @@
       g_desc_extra_cls1: 'Zonas de tránsito limpias.',
       g_title_extra_pas1: 'Pasillo Escolar',
       g_desc_extra_pas1: 'Pasillos impecables.',
+      g_title_wax1: 'Encerado de Pisos',
+      g_desc_wax1: 'Capa protectora y acabado de alto brillo.',
 
       g_title_vid_aud: 'Auditorio en Acción',
       g_desc_vid_aud: 'Mira a nuestro equipo transformar el espacio.',

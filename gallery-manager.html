@@ -103,7 +103,7 @@
 
 <header>
     <h1>Gallery Content Manager v2</h1>
-    <p>Review and correct all gallery items, including NEWLY ADDED IMAGES. Click "Generate Update" when done.</p>
+    <p>Review and correct all gallery items. This data is now synchronized with the main site.</p>
 </header>
 
 <div class="gallery-grid" id="managerGrid">
@@ -121,7 +121,6 @@
 </div>
 
 <script>
-    // Updated Gallery State (Snapshot with New Images)
     const galleryData = [
         { id: "off_rec1", img: "img/oficina-recepcion-1.jpg", cat: "offices_recep", title_en: "Main Reception", title_es: "Recepción Principal", desc_en: "First impressions with crystal clear surfaces.", desc_es: "Primeras impresiones con superficies cristalinas." },
         { id: "off_rec2", img: "img/oficina-recepcion-2.jpg", cat: "offices_recep", title_en: "Corporate Office", title_es: "Oficina Corporativa", desc_en: "Professional environment for high performance.", desc_es: "Entorno profesional para alto rendimiento." },
@@ -133,7 +132,7 @@
         { id: "off_rec8", img: "img/oficina-recepcion-8.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Vidrios y superficies cristalinas." },
         { id: "off_rec9", img: "img/oficina-recepcion-9.jpg", cat: "offices_recep", title_en: "Open Office", title_es: "Oficina Abierta", desc_en: "Dynamic workspaces kept hygienic.", desc_es: "Espacios de trabajo dinámicos e higiénicos." },
         { id: "off_rec10", img: "img/oficina-recepcion-10.jpg", cat: "offices_recep", title_en: "Boardroom", title_es: "Sala de Juntas", desc_en: "Premium cleaning for executive meetings.", desc_es: "Limpieza premium para reuniones ejecutivas." },
-        { id: "off_rec11", img: "img/oficina-recepcion-11.jpg", cat: "offices_recep", title_en: "Break Area", title_es: "Área de Descanso", desc_en: "Refreshment zones maintained spotless.", desc_es: "Zonas de refrigerio mantenidas impecables." },
+        { id: "off_rec11", img: "img/oficina-recepcion-11.jpg", cat: "carpets", title_en: "Industrial Floor Care", title_es: "Cuidado de Pisos Industriales", desc_en: "Deep scrubbing and maintenance for commercial floors.", desc_es: "Limpieza profunda y mantenimiento para pisos comerciales." },
         
         { id: "cls1", img: "img/salon-1.jpg", cat: "classrooms", title_en: "Main Classroom", title_es: "Salón de Clases", desc_en: "Clean learning environments for students.", desc_es: "Ambientes de aprendizaje limpios para estudiantes." },
         { id: "cls2", img: "img/salon-2.jpg", cat: "classrooms", title_en: "Lecture Room", title_es: "Salón de Conferencias", desc_en: "Detailed cleaning for educational spaces.", desc_es: "Limpieza detallada para espacios educativos." },
@@ -177,7 +176,7 @@
         { id: "chu4", img: "img/iglesia-4.jpg", cat: "church", title_en: "Church Sanctuary", title_es: "Santuario de la Iglesia", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
         { id: "chu5", img: "img/iglesia-5.jpg", cat: "church", title_en: "Church Entrance", title_es: "Entrada de la Iglesia", desc_en: "Welcoming and clean hallways.", desc_es: "Pasillos de bienvenida mantenidos impecables." },
         { id: "chu6", img: "img/iglesia-6.jpg", cat: "church", title_en: "Chapel", title_es: "Capilla", desc_en: "Deep cleaning for sacred spaces.", desc_es: "Limpieza profunda para espacios sagrados." },
-        { id: "chu7", img: "img/iglesia-7.jpg", cat: "church", title_en: "Pews & Aisles", title_es: "Bancas y Pasillos", desc_en: "Attention to every detail.", desc_es: "Atención a cada detalle." },
+        { id: "chu7", img: "img/iglesia-7.jpg", cat: "church", title_en: "Bancas y Pasillos", title_es: "Bancas y Pasillos", desc_en: "Attention to every detail.", desc_es: "Atención a cada detalle." },
         { id: "chu8", img: "img/iglesia-8.jpg", cat: "church", title_en: "Altar Area", title_es: "Área del Altar", desc_en: "Respectful maintenance of the altar.", desc_es: "Mantenimiento respetuoso del altar." },
 
         { id: "grn1", img: "img/zona-verde-1.jpg", cat: "green_zones", title_en: "Exterior Garden", title_es: "Jardín Exterior", desc_en: "Meticulous care for green areas.", desc_es: "Limpieza profesional de los entornos exteriores." },
@@ -190,18 +189,17 @@
         { id: "grn8", img: "img/zona-verde-8.jpg", cat: "green_zones", title_en: "Private Grounds", title_es: "Áreas de Paisajismo", desc_en: "Secure and clean outdoor areas.", desc_es: "Cuidado estético de las zonas comunes externas." },
         { id: "grn9", img: "img/zona-verde-9.jpg", cat: "green_zones", title_en: "Social Surroundings", title_es: "Entorno Social Exterior", desc_en: "Ideal environments for outdoor interaction.", desc_es: "Espacios al aire libre listos para el uso público." },
         
-        // NEWLY ADDED ITEMS (READY FOR LABELING)
         { id: "hosp1", img: "img/hospital-1.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Instalación Médica", desc_en: "Sanitized environments for patient safety.", desc_es: "Ambientes sanitizados para la seguridad del paciente." },
         { id: "hosp2", img: "img/consultorio-1.jpeg", cat: "hospitals", title_en: "Private Clinic", title_es: "Clínica Privada", desc_en: "Detailed cleaning for consultation rooms.", desc_es: "Limpieza detallada para salas de consulta." },
         { id: "hosp3", img: "img/hospital-2.jpeg", cat: "hospitals", title_en: "Patient Room", title_es: "Habitación de Paciente", desc_en: "Hygienic maintenance.", desc_es: "Mantenimiento higiénico." },
         { id: "hosp4", img: "img/hospital-3.jpeg", cat: "hospitals", title_en: "Medical Wing", title_es: "Ala Médica", desc_en: "Advanced disinfection protocols.", desc_es: "Protocolos avanzados de desinfección." },
         { id: "hosp5", img: "img/hospital-4.jpeg", cat: "hospitals", title_en: "Clinic Area", title_es: "Área de Clínica", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
         
-        { id: "mad1", img: "img/madera1.jpeg", cat: "gym", title_en: "Wood Floor Care", title_es: "Cuidado de Pisos de Madera", desc_en: "Specialized treatment for hardwood.", desc_es: "Tratamiento especializado para madera dura." },
-        { id: "mad2", img: "img/madera2.jpeg", cat: "gym", title_en: "Wood Polishing", title_es: "Pulido de Madera", desc_en: "Professional shine.", desc_es: "Brillo profesional." },
+        { id: "mad1", img: "img/madera1.jpeg", cat: "carpets", title_en: "Wood Floor Care", title_es: "Cuidado de Pisos de Madera", desc_en: "Specialized treatment for hardwood.", desc_es: "Tratamiento especializado para madera dura." },
+        { id: "mad2", img: "img/madera2.jpeg", cat: "carpets", title_en: "Wood Polishing", title_es: "Pulido de Madera", desc_en: "Professional shine.", desc_es: "Brillo profesional." },
         
-        { id: "tap1", img: "img/tapete-1.jpeg", cat: "offices_recep", title_en: "Premium Carpets", title_es: "Alfombras Premium", desc_en: "Deep extraction cleaning.", desc_es: "Limpieza de extracción profunda." },
-        { id: "tap2", img: "img/tapete-2.jpeg", cat: "offices_recep", title_en: "Rug Care", title_es: "Cuidado de Tapetes", desc_en: "Fiber protection.", desc_es: "Protección de fibras." },
+        { id: "tap1", img: "img/tapete-1.jpeg", cat: "carpets", title_en: "Premium Carpets", title_es: "Alfombras Premium", desc_en: "Deep extraction cleaning.", desc_es: "Limpieza de extracción profunda." },
+        { id: "tap2", img: "img/tapete-2.jpeg", cat: "carpets", title_en: "Rug Care", title_es: "Cuidado de Tapetes", desc_en: "Fiber protection.", desc_es: "Protección de fibras." },
         
         { id: "br1", img: "img/sala-juntas-1.jpeg", cat: "offices_recep", title_en: "Executive Boardroom", title_es: "Sala de Juntas Ejecutiva", desc_en: "Corporate cleaning.", desc_es: "Limpieza corporativa." },
         { id: "br2", img: "img/sala-juntas-2.jpeg", cat: "offices_recep", title_en: "Meeting Space", title_es: "Espacio de Reunión", desc_en: "Hygienic workplace.", desc_es: "Lugar de trabajo higiénico." },
