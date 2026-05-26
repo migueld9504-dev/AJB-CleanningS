@@ -191,8 +191,12 @@
     let autoRotateTimer = null;
     let currentSlides = [];
 
+    let lastFeaturedSlide = null;
+
     function updateFeatured(slide) {
-      if (!slide) return;
+      if (!slide || slide === lastFeaturedSlide) return;
+      lastFeaturedSlide = slide;
+      
       featuredContent.innerHTML = '';
       
       const isVideo = slide.querySelector('.video-card');
@@ -209,23 +213,29 @@
         const videoSrc = slide.querySelector('.video-src').getAttribute('src');
         const video = document.createElement('video');
         video.src = videoSrc;
-        video.autoplay = true;
         video.muted = true;
         video.loop = true;
         video.playsInline = true;
-        video.setAttribute('autoplay', '');
-        video.setAttribute('muted', '');
-        video.setAttribute('loop', '');
-        video.setAttribute('playsinline', '');
+        video.setAttribute('autoplay', 'autoplay');
+        video.setAttribute('muted', 'muted');
+        video.setAttribute('loop', 'loop');
+        video.setAttribute('playsinline', 'playsinline');
+        video.setAttribute('preload', 'auto');
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
         featuredContent.appendChild(video);
         
-        // Force play
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            console.log('Autoplay prevented:', error);
-          });
-        }
+        // Force play with a small delay to ensure it's in the DOM
+        setTimeout(() => {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              console.log('Autoplay prevented:', error);
+              // Fallback: show play button or just leave it
+            });
+          }
+        }, 50);
       } else {
         const newImg = document.createElement('img');
         newImg.src = img.src;
@@ -245,7 +255,6 @@
       // Update active thumbnail
       document.querySelectorAll('.thumb-item').forEach((thumb, idx) => {
         thumb.classList.toggle('active', idx === activeIndex);
-        // Removed scrollIntoView to prevent page jumping during auto-rotation
       });
     }
 
@@ -289,7 +298,7 @@
       clearInterval(autoRotateTimer);
       autoRotateTimer = setInterval(() => {
         setActive(activeIndex + 1);
-      }, 3000);
+      }, 5000);
     }
 
     function shuffle(array) {
@@ -375,6 +384,8 @@
         if (lightboxVideo) {
           lightboxVideo.src = videoSrc;
           lightboxVideo.style.display = 'block';
+          lightboxVideo.muted = false;
+          lightboxVideo.currentTime = 0;
           lightboxVideo.play().catch(e => console.log('Lightbox autoplay prevented:', e));
         }
         if (lightboxImg) lightboxImg.style.display = 'none';

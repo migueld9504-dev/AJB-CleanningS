@@ -3,276 +3,626 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJB Gallery Manager v2</title>
+    <title>Gallery Hub v3.1 | AJB Cleaning Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0a1128;
-            --gold: #d4af37;
-            --white: #ffffff;
-            --gray: #f4f4f4;
-            --red: #e74c3c;
+            --primary: #d4af37;
+            --primary-dark: #b8962e;
+            --bg: #0a0a0c;
+            --card-bg: #16161a;
+            --text: #ffffff;
+            --text-dim: #a0a0a8;
+            --border: rgba(255, 255, 255, 0.1);
+            --success: #22c55e;
+            --danger: #ef4444;
+            --pending: #f59e0b;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Inter', sans-serif;
-            background-color: var(--navy);
-            color: var(--white);
-            margin: 0;
-            padding: 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3, .font-outfit { font-family: 'Outfit', sans-serif; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+        /* Header & Dashboard */
         header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h1 { color: var(--gold); }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        .item-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: transform 0.2s;
-        }
-        .item-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-        .img-preview {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .field-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--gold);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        input, textarea {
-            width: 100%;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 8px;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .lang-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .actions {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
         }
-        button {
-            cursor: pointer;
-            padding: 10px 15px;
-            border-radius: 5px;
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .stat-val { display: block; font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
+        .stat-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Controls */
+        .controls-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            align-items: center;
+        }
+
+        select, input {
+            background: #1f1f23;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        select:focus, input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
             border: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .btn-delete { background-color: var(--red); color: white; }
-        .btn-save { background-color: var(--gold); color: var(--navy); }
-        button:hover { opacity: 0.8; }
-        
-        #outputArea {
-            margin-top: 50px;
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-primary:hover { background: var(--primary-dark); transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: rgba(212,175,55,0.1); }
+
+        /* Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .item-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .item-card:hover { border-color: var(--primary); }
+
+        .card-media {
+            height: 200px;
             background: #000;
-            padding: 20px;
-            border-radius: 10px;
-            display: none;
+            position: relative;
+            overflow: hidden;
         }
-        pre { white-space: pre-wrap; word-wrap: break-word; color: #0f0; }
+        .card-media img, .card-media video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .status-pending { background: var(--pending); color: #000; }
+        .status-approved { background: var(--success); color: #fff; }
+        .status-rejected { background: var(--danger); color: #fff; }
+
+        .card-content { padding: 1.5rem; }
+        .card-id { font-size: 0.7rem; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; display: block; }
+        .card-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .card-desc { font-size: 0.9rem; color: var(--text-dim); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Review Modal */
+        #reviewModal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-container {
+            width: 90%;
+            max-width: 1100px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            overflow: hidden;
+            max-height: 90vh;
+        }
+
+        .modal-preview {
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .modal-preview img, .modal-preview video { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+        .modal-details {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            overflow-y: auto;
+        }
+
+        .edit-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .edit-group label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+        .edit-group input, .edit-group textarea {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .edit-group textarea { height: 80px; resize: none; }
+
+        .modal-actions {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-approve { background: var(--success); color: white; }
+        .btn-reject { background: var(--danger); color: white; }
+
+        .nav-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .export-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .export-box {
+            background: #1a1a1e;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        #exportArea {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            color: #22c55e;
+            font-family: monospace;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .modal-container { grid-template-columns: 1fr; }
+            .modal-preview { height: 300px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Gallery Content Manager v2</h1>
-    <p>Review and correct all gallery items. This data is now synchronized with the main site.</p>
-</header>
+<div class="container">
+    <header>
+        <div>
+            <h1 class="font-outfit" style="font-size: 2.5rem; letter-spacing: -1px;">Gallery Hub <span style="color:var(--primary)">v3.1</span></h1>
+            <p style="color:var(--text-dim)">Review, edit and synchronize media assets for AJB Cleaning Services.</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <button class="btn btn-outline" onclick="exportData()">Finalize & Export</button>
+            <button class="btn btn-primary" onclick="startReview()">Start Review Mode</button>
+        </div>
+    </header>
 
-<div class="gallery-grid" id="managerGrid">
-    <!-- Items will be injected here -->
+    <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+            <span class="stat-val" id="statTotal">0</span>
+            <span class="stat-label">Total Items</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-val" id="statPending" style="color:var(--pending)">0</span>
+            <span class="stat-label">Pending Review</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-val" id="statApproved" style="color:var(--success)">0</span>
+            <span class="stat-label">Approved</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-val" id="statRejected" style="color:var(--danger)">0</span>
+            <span class="stat-label">Rejected</span>
+        </div>
+    </div>
+
+    <div class="controls-bar">
+        <input type="text" placeholder="Search by title or ID..." id="searchInput" oninput="filterItems()" style="flex: 1;">
+        <select id="catFilter" onchange="filterItems()">
+            <option value="all">All Categories</option>
+            <option value="offices_recep">Offices & Receptions</option>
+            <option value="classrooms">Classrooms / Schools</option>
+            <option value="auditoriums">Auditoriums</option>
+            <option value="gym">Fitness Centers</option>
+            <option value="dining">Dining Rooms</option>
+            <option value="training">Training Centers</option>
+            <option value="church">Churches</option>
+            <option value="hospitals">Hospitals & Clinics</option>
+            <option value="green_zones">Green Zones</option>
+            <option value="carpets">Carpets & Floors</option>
+        </select>
+        <select id="statusFilter" onchange="filterItems()">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+        </select>
+    </div>
+
+    <div class="main-grid" id="mainGrid">
+        <!-- Items will be rendered here -->
+    </div>
 </div>
 
-<div style="text-align: center; margin-top: 40px;">
-    <button class="btn-save" onclick="generateUpdate()" style="font-size: 1.2rem; padding: 15px 40px;">Generate Update Command</button>
+<!-- Review Modal -->
+<div id="reviewModal">
+    <div class="modal-container">
+        <div class="modal-preview" id="modalPreview">
+            <!-- Media here -->
+        </div>
+        <div class="modal-details">
+            <div id="reviewProgress" style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">ITEM 1 OF 50</div>
+            
+            <div class="edit-group">
+                <label>English Title</label>
+                <input type="text" id="editTitleEn">
+            </div>
+            <div class="edit-group">
+                <label>Spanish Title</label>
+                <input type="text" id="editTitleEs">
+            </div>
+            <div class="edit-group">
+                <label>English Description</label>
+                <textarea id="editDescEn"></textarea>
+            </div>
+            <div class="edit-group">
+                <label>Spanish Description</label>
+                <textarea id="editDescEs"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-reject" onclick="reviewAction('rejected')">Reject / Remove</button>
+                <button class="btn btn-approve" onclick="reviewAction('approved')">Approve Item</button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="prevItem()">← Previous</button>
+                <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="nextItem()">Next →</button>
+                <button class="btn btn-outline" style="border:none; color: #666;" onclick="closeReview()">Close Esc</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="outputArea">
-    <h3>Prepared Update:</h3>
-    <p>Copy this and send it back to Antigravity:</p>
-    <pre id="outputCode"></pre>
+<!-- Export Modal -->
+<div class="export-overlay" id="exportOverlay">
+    <div class="export-box">
+        <h2 class="font-outfit">Export Synchronization Data</h2>
+        <p style="color:var(--text-dim); margin-top: 0.5rem;">Copy this JSON and provide it to the developer to sync the website.</p>
+        <textarea id="exportArea" readonly></textarea>
+        <div style="display:flex; gap: 1rem; justify-content: center;">
+            <button class="btn btn-primary" onclick="copyExport()">Copy to Clipboard</button>
+            <button class="btn btn-outline" onclick="document.getElementById('exportOverlay').style.display='none'">Close</button>
+        </div>
+    </div>
 </div>
 
 <script>
-    const galleryData = [
-        { id: "off_rec1", img: "img/oficina-recepcion-1.jpg", cat: "offices_recep", title_en: "Main Reception", title_es: "Recepción Principal", desc_en: "First impressions with crystal clear surfaces.", desc_es: "Primeras impresiones con superficies cristalinas." },
-        { id: "off_rec2", img: "img/oficina-recepcion-2.jpg", cat: "offices_recep", title_en: "Corporate Office", title_es: "Oficina Corporativa", desc_en: "Professional environment for high performance.", desc_es: "Entorno profesional para alto rendimiento." },
-        { id: "off_rec3", img: "img/oficina-recepcion-3.jpg", cat: "offices_recep", title_en: "Executive Lounge", title_es: "Sala VIP / Lounge", desc_en: "Comfort and cleanliness in every corner.", desc_es: "Comodidad e higiene en cada rincón." },
-        { id: "off_rec4", img: "img/oficina-recepcion-4.jpg", cat: "offices_recep", title_en: "Lobby Area", title_es: "Área de Lobby", desc_en: "Impeccable welcome management.", desc_es: "Gestión de bienvenida impecable." },
-        { id: "off_rec5", img: "img/oficina-recepcion-5.jpg", cat: "offices_recep", title_en: "Office Wing", title_es: "Ala de Oficinas", desc_en: "Deep cleaning for workspaces.", desc_es: "Desinfectado y listo para el trabajo." },
-        { id: "off_rec6", img: "img/oficina-recepcion-6.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Atención a cada detalle." },
-        { id: "off_rec7", img: "img/oficina-recepcion-7.jpg", cat: "offices_recep", title_en: "Administrative Wing", title_es: "Ala Administrativa", desc_en: "Sanitized desks for administrative staff.", desc_es: "Escritorios sanitizados para el personal administrativo." },
-        { id: "off_rec8", img: "img/oficina-recepcion-8.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Vidrios y superficies cristalinas." },
-        { id: "off_rec9", img: "img/oficina-recepcion-9.jpg", cat: "offices_recep", title_en: "Open Office", title_es: "Oficina Abierta", desc_en: "Dynamic workspaces kept hygienic.", desc_es: "Espacios de trabajo dinámicos e higiénicos." },
-        { id: "off_rec10", img: "img/oficina-recepcion-10.jpg", cat: "offices_recep", title_en: "Boardroom", title_es: "Sala de Juntas", desc_en: "Premium cleaning for executive meetings.", desc_es: "Limpieza premium para reuniones ejecutivas." },
-        { id: "off_rec11", img: "img/oficina-recepcion-11.jpg", cat: "carpets", title_en: "Industrial Floor Care", title_es: "Cuidado de Pisos Industriales", desc_en: "Deep scrubbing and maintenance for commercial floors.", desc_es: "Limpieza profunda y mantenimiento para pisos comerciales." },
+    const initialData = [
+        // Offices
+        { id: "off_rec1", img: "img/oficina-recepcion-1.jpg", cat: "offices_recep", title_en: "Main Reception", title_es: "Recepción Principal", desc_en: "First impressions with crystal clear surfaces.", desc_es: "Primeras impresiones con superficies cristalinas.", status: "approved" },
+        { id: "off_rec2", img: "img/oficina-recepcion-2.jpg", cat: "offices_recep", title_en: "Corporate Office", title_es: "Oficina Corporativa", desc_en: "Professional environment for high performance.", desc_es: "Entorno profesional para alto rendimiento.", status: "approved" },
+        { id: "off_rec3", img: "img/oficina-recepcion-3.jpg", cat: "offices_recep", title_en: "Executive Lounge", title_es: "Sala VIP / Lounge", desc_en: "Comfort and cleanliness in every corner.", desc_es: "Comodidad e higiene en cada rincón.", status: "approved" },
+        { id: "off_rec4", img: "img/oficina-recepcion-4.jpg", cat: "offices_recep", title_en: "Lobby Area", title_es: "Área de Lobby", desc_en: "Impeccable welcome management.", desc_es: "Gestión de bienvenida impecable.", status: "approved" },
+        { id: "off_rec5", img: "img/oficina-recepcion-5.jpg", cat: "offices_recep", title_en: "Office Wing", title_es: "Ala de Oficinas", desc_en: "Deep cleaning for workspaces.", desc_es: "Desinfectado y listo para el trabajo.", status: "approved" },
+        { id: "off_rec6", img: "img/oficina-recepcion-6.jpg", cat: "offices_recep", title_en: "Meeting Room", title_es: "Sala de Reuniones", desc_en: "Crystal clean glass and surfaces.", desc_es: "Atención a cada detalle.", status: "approved" },
+        { id: "off_rec7", img: "img/oficina-recepcion-7.jpg", cat: "offices_recep", title_en: "Administrative Wing", title_es: "Ala Administrativa", desc_en: "Sanitized desks for administrative staff.", desc_es: "Escritorios sanitizados para el personal administrativo.", status: "approved" },
+        { id: "off_rec9", img: "img/oficina-recepcion-9.jpg", cat: "offices_recep", title_en: "Open Office", title_es: "Oficina Abierta", desc_en: "Dynamic workspaces kept hygienic.", desc_es: "Espacios de trabajo dinámicos e higiénicos.", status: "approved" },
+        { id: "off_rec10", img: "img/oficina-recepcion-10.jpg", cat: "offices_recep", title_en: "Boardroom", title_es: "Sala de Juntas", desc_en: "Premium cleaning for executive meetings.", desc_es: "Limpieza premium para reuniones ejecutivas.", status: "approved" },
+        { id: "off_rec11", img: "img/oficina-recepcion-11.jpg", cat: "carpets", title_en: "Industrial Floor Care", title_es: "Cuidado de Pisos Industriales", desc_en: "Deep scrubbing and maintenance for commercial floors.", desc_es: "Limpieza profunda y mantenimiento para pisos comerciales.", status: "approved" },
         
-        { id: "cls1", img: "img/salon-1.jpg", cat: "classrooms", title_en: "Main Classroom", title_es: "Salón de Clases", desc_en: "Clean learning environments for students.", desc_es: "Ambientes de aprendizaje limpios para estudiantes." },
-        { id: "cls2", img: "img/salon-2.jpg", cat: "classrooms", title_en: "Lecture Room", title_es: "Salón de Conferencias", desc_en: "Detailed cleaning for educational spaces.", desc_es: "Limpieza detallada para espacios educativos." },
-        { id: "cls3", img: "img/salon-3.jpg", cat: "classrooms", title_en: "Study Area", title_es: "Área de Estudio", desc_en: "Dust-free zones for concentration.", desc_es: "Zonas libres de polvo para la concentración." },
-        { id: "cls4", img: "img/salon-4.jpg", cat: "classrooms", title_en: "Faculty Lounge", title_es: "Sala de Profesores", desc_en: "Hygienic spaces for staff and teachers.", desc_es: "Espacios higiénicos para el personal y docentes." },
-        { id: "cls5", img: "img/salon-5.jpg", cat: "classrooms", title_en: "Laboratory", title_es: "Laboratorios", desc_en: "High-standard sanitization for labs.", desc_es: "Sanitización de alto estándar para laboratorios." },
-        { id: "cls6", img: "img/salon-6.jpg", cat: "classrooms", title_en: "Art Room", title_es: "Salón de Arte", desc_en: "Ready for creativity and learning.", desc_es: "Listo para la creatividad y el aprendizaje." },
-        { id: "cls7", img: "img/salon-7.jpg", cat: "classrooms", title_en: "Library Hall", title_es: "Biblioteca", desc_en: "Clean and quiet knowledge centers.", desc_es: "Centros de conocimiento limpios y tranquilos." },
-
-        { id: "aud1", img: "img/auditorio-1.jpg", cat: "auditoriums", title_en: "Grand Auditorium", title_es: "Gran Auditorio", desc_en: "Large scale cleaning for public spaces.", desc_es: "Limpieza a gran escala para espacios públicos." },
-        { id: "aud2", img: "img/auditorio-2.jpg", cat: "auditoriums", title_en: "Theater Area", title_es: "Auditorio", desc_en: "Meticulous maintenance of seats and floors.", desc_es: "Mantenimiento meticuloso de sillas y pisos." },
-        { id: "aud3", img: "img/auditorio-3.jpg", cat: "auditoriums", title_en: "Lecture Hall", title_es: "Auditorio", desc_en: "Clean spaces for mass communication.", desc_es: "Espacios limpios para comunicación masiva." },
-        { id: "aud4", img: "img/auditorio-4.jpg", cat: "auditoriums", title_en: "Performance Stage", title_es: "Auditorio", desc_en: "Spotless stage for your best moments.", desc_es: "Escenario impecable para tus mejores momentos." },
-        { id: "aud5", img: "img/auditorio-4.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Deep cleaning of carpets and seating.", desc_es: "Limpieza profunda de alfombras y butacas." },
-        { id: "aud6", img: "img/auditorio-5.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Surfaces ready for major events.", desc_es: "Superficies listas para grandes eventos." },
-
-        { id: "gym1", img: "img/gym-1.jpg", cat: "gym", title_en: "Fitness Center", title_es: "Centro de Fitness", desc_en: "Deep sanitization for health and safety.", desc_es: "Desinfección profunda para salud y seguridad." },
-        { id: "gym2", img: "img/gym-2.jpg", cat: "gym", title_en: "Weight Room", title_es: "Área de Pesas", desc_en: "Hygienic environment for high-traffic areas.", desc_es: "Ambiente higiénico para zonas de alto tráfico." },
-        { id: "gym_mir", img: "img/espejo-1.jpg", cat: "gym", title_en: "Reflective Surfaces", title_es: "Superficies Reflectantes", desc_en: "Spotless mirrors without streaks.", desc_es: "Espejos impecables y sin vetas en áreas de entrenamiento." },
-        { id: "gym5", img: "img/gym-5.jpg", cat: "gym", title_en: "Main Gym Hall", title_es: "Gimnasio Principal", desc_en: "Spacious and sanitized for member safety.", desc_es: "Espacioso y sanitizado para la seguridad de los socios." },
-        { id: "gym6", img: "img/gym-6.jpg", cat: "gym", title_en: "Cardio Zone", title_es: "Zona de Cardio", desc_en: "Detailed maintenance of cardio equipment.", desc_es: "Mantenimiento detallado de equipos de cardio." },
-        { id: "gym7", img: "img/gym-7.jpg", cat: "gym", title_en: "Weight Area", title_es: "Cuidado de pisos de madera", desc_en: "Clean surfaces for heavy training.", desc_es: "Superficies limpias cuidado especial en madera." },
-        { id: "gym9", img: "img/gym-9.jpg", cat: "gym", title_en: "Equipment Care", title_es: "Cuidado de Equipos", desc_en: "Surgical-level cleanliness on touch surfaces.", desc_es: "Limpieza de nivel quirúrgico en superficies de contacto." },
-
-        { id: "din1", img: "img/comedor-1.jpg", cat: "dining", title_en: "Executive Dining", title_es: "Comedor Ejecutivo", desc_en: "High standards of hygiene in food areas.", desc_es: "Altos estándares de higiene en áreas de comida." },
-        { id: "din2", img: "img/comedor-2.jpg", cat: "dining", title_en: "Staff Canteen", title_es: "Cafetería de Personal", desc_en: "Clean and pleasant spaces for breaks.", desc_es: "Espacios limpios y agradables para descansos." },
-        { id: "din3", img: "img/comedor-3.jpg", cat: "dining", title_en: "Restaurant Floor", title_es: "Piso de Restaurante", desc_en: "Spotless environment for diners.", desc_es: "Ambiente impecable para comensales." },
-
-        { id: "caf1", img: "img/cafeteria-1.jpg", cat: "dining", title_en: "Modern Cafeteria", title_es: "Cafetería Moderna", desc_en: "Flawless surfaces for food service.", desc_es: "Superficies impecables para servicio de alimentos." },
-        { id: "caf2", img: "img/cafeteria-2.jpg", cat: "dining", title_en: "Coffee Station", title_es: "Estación de Café", desc_en: "Detail-oriented maintenance.", desc_es: "Mantenimiento orientado al detalle." },
-        { id: "caf4", img: "img/cafeteria-4.jpg", cat: "dining", title_en: "Snack Bar", title_es: "Snack Bar", desc_en: "Quick cleaning for busy areas.", desc_es: "Limpieza rápida para áreas concurridas." },
-
-        { id: "trn1", img: "img/entrenamiento-universidad-1.jpg", cat: "training", title_en: "University Campus", title_es: "Campus Universitario", desc_en: "Inspirational spaces for learning.", desc_es: "Espacios inspiradores para el aprendizaje." },
-        { id: "trn2", img: "img/entrenamiento-universidad-2.jpg", cat: "training", title_en: "Training Center", title_es: "Centro de Capacitación", desc_en: "Productive environment for students.", desc_es: "Ambiente productivo para estudiantes." },
-        { id: "trn3", img: "img/entrenamiento-universidad-3.jpg", cat: "training", title_en: "Study Lab", title_es: "Laboratorio de Estudio", desc_en: "Sanitized equipment and desks.", desc_es: "Equipos y escritorios sanitizados." },
-        { id: "trn4", img: "img/entrenamiento-universidad-4.jpg", cat: "training", title_en: "College Library", title_es: "Biblioteca Universitaria", desc_en: "Quiet and dust-free knowledge centers.", desc_es: "Centros de conocimiento tranquilos y sin polvo." },
-
-        { id: "chu1", img: "img/iglesia-1.jpg", cat: "church", title_en: "Main Sanctuary", title_es: "Santuario Principal", desc_en: "Respectful and thorough cleaning.", desc_es: "Limpieza respetuosa y profunda." },
-        { id: "chu2", img: "img/iglesia-2.jpg", cat: "church", title_en: "Community Hall", title_es: "Salón Comunitario", desc_en: "Welcoming spaces for congregations.", desc_es: "Espacios acogedores para congregaciones." },
-        { id: "chu3", img: "img/iglesia-3.jpg", cat: "church", title_en: "Sacristy", title_es: "Sacristía", desc_en: "Meticulous care for sacred items.", desc_es: "Cuidado meticuloso para artículos sagrados." },
-        { id: "chu4", img: "img/iglesia-4.jpg", cat: "church", title_en: "Church Sanctuary", title_es: "Santuario de la Iglesia", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
-        { id: "chu5", img: "img/iglesia-5.jpg", cat: "church", title_en: "Church Entrance", title_es: "Entrada de la Iglesia", desc_en: "Welcoming and clean hallways.", desc_es: "Pasillos de bienvenida mantenidos impecables." },
-        { id: "chu6", img: "img/iglesia-6.jpg", cat: "church", title_en: "Chapel", title_es: "Capilla", desc_en: "Deep cleaning for sacred spaces.", desc_es: "Limpieza profunda para espacios sagrados." },
-        { id: "chu7", img: "img/iglesia-7.jpg", cat: "church", title_en: "Bancas y Pasillos", title_es: "Bancas y Pasillos", desc_en: "Attention to every detail.", desc_es: "Atención a cada detalle." },
-        { id: "chu8", img: "img/iglesia-8.jpg", cat: "church", title_en: "Altar Area", title_es: "Área del Altar", desc_en: "Respectful maintenance of the altar.", desc_es: "Mantenimiento respetuoso del altar." },
-
-        { id: "grn1", img: "img/zona-verde-1.jpg", cat: "green_zones", title_en: "Exterior Garden", title_es: "Jardín Exterior", desc_en: "Meticulous care for green areas.", desc_es: "Limpieza profesional de los entornos exteriores." },
-        { id: "grn2", img: "img/zona-verde-2.jpg", cat: "green_zones", title_en: "Park Area", title_es: "Zona de Parque", desc_en: "Clean spaces for outdoor relaxation.", desc_es: "Mantenimiento de pasillos y accesos externos." },
-        { id: "grn3", img: "img/zona-verde-3.jpg", cat: "green_zones", title_en: "Lawn Maintenance", title_es: "Mantenimiento de Césped", desc_en: "Professional landscape hygiene.", desc_es: "Cuidado del aspecto exterior del establecimiento." },
-        { id: "grn4", img: "img/zona-verde-4.jpg", cat: "green_zones", title_en: "Pathways", title_es: "Senderos Peatonales", desc_en: "Keeping walkways clear and safe.", desc_es: "Entradas despejadas y libres de residuos." },
-        { id: "grn5", img: "img/zona-verde-5.jpg", cat: "green_zones", title_en: "Building Courtyard", title_es: "Patio del Edificio", desc_en: "Peaceful and pristine outdoor settings.", desc_es: "Espacios funcionales exteriores siempre limpios." },
-        { id: "grn6", img: "img/zona-verde-6.jpg", cat: "green_zones", title_en: "Exterior Surroundings", title_es: "Alrededores Exteriores", desc_en: "Meticulous cleaning of the facility grounds.", desc_es: "Mantenimiento impecable de los alrededores." },
-        { id: "grn7", img: "img/zona-verde-7.jpg", cat: "green_zones", title_en: "Entrance Grounds", title_es: "Zonas Perimetrales", desc_en: "First impressions start at the doorstep.", desc_es: "Limpieza detallada de los límites del recinto." },
-        { id: "grn8", img: "img/zona-verde-8.jpg", cat: "green_zones", title_en: "Private Grounds", title_es: "Áreas de Paisajismo", desc_en: "Secure and clean outdoor areas.", desc_es: "Cuidado estético de las zonas comunes externas." },
-        { id: "grn9", img: "img/zona-verde-9.jpg", cat: "green_zones", title_en: "Social Surroundings", title_es: "Entorno Social Exterior", desc_en: "Ideal environments for outdoor interaction.", desc_es: "Espacios al aire libre listos para el uso público." },
+        // Classrooms
+        { id: "cls1", img: "img/salon-1.jpg", cat: "classrooms", title_en: "Main Classroom", title_es: "Salón de Clases", desc_en: "Clean learning environments for students.", desc_es: "Ambientes de aprendizaje limpios para estudiantes.", status: "approved" },
+        { id: "cls2", img: "img/salon-2.jpg", cat: "classrooms", title_en: "Lecture Room", title_es: "Salón de Conferencias", desc_en: "Detailed cleaning for educational spaces.", desc_es: "Limpieza detallada para espacios educativos.", status: "approved" },
+        { id: "cls3", img: "img/salon-3.jpg", cat: "classrooms", title_en: "Study Area", title_es: "Área de Estudio", desc_en: "Dust-free zones for concentration.", desc_es: "Zonas libres de polvo para la concentración.", status: "approved" },
+        { id: "cls5", img: "img/salon-5.jpg", cat: "classrooms", title_en: "Laboratory", title_es: "Laboratorios", desc_en: "High-standard sanitization for labs.", desc_es: "Sanitización de alto estándar para laboratorios.", status: "approved" },
+        { id: "cls6", img: "img/salon-6.jpg", cat: "classrooms", title_en: "Art Room", title_es: "Salón de Arte", desc_en: "Ready for creativity and learning.", desc_es: "Listo para la creatividad y el aprendizaje.", status: "approved" },
+        { id: "cls7", img: "img/salon-7.jpg", cat: "classrooms", title_en: "Library Hall", title_es: "Biblioteca", desc_en: "Clean and quiet knowledge centers.", desc_es: "Centros de conocimiento limpios y tranquilos.", status: "approved" },
         
-        { id: "hosp1", img: "img/hospital-1.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Instalación Médica", desc_en: "Sanitized environments for patient safety.", desc_es: "Ambientes sanitizados para la seguridad del paciente." },
-        { id: "hosp2", img: "img/consultorio-1.jpeg", cat: "hospitals", title_en: "Private Clinic", title_es: "Clínica Privada", desc_en: "Detailed cleaning for consultation rooms.", desc_es: "Limpieza detallada para salas de consulta." },
-        { id: "hosp3", img: "img/hospital-2.jpeg", cat: "hospitals", title_en: "Patient Room", title_es: "Habitación de Paciente", desc_en: "Hygienic maintenance.", desc_es: "Mantenimiento higiénico." },
-        { id: "hosp4", img: "img/hospital-3.jpeg", cat: "hospitals", title_en: "Medical Wing", title_es: "Ala Médica", desc_en: "Advanced disinfection protocols.", desc_es: "Protocolos avanzados de desinfección." },
-        { id: "hosp5", img: "img/hospital-4.jpeg", cat: "hospitals", title_en: "Clinic Area", title_es: "Área de Clínica", desc_en: "Clean spaces.", desc_es: "Espacios limpios." },
-        
-        { id: "mad1", img: "img/madera1.jpeg", cat: "carpets", title_en: "Wood Floor Care", title_es: "Cuidado de Pisos de Madera", desc_en: "Specialized treatment for hardwood.", desc_es: "Tratamiento especializado para madera dura." },
-        { id: "mad2", img: "img/madera2.jpeg", cat: "carpets", title_en: "Wood Polishing", title_es: "Pulido de Madera", desc_en: "Professional shine.", desc_es: "Brillo profesional." },
-        
-        { id: "tap1", img: "img/tapete-1.jpeg", cat: "carpets", title_en: "Premium Carpets", title_es: "Alfombras Premium", desc_en: "Deep extraction cleaning.", desc_es: "Limpieza de extracción profunda." },
-        { id: "tap2", img: "img/tapete-2.jpeg", cat: "carpets", title_en: "Rug Care", title_es: "Cuidado de Tapetes", desc_en: "Fiber protection.", desc_es: "Protección de fibras." },
-        
-        { id: "br1", img: "img/sala-juntas-1.jpeg", cat: "offices_recep", title_en: "Executive Boardroom", title_es: "Sala de Juntas Ejecutiva", desc_en: "Corporate cleaning.", desc_es: "Limpieza corporativa." },
-        { id: "br2", img: "img/sala-juntas-2.jpeg", cat: "offices_recep", title_en: "Meeting Space", title_es: "Espacio de Reunión", desc_en: "Hygienic workplace.", desc_es: "Lugar de trabajo higiénico." },
-        
-        { id: "extra_cls1", img: "img/salon-extra-esc-1.jpg", cat: "classrooms", title_en: "Staircase Area", title_es: "Área de Escaleras", desc_en: "Clean transit zones.", desc_es: "Zonas de tránsito limpias." },
-        { id: "extra_pas1", img: "img/salon-extra-pas-1.jpg", cat: "classrooms", title_en: "School Hallway", title_es: "Pasillo Escolar", desc_en: "Spotless corridors.", desc_es: "Pasillos impecables." }
+        // Auditoriums
+        { id: "aud1", img: "img/auditorio-1.jpg", cat: "auditoriums", title_en: "Grand Auditorium", title_es: "Gran Auditorio", desc_en: "Large scale cleaning for public spaces.", desc_es: "Limpieza a gran escala para espacios públicos.", status: "approved" },
+        { id: "aud2", img: "img/auditorio-2.jpg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Meticulous maintenance of seats and floors.", desc_es: "Mantenimiento meticuloso de sillas y pisos.", status: "approved" },
+        { id: "aud3", img: "img/auditorio-3.jpg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Clean spaces for mass communication.", desc_es: "Espacios limpios para comunicación masiva.", status: "approved" },
+        { id: "aud4", img: "img/auditorio-4.jpg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Spotless stage for your best moments.", desc_es: "Escenario impecable para tus mejores momentos.", status: "approved" },
+        { id: "aud5", img: "img/auditorio-4.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Deep cleaning of carpets and seating.", desc_es: "Limpieza profunda de alfombras y butacas.", status: "approved" },
+        { id: "aud6", img: "img/auditorio-5.jpeg", cat: "auditoriums", title_en: "Auditorium", title_es: "Auditorio", desc_en: "Surfaces ready for major events.", desc_es: "Superficies listas para grandes eventos.", status: "approved" },
+
+        // Gym
+        { id: "gym1", img: "img/gym-1.jpg", cat: "gym", title_en: "Fitness Center", title_es: "Centro de Fitness", desc_en: "Deep sanitization for health and safety.", desc_es: "Desinfección profunda para salud y seguridad.", status: "approved" },
+        { id: "gym3", img: "img/gym-3.jpg", cat: "gym", title_en: "Cardio Area", title_es: "Área de Cardio", desc_en: "Clean training equipment.", desc_es: "Equipos de entrenamiento limpios.", status: "approved" },
+        { id: "gym4", img: "img/gym-4.jpg", cat: "gym", title_en: "Training Zone", title_es: "Zona de Entrenamiento", desc_en: "Professional maintenance.", desc_es: "Mantenimiento profesional.", status: "approved" },
+        { id: "gym5", img: "img/gym-5.jpg", cat: "gym", title_en: "Main Gym Hall", title_es: "Gimnasio Principal", desc_en: "Spacious and sanitized for member safety.", desc_es: "Espacioso y sanitizado para la seguridad de los socios.", status: "approved" },
+        { id: "gym6", img: "img/gym-6.jpg", cat: "gym", title_en: "Cardio Zone", title_es: "Zona de Cardio", desc_en: "Detailed maintenance of cardio equipment.", desc_es: "Mantenimiento detallado de equipos de cardio.", status: "approved" },
+        { id: "gym7", img: "img/gym-7.jpg", cat: "gym", title_en: "Weight Area", title_es: "Cuidado de pisos de madera", desc_en: "Clean surfaces for heavy training.", desc_es: "Superficies limpias cuidado especial en madera.", status: "approved" },
+        { id: "gym8", img: "img/gym-8.jpg", cat: "gym", title_en: "Exercise Floor", title_es: "Piso de Ejercicio", desc_en: "Spotless gym floor.", desc_es: "Piso de gimnasio impecable.", status: "approved" },
+        { id: "gym9", img: "img/gym-9.jpg", cat: "gym", title_en: "Equipment Care", title_es: "Cuidado de Equipos", desc_en: "Surgical-level cleanliness on touch surfaces.", desc_es: "Limpieza de nivel quirúrgico en superficies de contacto.", status: "approved" },
+        { id: "gym_mir", img: "img/espejo-1.jpg", cat: "gym", title_en: "Reflective Surfaces", title_es: "Superficies Reflectantes", desc_en: "Spotless mirrors without streaks.", desc_es: "Espejos impecables y sin vetas en áreas de entrenamiento.", status: "approved" },
+        { id: "gym_mir2", img: "img/espejo-2.jpg", cat: "gym", title_en: "Gym Mirrors", title_es: "Espejos de Gimnasio", desc_en: "Perfect reflections.", desc_es: "Reflejos perfectos.", status: "approved" },
+
+        // Dining
+        { id: "caf1", img: "img/cafeteria-1.jpg", cat: "dining", title_en: "Modern Cafeteria", title_es: "Cafetería Moderna", desc_en: "Flawless surfaces for food service.", desc_es: "Superficies impecables para servicio de alimentos.", status: "approved" },
+        { id: "caf2", img: "img/cafeteria-2.jpg", cat: "dining", title_en: "Coffee Station", title_es: "Estación de Café", desc_en: "Detail-oriented maintenance.", desc_es: "Mantenimiento orientado al detalle.", status: "approved" },
+        { id: "caf3", img: "img/cafeteria-3.jpg", cat: "dining", title_en: "Cafe Seating", title_es: "Asientos de Café", desc_en: "Hygienic seating area.", desc_es: "Área de asientos higiénica.", status: "approved" },
+
+        // Training
+        { id: "trn1", img: "img/entrenamiento-universidad-1.jpg", cat: "training", title_en: "University Campus", title_es: "Campus Universitario", desc_en: "Inspirational spaces for learning.", desc_es: "Espacios inspiradores para el aprendizaje.", status: "approved" },
+        { id: "trn2", img: "img/entrenamiento-universidad-2.jpg", cat: "training", title_en: "Training Center", title_es: "Centro de Capacitación", desc_en: "Productive environment for students.", desc_es: "Ambiente productivo para estudiantes.", status: "approved" },
+
+        // Churches
+        { id: "chu1", img: "img/iglesia-1.jpg", cat: "church", title_en: "Main Sanctuary", title_es: "Santuario Principal", desc_en: "Respectful and thorough cleaning.", desc_es: "Limpieza respetuosa y profunda.", status: "approved" },
+        { id: "chu3", img: "img/iglesia-3.jpg", cat: "church", title_en: "Sacristy", title_es: "Sacristía", desc_en: "Meticulous care for sacred items.", desc_es: "Cuidado meticuloso para artículos sagrados.", status: "approved" },
+        { id: "chu4", img: "img/iglesia-4.jpg", cat: "church", title_en: "Church Sanctuary", title_es: "Santuario de la Iglesia", desc_en: "Clean spaces.", desc_es: "Espacios limpios.", status: "approved" },
+        { id: "chu5", img: "img/iglesia-5.jpg", cat: "church", title_en: "Church Entrance", title_es: "Entrada de la Iglesia", desc_en: "Welcoming and clean hallways.", desc_es: "Pasillos de bienvenida mantenidos impecables.", status: "approved" },
+        { id: "chu6", img: "img/iglesia-6.jpg", cat: "church", title_en: "Chapel", title_es: "Capilla", desc_en: "Deep cleaning for sacred spaces.", desc_es: "Limpieza profunda para espacios sagrados.", status: "approved" },
+        { id: "chu7", img: "img/iglesia-7.jpg", cat: "church", title_en: "Pews & Aisles", title_es: "Bancas y Pasillos", desc_en: "Attention to every detail.", desc_es: "Atención a cada detalle.", status: "approved" },
+        { id: "chu8", img: "img/iglesia-8.jpg", cat: "church", title_en: "Altar Area", title_es: "Área del Altar", desc_en: "Respectful maintenance of the altar.", desc_es: "Mantenimiento respetuoso del altar.", status: "approved" },
+
+        // Green Zones
+        { id: "grn1", img: "img/zona-verde-1.jpg", cat: "green_zones", title_en: "Exterior Garden", title_es: "Jardín Exterior", desc_en: "Meticulous care for green areas.", desc_es: "Limpieza profesional de los entornos exteriores.", status: "approved" },
+        { id: "grn2", img: "img/zona-verde-2.jpg", cat: "green_zones", title_en: "Park Area", title_es: "Zona de Parque", desc_en: "Clean spaces for outdoor relaxation.", desc_es: "Espacios limpios para la relajación al aire libre.", status: "approved" },
+        { id: "grn3", img: "img/zona-verde-3.jpg", cat: "green_zones", title_en: "Lawn Maintenance", title_es: "Mantenimiento de Césped", desc_en: "Professional landscape hygiene.", desc_es: "Higiene profesional del paisaje.", status: "approved" },
+        { id: "grn4", img: "img/zona-verde-4.jpg", cat: "green_zones", title_en: "Pathways", title_es: "Senderos Peatonales", desc_en: "Keeping walkways clear and safe.", desc_es: "Manteniendo senderos despejados y seguros.", status: "approved" },
+        { id: "grn5", img: "img/zona-verde-5.jpg", cat: "green_zones", title_en: "Building Courtyard", title_es: "Patio del Edificio", desc_en: "Peaceful and pristine outdoor settings.", desc_es: "Entornos exteriores tranquilos e impecables.", status: "approved" },
+        { id: "grn6", img: "img/zona-verde-6.jpg", cat: "green_zones", title_en: "Exterior Surroundings", title_es: "Alrededores Exteriores", desc_en: "Meticulous cleaning of the facility grounds.", desc_es: "Mantenimiento impecable de los alrededores.", status: "approved" },
+        { id: "grn7", img: "img/zona-verde-7.jpg", cat: "green_zones", title_en: "Entrance Grounds", title_es: "Zonas Perimetrales", desc_en: "First impressions start at the doorstep.", desc_es: "Limpieza detallada de los límites del recinto.", status: "approved" },
+        { id: "grn8", img: "img/zona-verde-8.jpg", cat: "green_zones", title_en: "Private Grounds", title_es: "Áreas de Paisajismo", desc_en: "Secure and clean outdoor areas.", desc_es: "Cuidado estético de las zonas comunes externas.", status: "approved" },
+        { id: "grn9", img: "img/zona-verde-9.jpg", cat: "green_zones", title_en: "Social Surroundings", title_es: "Entorno Social Exterior", desc_en: "Ideal environments for outdoor interaction.", desc_es: "Espacios al aire libre listos para el uso público.", status: "approved" },
+
+        // Hospitals
+        { id: "hosp1", img: "img/hospital-1.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Instalación Médica", desc_en: "Sanitized environments for patient safety.", desc_es: "Ambientes sanitizados para la seguridad del paciente.", status: "approved" },
+        { id: "hosp2", img: "img/consultorio-1.jpeg", cat: "hospitals", title_en: "Private Clinic", title_es: "Clínica Privada", desc_en: "Detailed cleaning for consultation rooms.", desc_es: "Limpieza detallada para salas de consulta.", status: "approved" },
+        { id: "hosp4", img: "img/hospital-3.jpeg", cat: "hospitals", title_en: "Medical Wing", title_es: "Ala Médica", desc_en: "Advanced disinfection protocols.", desc_es: "Protocolos avanzados de desinfección.", status: "approved" },
+        { id: "hosp5", img: "img/hospital-4.jpeg", cat: "hospitals", title_en: "Clinic Area", title_es: "Área de Clínica", desc_en: "Clean spaces.", desc_es: "Espacios limpios.", status: "approved" },
+        { id: "hosp6", img: "img/hospital-5.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Centro Médico", desc_en: "Sanitized environment.", desc_es: "Ambiente sanitizado.", status: "approved" },
+        { id: "hosp7", img: "img/hospital-6.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Centro Médico", desc_en: "Sanitized environment.", desc_es: "Ambiente sanitizado.", status: "approved" },
+        { id: "hosp8", img: "img/hospital-7.jpeg", cat: "hospitals", title_en: "Medical Facility", title_es: "Centro Médico", desc_en: "Sanitized environment.", desc_es: "Ambiente sanitizado.", status: "approved" },
+        { id: "cons2", img: "img/consultorio-2.jpeg", cat: "hospitals", title_en: "Consultation Room", title_es: "Consultorio", desc_en: "Sanitized space.", desc_es: "Espacio sanitizado.", status: "approved" },
+        { id: "cons3", img: "img/consultorio-3.jpeg", cat: "hospitals", title_en: "Medical Office", title_es: "Oficina Médica", desc_en: "Professional hygiene.", desc_es: "Higiene profesional.", status: "approved" },
+        { id: "cons4", img: "img/consultorio-4.jpeg", cat: "hospitals", title_en: "Exam Room", title_es: "Sala de Exámenes", desc_en: "Ready for patients.", desc_es: "Listo para pacientes.", status: "approved" },
+
+        // Floors
+        { id: "mad1", img: "img/madera1.jpeg", cat: "carpets", title_en: "Wood Floor Care", title_es: "Cuidado de Pisos de Madera", desc_en: "Specialized treatment for hardwood.", desc_es: "Tratamiento especializado para madera dura.", status: "approved" },
+        { id: "mad2", img: "img/madera2.jpeg", cat: "carpets", title_en: "Wood Polishing", title_es: "Pulido de Madera", desc_en: "Professional shine.", desc_es: "Brillo profesional.", status: "approved" },
+        { id: "tap1", img: "img/tapete-1.jpeg", cat: "carpets", title_en: "Premium Carpets", title_es: "Alfombras Premium", desc_en: "Deep extraction cleaning.", desc_es: "Limpieza de extracción profunda.", status: "approved" },
+        { id: "tap2", img: "img/tapete-2.jpeg", cat: "carpets", title_en: "Rug Care", title_es: "Cuidado de Tapetes", desc_en: "Fiber protection.", desc_es: "Protección de fibras.", status: "approved" },
+        { id: "tap3", img: "img/tapete-3.jpeg", cat: "carpets", title_en: "Area Rug Care", title_es: "Cuidado de Tapetes de Área", desc_en: "Deep cleaning.", desc_es: "Limpieza profunda.", status: "approved" },
+
+        // Videos
+        { id: "vid_aud", img: "img/auditorio-1.jpg", video: "img/auditorio-1.mp4", cat: "auditoriums", title_en: "Auditorium Action", title_es: "Auditorio en Acción", desc_en: "Watch our team transform the space.", desc_es: "Mira a nuestro equipo transformar el espacio.", status: "approved" },
+        { id: "vid_caf", img: "img/cafeteria-1.jpg", video: "img/cafeteria-1.mp4", cat: "dining", title_en: "Cafeteria Care", title_es: "Cuidado de Cafetería", desc_en: "Professional sanitization video.", desc_es: "Video de desinfección profesional.", status: "approved" },
+        { id: "vid_uni", img: "img/entrenamiento-universidad-1.jpg", video: "img/entrenamiento-universidad-1.mp4", cat: "training", title_en: "Campus Cleaning", title_es: "Limpieza del Campus", desc_en: "Deep cleaning for educational facilities.", desc_es: "Limpieza profunda para instalaciones educativas.", status: "approved" }
     ];
 
-    function render() {
-        const grid = document.getElementById('managerGrid');
+    let items = initialData.map(i => ({ ...i, status: i.status || 'pending' }));
+    let currentReviewIdx = 0;
+
+    // Load saved status if exists
+    try {
+        const saved = localStorage.getItem('ajb_gallery_state');
+        if (saved) {
+            const savedItems = JSON.parse(saved);
+            items = items.map(item => {
+                const s = savedItems.find(si => si.id === item.id);
+                return s ? { ...item, status: s.status, title_en: s.title_en || item.title_en, title_es: s.title_es || item.title_es, desc_en: s.desc_en || item.desc_en, desc_es: s.desc_es || item.desc_es } : item;
+            });
+        }
+    } catch(e) {}
+
+    function saveState() {
+        localStorage.setItem('ajb_gallery_state', JSON.stringify(items));
+        updateStats();
+    }
+
+    function updateStats() {
+        document.getElementById('statTotal').innerText = items.length;
+        document.getElementById('statPending').innerText = items.filter(i => i.status === 'pending').length;
+        document.getElementById('statApproved').innerText = items.filter(i => i.status === 'approved').length;
+        document.getElementById('statRejected').innerText = items.filter(i => i.status === 'rejected').length;
+    }
+
+    function filterItems() {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const cat = document.getElementById('catFilter').value;
+        const status = document.getElementById('statusFilter').value;
+
+        const filtered = items.filter(item => {
+            const matchesSearch = item.title_en.toLowerCase().includes(search) || item.id.toLowerCase().includes(search);
+            const matchesCat = cat === 'all' || item.cat === cat;
+            const matchesStatus = status === 'all' || item.status === status;
+            return matchesSearch && matchesCat && matchesStatus;
+        });
+
+        renderGrid(filtered);
+    }
+
+    function renderGrid(data = items) {
+        const grid = document.getElementById('mainGrid');
         grid.innerHTML = '';
-        galleryData.forEach((item, index) => {
-            if (item._deleted) return;
+        
+        data.forEach(item => {
             const card = document.createElement('div');
             card.className = 'item-card';
+            const isVideo = !!item.video;
+            
             card.innerHTML = `
-                <img src="${item.img}" class="img-preview" alt="Preview">
-                <div style="font-size: 0.7rem; color: #888; margin-bottom: 10px;">ID: ${item.id} | FILE: ${item.img}</div>
-                
-                <div class="field-group">
-                    <label>Title</label>
-                    <div class="lang-split">
-                        <input type="text" placeholder="English" value="${item.title_en}" onchange="update(${index}, 'title_en', this.value)">
-                        <input type="text" placeholder="Spanish" value="${item.title_es}" onchange="update(${index}, 'title_es', this.value)">
-                    </div>
+                <div class="card-media">
+                    <span class="status-badge status-${item.status}">${item.status}</span>
+                    ${isVideo ? `<video src="${item.video}" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>` : `<img src="${item.img}" loading="lazy">`}
                 </div>
-
-                <div class="field-group">
-                    <label>Description</label>
-                    <div class="lang-split">
-                        <textarea rows="3" placeholder="English" onchange="update(${index}, 'desc_en', this.value)">${item.desc_en}</textarea>
-                        <textarea rows="3" placeholder="Spanish" onchange="update(${index}, 'desc_es', this.value)">${item.desc_es}</textarea>
+                <div class="card-content">
+                    <span class="card-id">${item.id} | ${item.cat}</span>
+                    <h3 class="card-title">${item.title_en}</h3>
+                    <p class="card-desc">${item.desc_en}</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                        <button class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.7rem;" onclick="openReviewItem('${item.id}')">Edit / Review</button>
                     </div>
-                </div>
-
-                <div class="actions">
-                    <button class="btn-delete" onclick="markDeleted(${index})">Delete Item</button>
-                    <div style="color: var(--gold); font-size: 0.8rem;">Category: ${item.cat}</div>
                 </div>
             `;
             grid.appendChild(card);
         });
     }
 
-    function update(index, field, value) {
-        galleryData[index][field] = value;
+    function startReview() {
+        const pending = items.findIndex(i => i.status === 'pending');
+        currentReviewIdx = pending !== -1 ? pending : 0;
+        openReviewModal();
     }
 
-    function markDeleted(index) {
-        if (confirm('Are you sure you want to delete this item?')) {
-            galleryData[index]._deleted = true;
-            render();
+    function openReviewItem(id) {
+        currentReviewIdx = items.findIndex(i => i.id === id);
+        openReviewModal();
+    }
+
+    function openReviewModal() {
+        const item = items[currentReviewIdx];
+        if (!item) return;
+
+        const modal = document.getElementById('reviewModal');
+        const preview = document.getElementById('modalPreview');
+        const isVideo = !!item.video;
+
+        preview.innerHTML = isVideo ? `<video src="${item.video}" controls autoplay loop></video>` : `<img src="${item.img}">`;
+        
+        document.getElementById('reviewProgress').innerText = `ITEM ${currentReviewIdx + 1} OF ${items.length}`;
+        document.getElementById('editTitleEn').value = item.title_en;
+        document.getElementById('editTitleEs').value = item.title_es;
+        document.getElementById('editDescEn').value = item.desc_en;
+        document.getElementById('editDescEs').value = item.desc_es;
+
+        modal.style.display = 'flex';
+    }
+
+    function reviewAction(status) {
+        const item = items[currentReviewIdx];
+        item.status = status;
+        item.title_en = document.getElementById('editTitleEn').value;
+        item.title_es = document.getElementById('editTitleEs').value;
+        item.desc_en = document.getElementById('editDescEn').value;
+        item.desc_es = document.getElementById('editDescEs').value;
+        
+        saveState();
+        filterItems();
+        nextItem();
+    }
+
+    function nextItem() {
+        if (currentReviewIdx < items.length - 1) {
+            currentReviewIdx++;
+            openReviewModal();
+        } else {
+            closeReview();
+            alert("Review session complete!");
         }
     }
 
-    function generateUpdate() {
-        const outputArea = document.getElementById('outputArea');
-        const outputCode = document.getElementById('outputCode');
-        
-        const activeItems = galleryData.filter(i => !i._deleted);
-        const deletedItems = galleryData.filter(i => i._deleted);
-        
-        const report = {
-            updates: activeItems,
-            deletions: deletedItems.map(i => i.id)
-        };
-        
-        outputCode.textContent = JSON.stringify(report, null, 2);
-        outputArea.style.display = 'block';
-        outputArea.scrollIntoView({ behavior: 'smooth' });
+    function prevItem() {
+        if (currentReviewIdx > 0) {
+            currentReviewIdx--;
+            openReviewModal();
+        }
     }
 
-    render();
+    function closeReview() {
+        document.getElementById('reviewModal').style.display = 'none';
+        const vid = document.querySelector('#modalPreview video');
+        if(vid) vid.pause();
+    }
+
+    function exportData() {
+        const report = {
+            timestamp: new Date().toISOString(),
+            approved: items.filter(i => i.status === 'approved'),
+            rejected_ids: items.filter(i => i.status === 'rejected').map(i => i.id),
+            pending_count: items.filter(i => i.status === 'pending').length
+        };
+        
+        document.getElementById('exportArea').value = JSON.stringify(report, null, 2);
+        document.getElementById('exportOverlay').style.display = 'flex';
+    }
+
+    function copyExport() {
+        const area = document.getElementById('exportArea');
+        area.select();
+        document.execCommand('copy');
+        alert("JSON copied to clipboard!");
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeReview();
+    });
+
+    // Init
+    updateStats();
+    renderGrid();
 </script>
 
 </body>
