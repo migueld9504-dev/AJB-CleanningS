@@ -599,4 +599,33 @@
     });
   }
 
+  // ===== FAQ ACCORDION LOGIC =====
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      
+      // Close other open FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem && item.classList.contains('active')) {
+          item.classList.remove('active');
+          item.querySelector('.faq-answer').style.maxHeight = null;
+          item.querySelector('.faq-icon').textContent = '+';
+        }
+      });
+
+      faqItem.classList.toggle('active');
+      
+      if (faqItem.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (icon) icon.textContent = '−';
+      } else {
+        answer.style.maxHeight = null;
+        if (icon) icon.textContent = '+';
+      }
+    });
+  });
+
 })();
+

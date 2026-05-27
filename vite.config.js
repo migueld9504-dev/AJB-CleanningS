@@ -37,6 +37,15 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 0,
     cssCodeSplit: false,
+    rollupOptions: {
+      input: {
+        main: resolve('index.html'),
+        commercial: resolve('commercial-cleaning-ny-nj.html'),
+        healthcare: resolve('healthcare-cleaning-osha-certified.html'),
+        postConstruction: resolve('post-construction-cleaning-ny-nj-ct-pa.html'),
+        luxuryResidential: resolve('luxury-residential-cleaning-white-glove.html')
+      }
+    }
   },
   server: {
     port: 8000,
