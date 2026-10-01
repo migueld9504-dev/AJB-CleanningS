@@ -1,4 +1,57 @@
+# robots.txt - AJB Cleaning Services, LLC
+# https://ajbcleaningservices.com/
+
 User-agent: *
 Allow: /
+Disallow: /gallery-manager.html
+
+# --- AI answer engines: explicitly allowed so they can cite us ---
+User-agent: GPTBot
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /gallery-manager.html
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /gallery-manager.html
 
 Sitemap: https://ajbcleaningservices.com/sitemap.xml
