@@ -1,6 +1,23 @@
 import { defineConfig } from 'vite'
-import { copyFileSync, mkdirSync, existsSync } from 'fs'
+import { copyFileSync, mkdirSync, existsSync, readdirSync } from 'fs'
 import { resolve } from 'path'
+
+// Paginas que NO se publican: gallery-manager es una herramienta interna (noindex) y
+// el archivo de verificacion de Search Console ya se sirve tal cual desde public/.
+const EXCLUDE = new Set(['gallery-manager.html', 'google79c9e6f00b6af792.html'])
+
+function htmlInputs() {
+  const inputs = {}
+  const add = (dir, file) => {
+    if (!file.endsWith('.html') || EXCLUDE.has(file)) return
+    const rel = dir ? `${dir}/${file}` : file
+    const name = rel.replace(/\.html$/, '').replace(/[^a-zA-Z0-9]+/g, '_')
+    inputs[name] = resolve(rel)
+  }
+  readdirSync('.', { withFileTypes: true }).forEach(e => { if (e.isFile()) add('', e.name) })
+  if (existsSync('es')) readdirSync('es').forEach(f => add('es', f))
+  return inputs
+}
 
 // Custom plugin to copy non-module JS files to dist
 function copyStaticJsPlugin() {
@@ -38,19 +55,9 @@ export default defineConfig({
     assetsInlineLimit: 0,
     cssCodeSplit: false,
     rollupOptions: {
-      input: {
-        main: resolve('index.html'),
-        commercial: resolve('commercial-cleaning-ny-nj.html'),
-        healthcare: resolve('healthcare-cleaning-osha-certified.html'),
-        postConstruction: resolve('post-construction-cleaning-ny-nj-ct-pa.html'),
-        luxuryResidential: resolve('luxury-residential-cleaning-white-glove.html'),
-        // Version en espanol (/es/), indexable y con hreflang reciproco
-        esMain: resolve('es/index.html'),
-        esCommercial: resolve('es/limpieza-comercial-oficinas-ny-nj.html'),
-        esHealthcare: resolve('es/limpieza-clinicas-hospitales-osha.html'),
-        esPostConstruction: resolve('es/limpieza-post-construccion-ny-nj-ct-pa.html'),
-        esLuxuryResidential: resolve('es/limpieza-residencial-lujo-guante-blanco.html')
-      }
+      // Entradas descubiertas solas: con las paginas por ciudad son mas de 50 archivos
+      // y una lista a mano se desincroniza en cuanto alguien agrega una ciudad.
+      input: htmlInputs()
     }
   },
   server: {

@@ -1,0 +1,380 @@
+[
+  {
+    "slug": "windsor-ct", "city": "Windsor", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06095",
+    "intro": {
+      "en": "Windsor is where AJB Cleaning Services is based. Our crews are minutes from the Day Hill Road corporate corridor, the industrial parks off Kennedy Road and the offices around Windsor Center, which means early-morning starts and same-day callbacks are routine rather than an exception.",
+      "es": "Windsor es la base de AJB Cleaning Services. Nuestras cuadrillas están a minutos del corredor corporativo de Day Hill Road, de los parques industriales de Kennedy Road y de las oficinas del centro de Windsor, así que arrancar de madrugada o volver el mismo día es rutina, no excepción."
+    },
+    "districts": { "en": "Day Hill Road corporate corridor, Windsor Center, Poquonock, Kennedy Road industrial park, Deerfield", "es": "Corredor corporativo de Day Hill Road, centro de Windsor, Poquonock, parque industrial de Kennedy Road, Deerfield" },
+    "facilities": {
+      "en": [["Office and back-office buildings", "The Day Hill corridor is dense with insurance and financial back-office space that needs nightly desk, restroom and breakroom service."], ["Warehouses and light industrial", "Dust control, hard-floor scrubbing and loading-dock cleanup for the distribution space along Kennedy Road."], ["Data centers and tech suites", "Anti-static, dust-free protocols for raised-floor rooms where ordinary vacuuming is not acceptable."]],
+      "es": [["Oficinas y centros administrativos", "El corredor de Day Hill concentra oficinas de seguros y servicios financieros que requieren limpieza nocturna de escritorios, baños y comedores."], ["Bodegas e industria ligera", "Control de polvo, fregado de pisos duros y limpieza de muelles de carga en el área de distribución de Kennedy Road."], ["Centros de datos y salas técnicas", "Protocolos antiestáticos y libres de polvo para salas de piso elevado donde el aspirado común no es aceptable."]]
+    },
+    "faq": {
+      "en": [["Are you actually located in Windsor?", "Yes. AJB Cleaning Services, LLC operates from 80 Lamberton Rd, Windsor, CT 06095. Windsor is our home base, so response times here are the shortest of our entire service area."], ["Can you clean before business hours in Windsor?", "Yes. Most of our Windsor accounts are serviced before 7 a.m. or after 6 p.m. Because our crews start locally, early schedules do not carry a travel surcharge."]],
+      "es": [["¿Realmente están ubicados en Windsor?", "Sí. AJB Cleaning Services, LLC opera desde 80 Lamberton Rd, Windsor, CT 06095. Windsor es nuestra base, así que aquí los tiempos de respuesta son los más cortos de toda nuestra área de servicio."], ["¿Pueden limpiar antes del horario de oficina en Windsor?", "Sí. La mayoría de nuestras cuentas en Windsor se atienden antes de las 7 a. m. o después de las 6 p. m. Como las cuadrillas salen desde aquí, el horario temprano no implica recargo por desplazamiento."]]
+    },
+    "near": ["windsor-locks-ct", "bloomfield-ct", "hartford-ct"]
+  },
+  {
+    "slug": "hartford-ct", "city": "Hartford", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06103, 06105, 06106, 06114",
+    "intro": {
+      "en": "Hartford concentrates Connecticut's largest office towers, its state government buildings and two major hospital campuses in a few square miles. Cleaning downtown means working around security desks, tenant schedules and loading-dock windows, which is a different discipline from cleaning a suburban office park.",
+      "es": "Hartford concentra las torres de oficinas más grandes de Connecticut, los edificios del gobierno estatal y dos campus hospitalarios importantes en pocos kilómetros cuadrados. Limpiar en el centro implica coordinar con puestos de seguridad, horarios de inquilinos y ventanas de muelle de carga: una disciplina distinta a la de un parque empresarial suburbano."
+    },
+    "districts": { "en": "Downtown and Constitution Plaza, Asylum Hill, the Capitol district, Frog Hollow, Parkville", "es": "Centro y Constitution Plaza, Asylum Hill, distrito del Capitolio, Frog Hollow, Parkville" },
+    "facilities": {
+      "en": [["Corporate towers and multi-tenant floors", "Lobby upkeep, elevator banks, glass and nightly floor-by-floor service coordinated with building management."], ["Medical offices and clinics", "OSHA-aligned disinfection for the practices clustered around the Asylum Hill hospital campuses."], ["Government and institutional buildings", "High-traffic corridors, public restrooms and meeting rooms that have to be presentable every single morning."]],
+      "es": [["Torres corporativas y pisos multiempresa", "Mantenimiento de lobby, zonas de ascensores, vidrios y servicio nocturno piso por piso, coordinado con la administración del edificio."], ["Consultorios y clínicas", "Desinfección conforme a OSHA para los consultorios agrupados alrededor de los campus hospitalarios de Asylum Hill."], ["Edificios públicos e institucionales", "Pasillos de alto tránsito, baños públicos y salas de reuniones que deben estar presentables cada mañana."]]
+    },
+    "faq": {
+      "en": [["Do you work with building management in downtown Hartford?", "Yes. We coordinate certificates of insurance, after-hours access and loading-dock scheduling directly with property managers, which is normally what holds up a start date downtown."], ["Can you cover a multi-tenant floor plan?", "Yes. We bill by suite or by common area depending on how the building is structured, and we keep separate checklists per tenant so nothing gets missed at turnover."]],
+      "es": [["¿Trabajan con la administración de edificios en el centro de Hartford?", "Sí. Coordinamos certificados de seguro, acceso fuera de horario y uso del muelle de carga directamente con los administradores, que suele ser lo que retrasa el inicio en el centro."], ["¿Pueden cubrir un piso con varios inquilinos?", "Sí. Facturamos por suite o por área común según cómo esté estructurado el edificio, y mantenemos listas de verificación separadas por inquilino para que nada se pase por alto."]]
+    },
+    "near": ["west-hartford-ct", "east-hartford-ct", "bloomfield-ct"]
+  },
+  {
+    "slug": "west-hartford-ct", "city": "West Hartford", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06107, 06110, 06117, 06119",
+    "intro": {
+      "en": "West Hartford's commercial life is split between the walkable retail of West Hartford Center and Blue Back Square, the professional offices along Farmington Avenue and the light-industrial pocket in Elmwood. Each needs a different rhythm: storefronts want presentation, offices want consistency.",
+      "es": "La vida comercial de West Hartford se reparte entre el comercio peatonal de West Hartford Center y Blue Back Square, las oficinas profesionales de Farmington Avenue y la zona industrial ligera de Elmwood. Cada una exige un ritmo distinto: los locales buscan presentación, las oficinas buscan constancia."
+    },
+    "districts": { "en": "West Hartford Center, Blue Back Square, Bishops Corner, Elmwood, Farmington Avenue corridor", "es": "West Hartford Center, Blue Back Square, Bishops Corner, Elmwood, corredor de Farmington Avenue" },
+    "facilities": {
+      "en": [["Retail storefronts and showrooms", "Streak-free glass, entry mats and floor finishes for businesses judged on first impression from the sidewalk."], ["Dental and medical practices", "Chairside sanitizing, operatory turnover and reception hygiene for the many private practices in town."], ["Professional and legal offices", "Discreet after-hours service with confidentiality agreements for firms handling sensitive files."]],
+      "es": [["Locales comerciales y salas de exhibición", "Vidrios sin marcas, tapetes de entrada y acabados de piso para negocios que se juzgan desde la acera."], ["Consultorios dentales y médicos", "Sanitización junto al sillón, preparación entre pacientes e higiene de recepción para los consultorios privados de la zona."], ["Oficinas profesionales y jurídicas", "Servicio discreto fuera de horario con acuerdos de confidencialidad para despachos que manejan expedientes sensibles."]]
+    },
+    "faq": {
+      "en": [["Can you clean a storefront before opening?", "Yes. Retail accounts in West Hartford Center are typically serviced between 5 a.m. and 9 a.m. so the space is ready before the first customer walks in."], ["Do you handle small offices, or only large contracts?", "We take single-suite practices as readily as full floors. Pricing is based on square footage and frequency, not on a minimum contract size."]],
+      "es": [["¿Pueden limpiar un local antes de abrir?", "Sí. Las cuentas comerciales de West Hartford Center suelen atenderse entre las 5 y las 9 a. m., para que el espacio esté listo antes del primer cliente."], ["¿Atienden oficinas pequeñas o solo contratos grandes?", "Atendemos consultorios de una sola suite igual que pisos completos. El precio se calcula por metros cuadrados y frecuencia, no por un tamaño mínimo de contrato."]]
+    },
+    "near": ["hartford-ct", "bloomfield-ct", "glastonbury-ct"]
+  },
+  {
+    "slug": "east-hartford-ct", "city": "East Hartford", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06108, 06118",
+    "intro": {
+      "en": "East Hartford is an aerospace and office town: the Pratt & Whitney campus anchors a web of suppliers and engineering firms, while Founders Plaza holds riverfront office space looking back at the Hartford skyline. Both environments reward crews that show up on a fixed schedule and document what they did.",
+      "es": "East Hartford es una ciudad aeroespacial y de oficinas: el campus de Pratt & Whitney ancla una red de proveedores y firmas de ingeniería, mientras Founders Plaza concentra oficinas frente al río con vista al perfil de Hartford. Ambos entornos premian a las cuadrillas que llegan en horario fijo y documentan su trabajo."
+    },
+    "districts": { "en": "Founders Plaza, the Pratt & Whitney corridor, Main Street, Silver Lane, Rentschler Field area", "es": "Founders Plaza, corredor de Pratt & Whitney, Main Street, Silver Lane, zona de Rentschler Field" },
+    "facilities": {
+      "en": [["Engineering and supplier offices", "Mixed office-and-shop space where the front half needs corporate presentation and the back half needs degreasing."], ["Riverfront office buildings", "Full-building nightly service for the multi-tenant towers at Founders Plaza."], ["Training rooms and conference space", "Fast turnover cleaning between sessions, including glass, whiteboards and catering cleanup."]],
+      "es": [["Oficinas de ingeniería y proveedores", "Espacios mixtos de oficina y taller donde el frente exige presentación corporativa y el fondo exige desengrase."], ["Edificios de oficinas frente al río", "Servicio nocturno de edificio completo para las torres multiempresa de Founders Plaza."], ["Salas de capacitación y conferencias", "Limpieza de recambio rápido entre sesiones, incluidos vidrios, pizarras y restos de catering."]]
+    },
+    "faq": {
+      "en": [["Can your crews pass a controlled-site badge check?", "Yes. Our staff are federally background-checked and we supply the documentation suppliers typically need before a crew is badged for restricted areas."], ["Do you clean shop floors as well as offices?", "Yes. Hard-floor scrubbing, degreasing and dust control in the shop area can be scheduled on a different frequency than the office side."]],
+      "es": [["¿Su personal pasa los controles de acceso de sitios restringidos?", "Sí. Nuestro personal tiene antecedentes verificados a nivel federal y entregamos la documentación que los proveedores suelen exigir antes de autorizar el acceso a áreas restringidas."], ["¿Limpian pisos de taller además de oficinas?", "Sí. El fregado de pisos duros, el desengrase y el control de polvo del taller se pueden programar con una frecuencia distinta a la del área de oficinas."]]
+    },
+    "near": ["hartford-ct", "manchester-ct", "south-windsor-ct"]
+  },
+  {
+    "slug": "bloomfield-ct", "city": "Bloomfield", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06002",
+    "intro": {
+      "en": "Bloomfield's commercial base leans heavily on health insurance and medical administration, with large campus-style office buildings set back from Cottage Grove Road and Blue Hills Avenue. Campus buildings need crews that can cover a lot of square footage on a predictable loop without supervision.",
+      "es": "La base comercial de Bloomfield se apoya en los seguros de salud y la administración médica, con edificios de oficinas tipo campus retirados de Cottage Grove Road y Blue Hills Avenue. Esos campus necesitan cuadrillas capaces de cubrir mucha superficie en un recorrido predecible y sin supervisión constante."
+    },
+    "districts": { "en": "Cottage Grove Road campuses, Blue Hills Avenue, Wintonbury, Bloomfield Center, Jerome Avenue", "es": "Campus de Cottage Grove Road, Blue Hills Avenue, Wintonbury, centro de Bloomfield, Jerome Avenue" },
+    "facilities": {
+      "en": [["Corporate campuses", "Multi-building nightly routes covering offices, cafeterias, fitness rooms and connecting corridors."], ["Medical administration offices", "Confidential-document environments where crews work around locked areas and clean-desk policies."], ["Cafeterias and breakrooms", "Degreasing, sanitizing and floor work on the food-service side of large campuses."]],
+      "es": [["Campus corporativos", "Rutas nocturnas de varios edificios que cubren oficinas, cafeterías, gimnasios y pasillos de conexión."], ["Oficinas de administración médica", "Entornos con documentación confidencial donde las cuadrillas trabajan respetando áreas cerradas y políticas de escritorio limpio."], ["Cafeterías y comedores", "Desengrase, sanitización y tratamiento de pisos en el área de alimentos de los campus grandes."]]
+    },
+    "faq": {
+      "en": [["Can you staff a large campus every night?", "Yes. Campus accounts get a dedicated crew with a named supervisor so the same people return each night, which is what keeps quality stable across a big footprint."], ["How do you handle areas we keep locked?", "We clean only what your access policy allows and log any room we could not enter, so nothing silently goes unserviced."]],
+      "es": [["¿Pueden cubrir un campus grande todas las noches?", "Sí. Las cuentas tipo campus reciben una cuadrilla dedicada con supervisor asignado, de modo que siempre vuelven las mismas personas: eso es lo que mantiene estable la calidad en superficies grandes."], ["¿Qué hacen con las áreas que mantenemos cerradas?", "Limpiamos únicamente lo que permite su política de acceso y registramos cualquier sala a la que no pudimos entrar, para que nada quede sin atender en silencio."]]
+    },
+    "near": ["windsor-ct", "west-hartford-ct", "hartford-ct"]
+  },
+  {
+    "slug": "south-windsor-ct", "city": "South Windsor", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06074",
+    "intro": {
+      "en": "South Windsor mixes the open-air retail of Evergreen Walk with the office and light-manufacturing space along Sullivan Avenue and the industrial park near Chapel Road. Retail here is seasonal and traffic-driven, so cleaning frequency often needs to flex through the year.",
+      "es": "South Windsor mezcla el comercio al aire libre de Evergreen Walk con las oficinas y la manufactura ligera de Sullivan Avenue y el parque industrial cerca de Chapel Road. El comercio aquí es estacional y depende del tráfico, así que la frecuencia de limpieza suele ajustarse a lo largo del año."
+    },
+    "districts": { "en": "Evergreen Walk, Sullivan Avenue corridor, Chapel Road industrial park, Buckland Road, Ellington Road", "es": "Evergreen Walk, corredor de Sullivan Avenue, parque industrial de Chapel Road, Buckland Road, Ellington Road" },
+    "facilities": {
+      "en": [["Open-air retail and restaurants", "Entryways, glass, patios and restrooms that take heavy footfall in peak season."], ["Light manufacturing and assembly", "Floor scrubbing, dust control and breakroom sanitation on shift-friendly schedules."], ["Medical and dental suites", "Operatory disinfection and waiting-room hygiene for the practices along Sullivan Avenue."]],
+      "es": [["Comercio al aire libre y restaurantes", "Accesos, vidrios, terrazas y baños que reciben mucho tránsito en temporada alta."], ["Manufactura ligera y ensamble", "Fregado de pisos, control de polvo y sanitización de comedores en horarios compatibles con los turnos."], ["Consultorios médicos y dentales", "Desinfección de consultorios e higiene de sala de espera para las prácticas de Sullivan Avenue."]]
+    },
+    "faq": {
+      "en": [["Can we increase frequency only for the holiday season?", "Yes. Retail accounts commonly run a higher frequency from November through early January and drop back afterward. We adjust the schedule without renegotiating the whole contract."], ["Do you work around production shifts?", "Yes. For manufacturing accounts we clean between shifts or during planned downtime so we never stop a line."]],
+      "es": [["¿Podemos subir la frecuencia solo en temporada navideña?", "Sí. Las cuentas comerciales suelen aumentar frecuencia de noviembre a inicios de enero y luego volver a la normal. Ajustamos el calendario sin renegociar todo el contrato."], ["¿Se adaptan a los turnos de producción?", "Sí. En cuentas de manufactura limpiamos entre turnos o durante paros programados, para no detener nunca una línea."]]
+    },
+    "near": ["manchester-ct", "east-hartford-ct", "windsor-ct"]
+  },
+  {
+    "slug": "windsor-locks-ct", "city": "Windsor Locks", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06096",
+    "intro": {
+      "en": "Windsor Locks runs on Bradley International Airport. The hotels, freight terminals, aviation suppliers and rental operations around the airport work on flight schedules, not office hours, and they need a cleaning partner that can show up at odd times without complaint.",
+      "es": "Windsor Locks gira alrededor del Aeropuerto Internacional Bradley. Los hoteles, terminales de carga, proveedores de aviación y operadores de alquiler que rodean el aeropuerto funcionan con horarios de vuelo, no de oficina, y necesitan un proveedor de limpieza que llegue a horas inusuales sin poner peros."
+    },
+    "districts": { "en": "Bradley International Airport area, Ella Grasso Turnpike, Old County Road industrial zone, Main Street, Route 20 corridor", "es": "Zona del Aeropuerto Internacional Bradley, Ella Grasso Turnpike, zona industrial de Old County Road, Main Street, corredor de la Ruta 20" },
+    "facilities": {
+      "en": [["Airport-area hotels", "Lobby, corridor and common-area service on overnight schedules that do not disturb guests."], ["Freight and logistics facilities", "Dock cleanup, hard-floor scrubbing and restroom service for operations running around the clock."], ["Aviation supplier offices and hangars", "Mixed office and hangar environments with dust and fluid control on the shop side."]],
+      "es": [["Hoteles del área del aeropuerto", "Servicio de lobby, pasillos y áreas comunes en horarios nocturnos que no incomodan a los huéspedes."], ["Instalaciones de carga y logística", "Limpieza de muelles, fregado de pisos duros y servicio de baños para operaciones que no paran."], ["Oficinas y hangares de proveedores aeronáuticos", "Entornos mixtos de oficina y hangar, con control de polvo y de fluidos en el lado operativo."]]
+    },
+    "faq": {
+      "en": [["Can you clean overnight or on weekends near Bradley?", "Yes. Airport-area accounts are usually serviced overnight. Windsor Locks borders our Windsor base, so late schedules here are easy for us to staff."], ["Do your crews meet airport access requirements?", "Our staff are federally background-checked and we provide the documentation and insurance certificates required before badging. Specific badge issuance is handled by the facility operator."]],
+      "es": [["¿Pueden limpiar de noche o en fin de semana cerca de Bradley?", "Sí. Las cuentas del área del aeropuerto suelen atenderse de madrugada. Windsor Locks colinda con nuestra base en Windsor, así que cubrir horarios tardíos aquí nos resulta sencillo."], ["¿Su personal cumple los requisitos de acceso del aeropuerto?", "Nuestro personal tiene antecedentes verificados a nivel federal y entregamos la documentación y los certificados de seguro requeridos antes del credencial. La emisión de credenciales la gestiona el operador de la instalación."]]
+    },
+    "near": ["windsor-ct", "enfield-ct", "bloomfield-ct"]
+  },
+  {
+    "slug": "enfield-ct", "city": "Enfield", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06082",
+    "intro": {
+      "en": "Enfield sits on the Massachusetts line with easy I-91 access, which is why distribution and warehouse space clusters here alongside the retail along Hazard Avenue. Warehouse cleaning is a volume problem: large floor areas, constant dust and tight windows between shifts.",
+      "es": "Enfield está en el límite con Massachusetts y con acceso directo a la I-91, por eso concentra bodegas y centros de distribución junto al comercio de Hazard Avenue. Limpiar bodegas es un problema de volumen: superficies enormes, polvo constante y ventanas estrechas entre turnos."
+    },
+    "districts": { "en": "Hazard Avenue retail corridor, Enfield Square area, Elm Street, the I-91 industrial parks, Thompsonville", "es": "Corredor comercial de Hazard Avenue, zona de Enfield Square, Elm Street, parques industriales de la I-91, Thompsonville" },
+    "facilities": {
+      "en": [["Distribution centers and warehouses", "Ride-on floor scrubbing, dust control and restroom service sized for high-volume operations."], ["Retail plazas", "Entry glass, common areas and restrooms across multi-unit plazas on a shared schedule."], ["Office and administrative suites", "Standard nightly service for the front-office side of logistics operations."]],
+      "es": [["Centros de distribución y bodegas", "Fregado de pisos con máquina montable, control de polvo y servicio de baños dimensionado para operaciones de alto volumen."], ["Plazas comerciales", "Vidrios de acceso, áreas comunes y baños en plazas de varios locales con un calendario compartido."], ["Suites administrativas", "Servicio nocturno estándar para el área administrativa de las operaciones logísticas."]]
+    },
+    "faq": {
+      "en": [["Do you have equipment for large warehouse floors?", "Yes. Floor area at that scale is handled with ride-on and walk-behind scrubbers rather than mops, which is the only way to finish inside a shift window."], ["Can you service a site that runs three shifts?", "Yes. We schedule around changeovers and concentrate on the areas that are clear at that moment, rotating zones across the week."]],
+      "es": [["¿Tienen equipo para pisos de bodega grandes?", "Sí. Una superficie así se trabaja con fregadoras montables y de conductor acompañante, no con trapeador: es la única forma de terminar dentro de la ventana de un turno."], ["¿Pueden atender un sitio con tres turnos?", "Sí. Programamos alrededor de los cambios de turno y nos concentramos en las áreas despejadas en ese momento, rotando zonas durante la semana."]]
+    },
+    "near": ["windsor-locks-ct", "windsor-ct", "manchester-ct"]
+  },
+  {
+    "slug": "manchester-ct", "city": "Manchester", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06040, 06042",
+    "intro": {
+      "en": "Manchester's commercial weight sits in the Buckland Hills retail district, with a second cluster of medical offices and professional space around Manchester Memorial Hospital and along Main Street. Retail and healthcare sit at opposite ends of the cleaning spectrum, and we run them on separate protocols.",
+      "es": "El peso comercial de Manchester está en el distrito comercial de Buckland Hills, con un segundo núcleo de consultorios médicos y oficinas profesionales alrededor del Manchester Memorial Hospital y en Main Street. Comercio y salud están en extremos opuestos del espectro de limpieza, y los manejamos con protocolos separados."
+    },
+    "districts": { "en": "Buckland Hills, Manchester Green, Main Street downtown, Tolland Turnpike, Hartford Road", "es": "Buckland Hills, Manchester Green, centro de Main Street, Tolland Turnpike, Hartford Road" },
+    "facilities": {
+      "en": [["Retail stores and plazas", "High-traffic entryways, fitting rooms, restrooms and floor finishes in the Buckland Hills area."], ["Medical and outpatient offices", "Exam-room disinfection and waiting-area hygiene using EPA-registered, hospital-grade products."], ["Professional offices on Main Street", "Nightly or weekly service for smaller downtown suites where a full-time janitor is not practical."]],
+      "es": [["Tiendas y plazas comerciales", "Accesos de alto tránsito, probadores, baños y acabados de piso en la zona de Buckland Hills."], ["Consultorios médicos y ambulatorios", "Desinfección de salas de exploración e higiene de sala de espera con productos de grado hospitalario registrados ante la EPA."], ["Oficinas profesionales en Main Street", "Servicio nocturno o semanal para suites pequeñas del centro donde no es práctico tener conserje de planta."]]
+    },
+    "faq": {
+      "en": [["Do you serve both the Buckland Hills area and downtown?", "Yes, both. They are different routes with different start times, so a retail account and a downtown office account do not compete for the same crew slot."], ["Can you clean medical and non-medical spaces in one building?", "Yes, with separate equipment and color-coded cloths for the clinical areas, so nothing crosses between a treatment room and a general office."]],
+      "es": [["¿Atienden tanto Buckland Hills como el centro?", "Sí, ambos. Son rutas distintas con horarios de inicio distintos, así que una cuenta comercial y una oficina del centro no compiten por el mismo turno de cuadrilla."], ["¿Pueden limpiar áreas médicas y no médicas en un mismo edificio?", "Sí, con equipo separado y paños de código de colores para las zonas clínicas, de modo que nada cruce entre una sala de tratamiento y una oficina general."]]
+    },
+    "near": ["east-hartford-ct", "south-windsor-ct", "glastonbury-ct"]
+  },
+  {
+    "slug": "glastonbury-ct", "city": "Glastonbury", "state": "CT", "stateName": "Connecticut", "tier": 1,
+    "zips": "06033",
+    "intro": {
+      "en": "Glastonbury's business district is built around professional services: financial advisors, law offices, dental practices and boutique retail along Hebron Avenue, New London Turnpike and Somerset Square. These are smaller suites where the cleaning is judged on detail rather than square footage.",
+      "es": "El distrito comercial de Glastonbury gira en torno a los servicios profesionales: asesores financieros, despachos jurídicos, consultorios dentales y comercio boutique en Hebron Avenue, New London Turnpike y Somerset Square. Son suites más pequeñas donde la limpieza se juzga por el detalle, no por los metros cuadrados."
+    },
+    "districts": { "en": "Somerset Square, Hebron Avenue, New London Turnpike, Glastonbury Center, Main Street", "es": "Somerset Square, Hebron Avenue, New London Turnpike, centro de Glastonbury, Main Street" },
+    "facilities": {
+      "en": [["Financial and legal offices", "Confidential, after-hours service with NDAs and clean-desk discipline for client-file environments."], ["Dental and specialty practices", "Operatory sanitizing and reception hygiene between patient days."], ["Boutique retail and salons", "Detail-level presentation: glass, mirrors, fixtures and floors in small high-visibility spaces."]],
+      "es": [["Oficinas financieras y jurídicas", "Servicio confidencial fuera de horario, con acuerdos de confidencialidad y disciplina de escritorio limpio en entornos con expedientes de clientes."], ["Consultorios dentales y de especialidad", "Sanitización de consultorios e higiene de recepción entre jornadas de pacientes."], ["Comercio boutique y salones", "Presentación de nivel detalle: vidrios, espejos, mobiliario y pisos en espacios pequeños de alta visibilidad."]]
+    },
+    "faq": {
+      "en": [["Is there a minimum size for a Glastonbury office?", "No. We service single-suite offices on a weekly or biweekly schedule, which is usually the right fit for a professional practice in this area."], ["Will the same cleaner come each time?", "For small confidential offices we assign a fixed cleaner rather than rotating staff, because familiarity with the space is what prevents mistakes."]],
+      "es": [["¿Hay un tamaño mínimo para una oficina en Glastonbury?", "No. Atendemos oficinas de una sola suite con frecuencia semanal o quincenal, que suele ser lo adecuado para una práctica profesional en esta zona."], ["¿Siempre va la misma persona?", "En oficinas pequeñas y confidenciales asignamos una persona fija en lugar de rotar personal, porque conocer el espacio es justamente lo que evita errores."]]
+    },
+    "near": ["manchester-ct", "west-hartford-ct", "east-hartford-ct"]
+  },
+  {
+    "slug": "stamford-ct", "city": "Stamford", "state": "CT", "stateName": "Connecticut", "tier": 2,
+    "zips": "06901, 06902, 06905",
+    "intro": {
+      "en": "Stamford holds one of the densest concentrations of corporate headquarters in New England, from the Tresser Boulevard towers to the newer Harbor Point developments. Downtown buildings here run strict vendor requirements: certificates of insurance, badged access and documented cleaning schedules.",
+      "es": "Stamford concentra una de las mayores densidades de sedes corporativas de Nueva Inglaterra, desde las torres de Tresser Boulevard hasta los desarrollos más nuevos de Harbor Point. Los edificios del centro aplican requisitos estrictos a proveedores: certificados de seguro, acceso con credencial y calendarios de limpieza documentados."
+    },
+    "districts": { "en": "Downtown and Tresser Boulevard, Harbor Point, the South End, Summer Street, Shippan", "es": "Centro y Tresser Boulevard, Harbor Point, South End, Summer Street, Shippan" },
+    "facilities": {
+      "en": [["Corporate headquarters floors", "Executive-level presentation standards, including conference suites and client-facing reception areas."], ["Financial and legal offices", "Confidential after-hours service with signed NDAs and strict document-handling rules."], ["Mixed-use building common areas", "Lobbies, amenity floors and corridors in the residential-and-office towers around Harbor Point."]],
+      "es": [["Pisos de sedes corporativas", "Estándares de presentación de nivel directivo, incluidas salas de juntas y áreas de recepción de clientes."], ["Oficinas financieras y jurídicas", "Servicio confidencial fuera de horario con acuerdos firmados y reglas estrictas de manejo documental."], ["Áreas comunes de edificios de uso mixto", "Lobbies, pisos de amenidades y pasillos en las torres residenciales y de oficinas de Harbor Point."]]
+    },
+    "faq": {
+      "en": [["Can you meet downtown Stamford vendor requirements?", "Yes. We are a registered LLC with General Liability and Worker's Compensation coverage and issue certificates of insurance on contract confirmation, which is what most Stamford buildings ask for first."], ["Stamford is far from your Windsor base. How does that work?", "Fairfield County accounts are scheduled as dedicated routes rather than ad-hoc visits. We are straightforward about this: if you need unscheduled same-hour emergency response, our Hartford-area accounts get that faster than Stamford does."]],
+      "es": [["¿Cumplen los requisitos de proveedor del centro de Stamford?", "Sí. Somos una LLC registrada con cobertura de Responsabilidad Civil General y Compensación Laboral, y emitimos certificados de seguro al confirmar el contrato, que es lo primero que piden la mayoría de los edificios de Stamford."], ["Stamford queda lejos de su base en Windsor. ¿Cómo funciona?", "Las cuentas del condado de Fairfield se programan como rutas dedicadas, no como visitas sueltas. Se lo decimos con claridad: si necesita respuesta de emergencia en la misma hora y sin programar, nuestras cuentas del área de Hartford la reciben más rápido que Stamford."]]
+    },
+    "near": ["new-haven-ct", "white-plains-ny", "yonkers-ny"]
+  },
+  {
+    "slug": "new-haven-ct", "city": "New Haven", "state": "CT", "stateName": "Connecticut", "tier": 2,
+    "zips": "06510, 06511, 06519",
+    "intro": {
+      "en": "New Haven's economy runs on healthcare, research and education. The medical district, the laboratory space around Science Park and the professional offices downtown all demand documented protocols — in a lab or clinical setting, cleaning is a compliance activity, not housekeeping.",
+      "es": "La economía de New Haven se mueve con salud, investigación y educación. El distrito médico, los laboratorios alrededor de Science Park y las oficinas profesionales del centro exigen protocolos documentados: en un laboratorio o entorno clínico, la limpieza es una actividad de cumplimiento, no de aseo."
+    },
+    "districts": { "en": "The Medical District, Science Park, downtown and the Green, Long Wharf, Wooster Square", "es": "Distrito médico, Science Park, centro y The Green, Long Wharf, Wooster Square" },
+    "facilities": {
+      "en": [["Clinics and outpatient facilities", "OSHA 29 CFR 1910.1030 protocols, terminal cleaning and color-coded systems to prevent cross-contamination."], ["Laboratory and research suites", "Dust-free, anti-static cleaning with strict rules about which surfaces we do and do not touch."], ["Downtown professional offices", "Nightly service for firms around the Green and Chapel Street."]],
+      "es": [["Clínicas e instalaciones ambulatorias", "Protocolos OSHA 29 CFR 1910.1030, limpieza terminal y sistemas de código de colores para evitar contaminación cruzada."], ["Laboratorios y suites de investigación", "Limpieza libre de polvo y antiestática, con reglas estrictas sobre qué superficies se tocan y cuáles no."], ["Oficinas profesionales del centro", "Servicio nocturno para despachos alrededor de The Green y Chapel Street."]]
+    },
+    "faq": {
+      "en": [["Do you follow written protocols for clinical spaces?", "Yes. Clinical accounts get a documented protocol covering products, dwell times, color-coded equipment and the order of rooms, so the work is auditable rather than assumed."], ["Can you work inside a laboratory?", "We clean the areas a lab designates as cleanable, following their instructions on restricted surfaces and equipment. We do not touch instrumentation or active work areas."]],
+      "es": [["¿Siguen protocolos escritos en espacios clínicos?", "Sí. Las cuentas clínicas reciben un protocolo documentado con productos, tiempos de contacto, equipo por código de colores y orden de las salas, para que el trabajo sea auditable y no una suposición."], ["¿Pueden trabajar dentro de un laboratorio?", "Limpiamos las áreas que el laboratorio designa como limpiables, siguiendo sus instrucciones sobre superficies y equipos restringidos. No tocamos instrumentación ni zonas de trabajo activas."]]
+    },
+    "near": ["stamford-ct", "hartford-ct", "glastonbury-ct"]
+  },
+  {
+    "slug": "new-york-ny", "city": "New York", "state": "NY", "stateName": "New York", "tier": 2,
+    "zips": "10001, 10016, 10017, 10036",
+    "intro": {
+      "en": "Manhattan cleaning is governed by the building, not the tenant. Freight elevator windows, certificate-of-insurance requirements, union rules and nightly access lists shape what is actually possible — so the first conversation is usually with building management, not about mops.",
+      "es": "En Manhattan, la limpieza la gobierna el edificio, no el inquilino. Las ventanas del montacargas, los requisitos de certificado de seguro, las reglas sindicales y las listas de acceso nocturno determinan lo que realmente se puede hacer; por eso la primera conversación suele ser con la administración del edificio, no sobre trapeadores."
+    },
+    "districts": { "en": "Midtown, the Financial District, SoHo, Chelsea, the Flatiron District", "es": "Midtown, Financial District, SoHo, Chelsea, Flatiron District" },
+    "facilities": {
+      "en": [["Office suites and full floors", "Nightly desk, glass, pantry and restroom service coordinated with the building's access rules."], ["Showrooms and client-facing space", "Presentation-grade detailing for spaces where the room is part of the sales pitch."], ["Medical and dental practices", "Clinical disinfection for private practices operating inside commercial buildings."]],
+      "es": [["Suites de oficina y pisos completos", "Servicio nocturno de escritorios, vidrios, cocineta y baños, coordinado con las reglas de acceso del edificio."], ["Showrooms y espacios de cara al cliente", "Detallado de nivel presentación para espacios donde la sala es parte del argumento de venta."], ["Consultorios médicos y dentales", "Desinfección clínica para prácticas privadas dentro de edificios comerciales."]]
+    },
+    "faq": {
+      "en": [["Can you provide a certificate of insurance for a Manhattan building?", "Yes. We issue COIs naming the building and managing agent as required, which is normally the gating item before any vendor is allowed to work after hours."], ["Do you handle buildings with union labor requirements?", "Building rules vary and some Manhattan properties restrict outside vendors. We confirm the building's vendor policy before quoting, so you do not sign a contract we cannot legally perform."]],
+      "es": [["¿Emiten certificado de seguro para un edificio de Manhattan?", "Sí. Emitimos COI nombrando al edificio y al agente administrador según se requiera, que suele ser el requisito que destraba el acceso de cualquier proveedor fuera de horario."], ["¿Atienden edificios con requisitos de personal sindicalizado?", "Las reglas varían y algunas propiedades de Manhattan restringen proveedores externos. Confirmamos la política del edificio antes de cotizar, para que usted no firme un contrato que no podamos ejecutar legalmente."]]
+    },
+    "near": ["white-plains-ny", "yonkers-ny", "jersey-city-nj"]
+  },
+  {
+    "slug": "white-plains-ny", "city": "White Plains", "state": "NY", "stateName": "New York", "tier": 2,
+    "zips": "10601, 10604, 10605, 10606",
+    "intro": {
+      "en": "White Plains is Westchester's office centre, split between the walkable downtown core and the corporate parks strung along Westchester Avenue. Suburban office parks are easier to service than Manhattan towers: parking, loading and after-hours access are rarely the bottleneck.",
+      "es": "White Plains es el centro de oficinas de Westchester, repartido entre el núcleo peatonal del centro y los parques corporativos a lo largo de Westchester Avenue. Los parques de oficinas suburbanos son más fáciles de atender que las torres de Manhattan: estacionamiento, carga y acceso fuera de horario rara vez son el cuello de botella."
+    },
+    "districts": { "en": "Downtown White Plains, the Westchester Avenue corporate corridor, Mamaroneck Avenue, North Broadway, the Bronx River Parkway corridor", "es": "Centro de White Plains, corredor corporativo de Westchester Avenue, Mamaroneck Avenue, North Broadway, corredor del Bronx River Parkway" },
+    "facilities": {
+      "en": [["Corporate office parks", "Full-building nightly routes with on-site parking and straightforward loading access."], ["Law and professional firms", "Confidential service with NDAs for firms handling client files."], ["Medical office buildings", "Exam rooms, waiting areas and shared corridors cleaned on clinical protocols."]],
+      "es": [["Parques de oficinas corporativas", "Rutas nocturnas de edificio completo, con estacionamiento en sitio y acceso de carga sencillo."], ["Despachos jurídicos y profesionales", "Servicio confidencial con acuerdos de confidencialidad para firmas que manejan expedientes de clientes."], ["Edificios de consultorios médicos", "Salas de exploración, áreas de espera y pasillos comunes limpiados con protocolos clínicos."]]
+    },
+    "faq": {
+      "en": [["Do you quote per building or per suite in White Plains?", "Either. Office parks are usually quoted per building with common areas included; single tenants are quoted by suite square footage and frequency."], ["How quickly can you start?", "After a walkthrough we can normally begin within a week, once the certificate of insurance is issued and building access is arranged."]],
+      "es": [["¿Cotizan por edificio o por suite en White Plains?", "Ambas formas. Los parques de oficinas suelen cotizarse por edificio con áreas comunes incluidas; los inquilinos individuales, por metros cuadrados de la suite y frecuencia."], ["¿Qué tan rápido pueden empezar?", "Tras la visita normalmente podemos iniciar en una semana, una vez emitido el certificado de seguro y coordinado el acceso al edificio."]]
+    },
+    "near": ["yonkers-ny", "new-york-ny", "stamford-ct"]
+  },
+  {
+    "slug": "yonkers-ny", "city": "Yonkers", "state": "NY", "stateName": "New York", "tier": 2,
+    "zips": "10701, 10703, 10704, 10710",
+    "intro": {
+      "en": "Yonkers combines large retail destinations like Ridge Hill and Cross County with waterfront office space and a working industrial strip along the Hudson. It is a city where one cleaning contract can cover three completely different kinds of space.",
+      "es": "Yonkers combina grandes destinos comerciales como Ridge Hill y Cross County con oficinas frente al río y una franja industrial activa a lo largo del Hudson. Es una ciudad donde un solo contrato de limpieza puede cubrir tres tipos de espacio completamente distintos."
+    },
+    "districts": { "en": "Ridge Hill, Cross County, Getty Square, the Hudson waterfront, South Broadway", "es": "Ridge Hill, Cross County, Getty Square, ribera del Hudson, South Broadway" },
+    "facilities": {
+      "en": [["Retail centers and plazas", "Entrances, common areas, restrooms and floor care in high-footfall shopping destinations."], ["Waterfront offices", "Nightly office service including glass, which matters more in buildings sold on their river views."], ["Light industrial and storage", "Floor scrubbing, dust control and dock-area cleanup."]],
+      "es": [["Centros y plazas comerciales", "Accesos, áreas comunes, baños y cuidado de pisos en destinos de compras con mucho tránsito."], ["Oficinas frente al río", "Servicio nocturno de oficina incluidos los vidrios, que pesan más en edificios que se venden por su vista al río."], ["Industria ligera y almacenamiento", "Fregado de pisos, control de polvo y limpieza de zona de muelles."]]
+    },
+    "faq": {
+      "en": [["Can one contract cover retail and office space?", "Yes. We write them as separate scopes with separate frequencies under one agreement and one invoice, which is simpler than running two vendors."], ["Do you clean during store hours?", "For retail we prefer before opening or after closing. Mid-day work is limited to spot service in entries and restrooms."]],
+      "es": [["¿Un mismo contrato puede cubrir comercio y oficinas?", "Sí. Los redactamos como alcances separados con frecuencias distintas bajo un solo acuerdo y una sola factura, que es más simple que manejar dos proveedores."], ["¿Limpian en horario de tienda?", "En comercio preferimos antes de abrir o después de cerrar. El trabajo a media jornada se limita a repasos en accesos y baños."]]
+    },
+    "near": ["white-plains-ny", "new-york-ny", "stamford-ct"]
+  },
+  {
+    "slug": "newark-nj", "city": "Newark", "state": "NJ", "stateName": "New Jersey", "tier": 2,
+    "zips": "07102, 07103, 07105, 07114",
+    "intro": {
+      "en": "Newark is a logistics and institutional city: port and airport operations on one side, university campuses, hospitals and Gateway Center office towers on the other. The two halves have almost nothing in common operationally, and we scope them separately.",
+      "es": "Newark es una ciudad logística e institucional: operaciones portuarias y aeroportuarias por un lado; campus universitarios, hospitales y las torres de oficinas de Gateway Center por el otro. Las dos mitades casi no tienen nada en común a nivel operativo, y las cotizamos por separado."
+    },
+    "districts": { "en": "Gateway Center and downtown, the Ironbound, University Heights, the airport and port area, Military Park", "es": "Gateway Center y centro, Ironbound, University Heights, zona del aeropuerto y el puerto, Military Park" },
+    "facilities": {
+      "en": [["Downtown office towers", "Nightly multi-floor service coordinated with building security and freight access."], ["Logistics and warehouse facilities", "Large-area floor scrubbing, dust control and restroom service near the port and airport."], ["Institutional and campus buildings", "Classrooms, labs and high-traffic corridors on academic schedules."]],
+      "es": [["Torres de oficinas del centro", "Servicio nocturno de varios pisos coordinado con seguridad del edificio y acceso de carga."], ["Instalaciones logísticas y bodegas", "Fregado de grandes superficies, control de polvo y servicio de baños cerca del puerto y el aeropuerto."], ["Edificios institucionales y de campus", "Aulas, laboratorios y pasillos de alto tránsito en calendarios académicos."]]
+    },
+    "faq": {
+      "en": [["Do you provide COIs for Newark properties?", "Yes. Certificates of Insurance are issued on contract confirmation, naming the property and managing agent as required."], ["Can you handle a 24/7 logistics site?", "Yes. We schedule around shift changes and rotate zones so cleaning never blocks dock or floor operations."]],
+      "es": [["¿Emiten certificados de seguro para propiedades en Newark?", "Sí. Los Certificados de Seguro se emiten al confirmar el contrato, nombrando a la propiedad y al agente administrador según se requiera."], ["¿Pueden atender un sitio logístico 24/7?", "Sí. Programamos alrededor de los cambios de turno y rotamos zonas para que la limpieza nunca bloquee la operación de muelles o piso."]]
+    },
+    "near": ["jersey-city-nj", "new-york-ny", "princeton-nj"]
+  },
+  {
+    "slug": "jersey-city-nj", "city": "Jersey City", "state": "NJ", "stateName": "New Jersey", "tier": 2,
+    "zips": "07302, 07305, 07306, 07310",
+    "intro": {
+      "en": "Jersey City's waterfront towers at Exchange Place and Newport hold financial back-office operations that run on the same vendor standards as Manhattan — but with easier loading, parking and after-hours access, which usually means a faster start date.",
+      "es": "Las torres de la ribera de Jersey City, en Exchange Place y Newport, albergan operaciones administrativas financieras con los mismos estándares de proveedor que Manhattan, pero con carga, estacionamiento y acceso fuera de horario más sencillos, lo que suele traducirse en un inicio más rápido."
+    },
+    "districts": { "en": "Exchange Place, Newport, Journal Square, the Powerhouse Arts District, Grove Street", "es": "Exchange Place, Newport, Journal Square, Powerhouse Arts District, Grove Street" },
+    "facilities": {
+      "en": [["Financial back-office floors", "Large open-plan floors with heavy desk counts, pantries and restrooms on nightly service."], ["Multi-tenant towers", "Lobby, elevator bank and common-corridor service coordinated with property management."], ["Residential building amenity floors", "Gyms, lounges and shared work areas in the high-rises along the waterfront."]],
+      "es": [["Pisos administrativos financieros", "Pisos amplios de planta abierta con muchos escritorios, cocinetas y baños en servicio nocturno."], ["Torres multiempresa", "Servicio de lobby, zona de ascensores y pasillos comunes coordinado con la administración de la propiedad."], ["Pisos de amenidades residenciales", "Gimnasios, salas de estar y áreas de trabajo compartidas en los edificios altos de la ribera."]]
+    },
+    "faq": {
+      "en": [["Is Jersey City easier to service than Manhattan?", "Operationally, usually yes. Loading access and parking are less restricted, so crews lose less time getting in and out, and start dates tend to be quicker."], ["Do you clean gym and amenity spaces?", "Yes. Equipment wipe-down, mirrors, mats and restrooms are handled on a daily frequency in amenity areas, since those surfaces are high-contact."]],
+      "es": [["¿Es más fácil atender Jersey City que Manhattan?", "Operativamente, por lo general sí. El acceso de carga y el estacionamiento están menos restringidos, así que las cuadrillas pierden menos tiempo entrando y saliendo, y las fechas de inicio suelen ser más rápidas."], ["¿Limpian gimnasios y áreas de amenidades?", "Sí. La desinfección de equipos, espejos, tapetes y baños se maneja con frecuencia diaria en áreas de amenidades, porque son superficies de alto contacto."]]
+    },
+    "near": ["newark-nj", "new-york-ny", "princeton-nj"]
+  },
+  {
+    "slug": "princeton-nj", "city": "Princeton", "state": "NJ", "stateName": "New Jersey", "tier": 2,
+    "zips": "08540, 08542",
+    "intro": {
+      "en": "Princeton's commercial space is dominated by the research and corporate parks along the Route 1 corridor, plus the professional offices and retail on Nassau Street. Research tenants bring the strictest requirements: documented products, restricted areas and no improvisation.",
+      "es": "El espacio comercial de Princeton está dominado por los parques de investigación y corporativos del corredor de la Ruta 1, más las oficinas profesionales y el comercio de Nassau Street. Los inquilinos de investigación traen los requisitos más estrictos: productos documentados, áreas restringidas y cero improvisación."
+    },
+    "districts": { "en": "The Route 1 research corridor, Nassau Street, Princeton Forrestal area, Carnegie Center, Alexander Road", "es": "Corredor de investigación de la Ruta 1, Nassau Street, zona de Princeton Forrestal, Carnegie Center, Alexander Road" },
+    "facilities": {
+      "en": [["Research and pharmaceutical offices", "Documented protocols, restricted-area compliance and anti-static cleaning where instrumentation is present."], ["Corporate park buildings", "Full-building nightly service including conference centers and cafeterias."], ["Professional offices and boutique retail", "Detail-focused service for the smaller suites along Nassau Street."]],
+      "es": [["Oficinas de investigación y farmacéuticas", "Protocolos documentados, cumplimiento de áreas restringidas y limpieza antiestática donde hay instrumentación."], ["Edificios de parques corporativos", "Servicio nocturno de edificio completo, incluidos centros de conferencias y cafeterías."], ["Oficinas profesionales y comercio boutique", "Servicio enfocado al detalle para las suites más pequeñas de Nassau Street."]]
+    },
+    "faq": {
+      "en": [["Can you supply a documented product list?", "Yes. Research and pharmaceutical tenants normally require safety data sheets and a fixed product list before approval, and we provide both up front."], ["Do you clean cafeterias and conference centers?", "Yes. Food-service areas are scoped separately with degreasing and sanitizing, since they carry different requirements than office space."]],
+      "es": [["¿Pueden entregar una lista documentada de productos?", "Sí. Los inquilinos de investigación y farmacéuticos suelen exigir hojas de datos de seguridad y una lista fija de productos antes de aprobar, y entregamos ambas por adelantado."], ["¿Limpian cafeterías y centros de conferencias?", "Sí. Las áreas de alimentos se cotizan aparte, con desengrase y sanitización, porque tienen requisitos distintos a los de oficina."]]
+    },
+    "near": ["newark-nj", "jersey-city-nj", "philadelphia-pa"]
+  },
+  {
+    "slug": "philadelphia-pa", "city": "Philadelphia", "state": "PA", "stateName": "Pennsylvania", "tier": 2,
+    "zips": "19102, 19103, 19106, 19107",
+    "intro": {
+      "en": "Philadelphia's commercial demand concentrates in Center City offices, the hospital and university belt in University City, and the converted industrial space at the Navy Yard. Institutional buildings here run on documented standards, and a vendor without paperwork does not get past procurement.",
+      "es": "La demanda comercial de Filadelfia se concentra en las oficinas de Center City, el cinturón de hospitales y universidades de University City, y el espacio industrial reconvertido del Navy Yard. Los edificios institucionales funcionan con estándares documentados, y un proveedor sin papeles no pasa de compras."
+    },
+    "districts": { "en": "Center City, University City, the Navy Yard, Old City, Market Street East", "es": "Center City, University City, Navy Yard, Old City, Market Street East" },
+    "facilities": {
+      "en": [["Center City office floors", "Nightly service coordinated with building management and freight elevator scheduling."], ["Clinical and laboratory space", "OSHA- and CDC-aligned protocols with color-coded equipment and documented dwell times."], ["Converted industrial and flex space", "Hard-floor care, dust control and high-ceiling environments at the Navy Yard."]],
+      "es": [["Pisos de oficinas en Center City", "Servicio nocturno coordinado con la administración del edificio y el uso del montacargas."], ["Espacios clínicos y de laboratorio", "Protocolos alineados a OSHA y CDC, con equipo por código de colores y tiempos de contacto documentados."], ["Espacios industriales reconvertidos y flex", "Cuidado de pisos duros, control de polvo y entornos de techo alto en el Navy Yard."]]
+    },
+    "faq": {
+      "en": [["What documentation do you provide for procurement?", "Certificate of Insurance, proof of General Liability and Worker's Compensation, safety data sheets for products used, and a written scope with frequencies."], ["Philadelphia is at the far edge of your service area. Be honest about response times.", "It is. Philadelphia accounts are run as scheduled contract routes. If your facility needs unscheduled same-day emergency response, you will get that faster from a vendor based in the city than from us."]],
+      "es": [["¿Qué documentación entregan para el área de compras?", "Certificado de seguro, constancia de Responsabilidad Civil General y Compensación Laboral, hojas de datos de seguridad de los productos usados y un alcance escrito con frecuencias."], ["Filadelfia está en el extremo de su área de servicio. Sean honestos con los tiempos de respuesta.", "Lo está. Las cuentas de Filadelfia operan como rutas de contrato programadas. Si su instalación necesita respuesta de emergencia el mismo día y sin programar, la obtendrá más rápido de un proveedor con base en la ciudad que de nosotros."]]
+    },
+    "near": ["allentown-pa", "princeton-nj", "scranton-pa"]
+  },
+  {
+    "slug": "allentown-pa", "city": "Allentown", "state": "PA", "stateName": "Pennsylvania", "tier": 2,
+    "zips": "18101, 18102, 18103, 18104",
+    "intro": {
+      "en": "The Lehigh Valley around Allentown has become one of the Northeast's distribution hubs, with warehouse space clustered near the interstate interchanges and a healthcare network anchoring the medical side. Warehouse and clinical cleaning are the two poles of this market.",
+      "es": "El valle de Lehigh, alrededor de Allentown, se ha convertido en uno de los centros de distribución del noreste, con bodegas concentradas cerca de los enlaces interestatales y una red de salud que ancla el lado médico. Bodegas y entornos clínicos son los dos polos de este mercado."
+    },
+    "districts": { "en": "Center City Allentown, the Lehigh Valley industrial parks, the PPL Center area, Hamilton Street, Airport Road", "es": "Center City Allentown, parques industriales del valle de Lehigh, zona del PPL Center, Hamilton Street, Airport Road" },
+    "facilities": {
+      "en": [["Distribution centers", "High-volume floor scrubbing, dust control and restroom service on shift-based schedules."], ["Medical offices and outpatient clinics", "Clinical disinfection using EPA-registered hospital-grade products."], ["Downtown offices and event space", "Nightly service and fast turnover cleaning around the Hamilton Street corridor."]],
+      "es": [["Centros de distribución", "Fregado de pisos de alto volumen, control de polvo y servicio de baños en horarios por turnos."], ["Consultorios médicos y clínicas ambulatorias", "Desinfección clínica con productos de grado hospitalario registrados ante la EPA."], ["Oficinas del centro y espacios para eventos", "Servicio nocturno y limpieza de recambio rápido en el corredor de Hamilton Street."]]
+    },
+    "faq": {
+      "en": [["Do you have the equipment for a large distribution center?", "Yes. Ride-on scrubbers and HEPA-filtered industrial vacuums, which is what makes a warehouse floor finishable inside a shift window."], ["Can you clean between shifts?", "Yes. We plan zone rotation around changeovers so no area is being cleaned while it is in active use."]],
+      "es": [["¿Tienen el equipo para un centro de distribución grande?", "Sí. Fregadoras montables y aspiradoras industriales con filtro HEPA, que es lo que permite terminar un piso de bodega dentro de la ventana de un turno."], ["¿Pueden limpiar entre turnos?", "Sí. Planificamos la rotación por zonas alrededor de los cambios de turno, para que ninguna área se limpie mientras está en uso activo."]]
+    },
+    "near": ["philadelphia-pa", "scranton-pa", "princeton-nj"]
+  },
+  {
+    "slug": "scranton-pa", "city": "Scranton", "state": "PA", "stateName": "Pennsylvania", "tier": 2,
+    "zips": "18503, 18505, 18508, 18510",
+    "intro": {
+      "en": "Scranton's commercial base sits in the downtown office core and the business and distribution parks around Montage Mountain, with a healthcare network layered across both. It is a market where a reliable, documented schedule matters more than a flashy pitch.",
+      "es": "La base comercial de Scranton está en el núcleo de oficinas del centro y en los parques empresariales y de distribución alrededor de Montage Mountain, con una red de salud que atraviesa ambos. Es un mercado donde un calendario confiable y documentado pesa más que una presentación vistosa."
+    },
+    "districts": { "en": "Downtown Scranton, the Montage Mountain business parks, Lackawanna Avenue, the Central City district, Dunmore line", "es": "Centro de Scranton, parques empresariales de Montage Mountain, Lackawanna Avenue, distrito de Central City, límite con Dunmore" },
+    "facilities": {
+      "en": [["Downtown office buildings", "Nightly service for multi-tenant floors along Lackawanna Avenue."], ["Distribution and flex facilities", "Floor scrubbing, dust control and dock-area cleanup in the business parks."], ["Medical and dental practices", "Exam-room disinfection and reception hygiene on clinical protocols."]],
+      "es": [["Edificios de oficinas del centro", "Servicio nocturno para pisos multiempresa de Lackawanna Avenue."], ["Instalaciones de distribución y flex", "Fregado de pisos, control de polvo y limpieza de muelles en los parques empresariales."], ["Consultorios médicos y dentales", "Desinfección de salas de exploración e higiene de recepción con protocolos clínicos."]]
+    },
+    "faq": {
+      "en": [["What is the minimum contract for Scranton?", "There is no fixed minimum, but accounts this far from our base work best on a regular scheduled route rather than occasional one-off visits."], ["Who supervises the work?", "Every account has a named supervisor who walks the site on a set cadence, and the 24-hour guarantee applies here exactly as it does near our base."]],
+      "es": [["¿Cuál es el contrato mínimo para Scranton?", "No hay un mínimo fijo, pero las cuentas a esta distancia de nuestra base funcionan mejor con una ruta programada regular que con visitas sueltas y ocasionales."], ["¿Quién supervisa el trabajo?", "Cada cuenta tiene un supervisor asignado que recorre el sitio con una cadencia establecida, y la garantía de 24 horas aplica aquí exactamente igual que cerca de nuestra base."]]
+    },
+    "near": ["allentown-pa", "philadelphia-pa", "newark-nj"]
+  }
+]

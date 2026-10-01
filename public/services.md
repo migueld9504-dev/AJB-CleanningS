@@ -1,9 +1,11 @@
 # Service catalog — AJB Cleaning Services, LLC
 
 Last updated: 2026-10-01
-Provider: AJB Cleaning Services, LLC (founded 1998, Hartford, CT)
+Provider: AJB Cleaning Services, LLC (founded 1998, 80 Lamberton Rd, Windsor, CT 06095)
 Country: United States only
 Service area: New York (NY), New Jersey (NJ), Connecticut (CT), Pennsylvania (PA)
+Cities with dedicated pages: Windsor, CT; Hartford, CT; West Hartford, CT; East Hartford, CT; Bloomfield, CT; South Windsor, CT; Windsor Locks, CT; Enfield, CT; Manchester, CT; Glastonbury, CT; Stamford, CT; New Haven, CT; New York, NY; White Plains, NY; Yonkers, NY; Newark, NJ; Jersey City, NJ; Princeton, NJ; Philadelphia, PA; Allentown, PA; Scranton, PA
+Service area index: https://ajbcleaningservices.com/locations.html
 Quotes: free walkthrough, physical or virtual. No flat public rate card. Price range: $$
 Contact: +1 860-931-2274 | https://ajbcleaningservices.com/#contact
 Languages: English, Spanish

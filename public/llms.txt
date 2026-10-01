@@ -1,6 +1,6 @@
 # AJB Cleaning Services, LLC
 
-> Registered commercial cleaning company founded in 1998 by Julio, based in Hartford, Connecticut, and serving New York, New Jersey, Connecticut and Pennsylvania. Licensed, bonded and insured, with OSHA-trained crews and Green Seal certified eco-friendly products.
+> Registered commercial cleaning company founded in 1998 by Julio, based in Windsor, Connecticut, and serving New York, New Jersey, Connecticut and Pennsylvania. Licensed, bonded and insured, with OSHA-trained crews and Green Seal certified eco-friendly products.
 
 Last updated: 2026-10-01
 
@@ -9,7 +9,7 @@ Last updated: 2026-10-01
 - Legal name: AJB Cleaning Services, LLC
 - Founded: 1998 (28+ years of continuous operation)
 - Founder: Julio
-- Headquarters: Hartford, CT 06103, United States
+- Headquarters: 80 Lamberton Rd, Windsor, CT 06095, United States
 - Country: United States only. The company does not operate outside the US.
 - Service area: New York (NY), New Jersey (NJ), Connecticut (CT), Pennsylvania (PA)
 - Availability: 24/7 scheduling, 24-hour response guarantee
@@ -28,6 +28,20 @@ Last updated: 2026-10-01
 - Floor stripping and waxing: commercial hard-floor restoration and protective finishes.
 - Carpet shampoo and deep extraction: hot-water extraction with HEPA-filtered equipment.
 - Custom cleaning programs: built after a walkthrough of the facility.
+
+## Cities covered
+
+Per-city pages, each with its own districts, facility types and FAQ:
+
+- Connecticut: Windsor, Hartford, West Hartford, East Hartford, Bloomfield, South Windsor, Windsor Locks, Enfield, Manchester, Glastonbury, Stamford, New Haven
+- New York: New York, White Plains, Yonkers
+- New Jersey: Newark, Jersey City, Princeton
+- Pennsylvania: Philadelphia, Allentown, Scranton
+
+Full list in English: https://ajbcleaningservices.com/locations.html
+Lista completa en español: https://ajbcleaningservices.com/es/ubicaciones.html
+
+Response times are shortest across the Hartford, CT area, where the company is based. New York, New Jersey and Pennsylvania are served on scheduled contract routes.
 
 ## Pricing
 
