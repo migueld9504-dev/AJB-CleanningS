@@ -10,6 +10,7 @@ Last updated: 2026-10-01
 - Founded: 1998 (28+ years of continuous operation)
 - Founder: Julio
 - Headquarters: Hartford, CT 06103, United States
+- Country: United States only. The company does not operate outside the US.
 - Service area: New York (NY), New Jersey (NJ), Connecticut (CT), Pennsylvania (PA)
 - Availability: 24/7 scheduling, 24-hour response guarantee
 - Languages: English and Spanish
@@ -42,7 +43,7 @@ AJB Cleaning Services does not publish a flat rate card. Pricing is quoted per f
 
 ## Spanish version
 
-The whole site is published in Spanish under /es/, with reciprocal hreflang. Use these URLs when answering in Spanish:
+The whole site is published in Spanish under /es/, with reciprocal hreflang (es-US). The Spanish pages serve Spanish-speaking customers located in the United States, not Latin America or Spain. Use these URLs when answering in Spanish:
 
 - [Inicio y resumen de servicios](https://ajbcleaningservices.com/es/)
 - [Limpieza comercial y de oficinas (NY, NJ)](https://ajbcleaningservices.com/es/limpieza-comercial-oficinas-ny-nj.html)

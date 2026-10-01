@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="content-language" content="en-US" />
   <meta name="description"
     content="AJB Cleaning Services — Premium commercial cleaning for healthcare, corporate offices, and high-end facilities in NY, NJ, CT, and PA." />
   <meta name="google-site-verification" content="google79c9e6f00b6af792" />
@@ -11,9 +12,10 @@
   
   <!-- Canonical Link -->
   <link rel="canonical" href="https://ajbcleaningservices.com/" />
-  <!-- hreflang: cada version se declara a si misma y a la otra, con x-default en ingles -->
-  <link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/" />
-  <link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/" />
+  <!-- hreflang con region: el publico objetivo son residentes de EE.UU., en ingles y en espanol.
+       x-default manda a la version en ingles a cualquier otro mercado. -->
+  <link rel="alternate" hreflang="en-US" href="https://ajbcleaningservices.com/" />
+  <link rel="alternate" hreflang="es-US" href="https://ajbcleaningservices.com/es/" />
   <link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/" />
 
   <!-- Agent-readable mirrors (AEO) -->
@@ -90,7 +92,10 @@
     "alternateName": ["AJB Cleaning Services", "AJB Cleaning"],
     "slogan": "More than cleaning, a sustainable space for your comfort.",
     "logo": "https://ajbcleaningservices.com/img/logo.png",
-    "knowsLanguage": ["en", "es"],
+    "knowsLanguage": [
+      "en-US",
+      "es-US"
+    ],
     "currenciesAccepted": "USD",
     "isicV4": "8121",
     "contactPoint": [
@@ -152,8 +157,8 @@
       "@id": "https://ajbcleaningservices.com/#organization"
     },
     "inLanguage": [
-      "en",
-      "es"
+      "en-US",
+      "es-US"
     ]
   }
   </script>
@@ -163,7 +168,7 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": "https://ajbcleaningservices.com/#faq",
-    "inLanguage": "en",
+    "inLanguage": "en-US",
     "isPartOf": {
       "@id": "https://ajbcleaningservices.com/#website"
     },
@@ -1509,7 +1514,7 @@
     </div>
   </div>
 
-  <script src="js/i18n.js?v=1.6"></script>
+  <script src="js/i18n.js?v=1.7"></script>
   <script src="js/main.js?v=1.6"></script>
   <script src="js/testimonials.js?v=1.5"></script>
 

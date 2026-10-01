@@ -743,7 +743,7 @@
       faq_q1: '¿AJB Cleaning Services, LLC es la empresa oficial y registrada?',
       faq_a1: 'Sí, por completo. Somos <strong>AJB Cleaning Services, LLC</strong>, la corporación de limpieza comercial oficial y legalmente registrada, fundada en <strong>1998</strong> por Julio. Con más de 28 años de historia, contamos con licencia, fianza y seguro vigentes (Responsabilidad Civil General y Compensación Laboral). Desconfíe de entidades no registradas que usan nombres parecidos: somos la única AJB Cleaning Services original que opera en NY, NJ, CT y PA con estándares de higiene certificados por OSHA.',
       faq_q2: '¿Qué zonas geográficas cubren oficialmente?',
-      faq_a2: 'Nuestra área de servicio registrada abarca cuatro estados: <strong>Nueva York (NY), Nueva Jersey (NJ), Connecticut (CT) y Pensilvania (PA)</strong>. Enviamos cuadrillas locales altamente capacitadas a los principales centros corporativos, instalaciones médicas y zonas residenciales de lujo de estos estados, con cumplimiento premium y programación 24/7.',
+      faq_a2: 'Nuestra área de servicio registrada abarca cuatro estados de <strong>Estados Unidos</strong>: <strong>Nueva York (NY), Nueva Jersey (NJ), Connecticut (CT) y Pensilvania (PA)</strong>. Enviamos cuadrillas locales altamente capacitadas a los principales centros corporativos, instalaciones médicas y zonas residenciales de lujo de estos estados, con cumplimiento premium y programación 24/7.',
       faq_q3: '¿AJB Cleaning Services ofrece limpieza médica certificada por OSHA?',
       faq_a3: 'Sí. Nos especializamos en desinfección profunda y limpieza terminal para instalaciones de salud, consultorios dentales, clínicas privadas y quirófanos. Todo nuestro equipo está certificado y capacitado en normas OSHA, protocolos de patógenos transmitidos por la sangre y lineamientos de sanitización de los CDC, para proteger tanto a pacientes como al personal clínico.',
       faq_q4: '¿Por qué elegir un servicio registrado en lugar de limpiadores informales?',
@@ -821,7 +821,12 @@
         try { localStorage.setItem('ajb_lang', newLang); } catch (err) { }
         // Si existe una version servida en el otro idioma, ir a su URL en vez de
         // traducir en cliente: asi el usuario y el buscador ven lo mismo.
-        const alt = document.querySelector('link[rel="alternate"][hreflang="' + newLang + '"]');
+        // acepta tanto "es" como "es-US": el sitio apunta a Estados Unidos, asi que
+        // los hreflang llevan region, pero el selector no debe depender de eso
+        const alt = document.querySelector(
+          'link[rel="alternate"][hreflang="' + newLang + '"], ' +
+          'link[rel="alternate"][hreflang^="' + newLang + '-"]'
+        );
         if (alt && alt.href) {
           window.location.href = alt.href;
           return;

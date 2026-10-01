@@ -2,6 +2,7 @@
 
 Last updated: 2026-10-01
 Provider: AJB Cleaning Services, LLC (founded 1998, Hartford, CT)
+Country: United States only
 Service area: New York (NY), New Jersey (NJ), Connecticut (CT), Pennsylvania (PA)
 Quotes: free walkthrough, physical or virtual. No flat public rate card. Price range: $$
 Contact: +1 860-931-2274 | https://ajbcleaningservices.com/#contact
