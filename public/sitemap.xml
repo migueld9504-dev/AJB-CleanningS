@@ -1,33 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://ajbcleaningservices.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/" />
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://ajbcleaningservices.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
     <loc>https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-comercial-oficinas-ny-nj.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html" />
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ajbcleaningservices.com/es/limpieza-comercial-oficinas-ny-nj.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-comercial-oficinas-ny-nj.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://ajbcleaningservices.com/healthcare-cleaning-osha-certified.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/healthcare-cleaning-osha-certified.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-clinicas-hospitales-osha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/healthcare-cleaning-osha-certified.html" />
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ajbcleaningservices.com/es/limpieza-clinicas-hospitales-osha.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/healthcare-cleaning-osha-certified.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-clinicas-hospitales-osha.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/healthcare-cleaning-osha-certified.html" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://ajbcleaningservices.com/post-construction-cleaning-ny-nj-ct-pa.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/post-construction-cleaning-ny-nj-ct-pa.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-post-construccion-ny-nj-ct-pa.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/post-construction-cleaning-ny-nj-ct-pa.html" />
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html</loc>
+    <loc>https://ajbcleaningservices.com/es/limpieza-post-construccion-ny-nj-ct-pa.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/post-construction-cleaning-ny-nj-ct-pa.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-post-construccion-ny-nj-ct-pa.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/post-construction-cleaning-ny-nj-ct-pa.html" />
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-residencial-lujo-guante-blanco.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ajbcleaningservices.com/es/limpieza-residencial-lujo-guante-blanco.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ajbcleaningservices.com/es/limpieza-residencial-lujo-guante-blanco.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

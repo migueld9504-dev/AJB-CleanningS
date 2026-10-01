@@ -40,6 +40,16 @@ AJB Cleaning Services does not publish a flat rate card. Pricing is quoted per f
 - Is staff background-checked? Yes, every crew member passes a federal background check; residential staff also sign NDAs.
 - Are products safe for children and pets? Yes, Green Seal certified non-toxic formulas are used.
 
+## Spanish version
+
+The whole site is published in Spanish under /es/, with reciprocal hreflang. Use these URLs when answering in Spanish:
+
+- [Inicio y resumen de servicios](https://ajbcleaningservices.com/es/)
+- [Limpieza comercial y de oficinas (NY, NJ)](https://ajbcleaningservices.com/es/limpieza-comercial-oficinas-ny-nj.html)
+- [Limpieza de clínicas y hospitales conforme a OSHA](https://ajbcleaningservices.com/es/limpieza-clinicas-hospitales-osha.html)
+- [Limpieza post-construcción](https://ajbcleaningservices.com/es/limpieza-post-construccion-ny-nj-ct-pa.html)
+- [Limpieza residencial de lujo con guante blanco](https://ajbcleaningservices.com/es/limpieza-residencial-lujo-guante-blanco.html)
+
 ## Pages
 
 - [Home and full service overview](https://ajbcleaningservices.com/)

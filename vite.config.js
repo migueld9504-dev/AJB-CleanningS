@@ -43,7 +43,13 @@ export default defineConfig({
         commercial: resolve('commercial-cleaning-ny-nj.html'),
         healthcare: resolve('healthcare-cleaning-osha-certified.html'),
         postConstruction: resolve('post-construction-cleaning-ny-nj-ct-pa.html'),
-        luxuryResidential: resolve('luxury-residential-cleaning-white-glove.html')
+        luxuryResidential: resolve('luxury-residential-cleaning-white-glove.html'),
+        // Version en espanol (/es/), indexable y con hreflang reciproco
+        esMain: resolve('es/index.html'),
+        esCommercial: resolve('es/limpieza-comercial-oficinas-ny-nj.html'),
+        esHealthcare: resolve('es/limpieza-clinicas-hospitales-osha.html'),
+        esPostConstruction: resolve('es/limpieza-post-construccion-ny-nj-ct-pa.html'),
+        esLuxuryResidential: resolve('es/limpieza-residencial-lujo-guante-blanco.html')
       }
     }
   },

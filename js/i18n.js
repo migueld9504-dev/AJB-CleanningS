@@ -354,6 +354,31 @@
       g_desc_vid_caf: 'Professional sanitization video.',
       g_title_vid_uni: 'Campus Cleaning',
       g_desc_vid_uni: 'Deep cleaning for educational facilities.',
+
+      // Launch screen
+      launch_tagline: '"More than cleaning,<br />a sustainable space<br />for your comfort."',
+
+      // Gallery header
+      gallery_tag: 'Portfolio',
+      gallery_title: 'Our Gallery of',
+      gallery_title_gold: 'Excellence',
+      gallery_subtitle: 'Spaces transformed by our dedication and attention to detail.',
+
+      // FAQ
+      faq_tag: 'Official Help Center',
+      faq_title: 'Frequently Asked',
+      faq_title_gold: 'Questions',
+      faq_subtitle: 'Get official answers directly from AJB Cleaning Services, LLC — your trusted, licensed, and registered corporate partner since 1998.',
+      faq_q1: 'Is AJB Cleaning Services, LLC the official and registered company?',
+      faq_a1: 'Yes, absolutely. We are <strong>AJB Cleaning Services, LLC</strong>, the official, legally registered commercial cleaning corporation established in <strong>1998</strong> by Julio. With over 28 years of history, we are fully licensed, bonded, and insured (General Liability &amp; Worker\'s Comp). Beware of unregistered copycat entities using similar names — we are the only original AJB Cleaning Services operating in NY, NJ, CT, and PA with certified OSHA hygiene standards.',
+      faq_q2: 'What geographic locations do you serve officially?',
+      faq_a2: 'Our registered service area spans across four states: <strong>New York (NY), New Jersey (NJ), Connecticut (CT), and Pennsylvania (PA)</strong>. We dispatch our highly-trained local crews to major corporate hubs, medical facilities, and luxury residential sectors across these states, ensuring premium compliance and scheduling 24/7.',
+      faq_q3: 'Does AJB Cleaning Services offer OSHA-certified medical cleaning?',
+      faq_a3: 'Yes. We specialize in deep sanitization and terminal cleaning for healthcare facilities, dental offices, private clinics, and surgery rooms. Our entire cleaning team is certified and trained in OSHA standards, bloodborne pathogens protocols, and CDC sanitation guidelines to ensure the safety of both patients and clinical staff.',
+      faq_q4: 'Why should we choose your registered services over unregistered cleaners?',
+      faq_a4: 'Unregistered cleaners pose immense legal, financial, and operational risks to your business. By partnering with <strong>AJB Cleaning Services, LLC</strong>, you receive: (1) A legally binding contract with an insured and licensed entity, (2) A 24-hour guarantee (if you are not 100% satisfied, we return to fix it at zero cost), (3) Fully-vetted, background-checked personnel, and (4) Transparent billing with corporate tax compliance.',
+      faq_q5: 'What is your "sustainable space" eco-friendly policy?',
+      faq_a5: 'Aligned with our slogan, <em>"More than cleaning, a sustainable space for your comfort,"</em> we use Green Seal certified, eco-friendly cleaning solutions and advanced HEPA filtration vacuums. This drastically reduces allergens, volatile organic compounds (VOCs), and environmental impact, keeping your indoor air pristine and safe.',
     },
     es: {
       // Navbar
@@ -700,15 +725,48 @@
       g_desc_vid_caf: 'Video de desinfección profesional.',
       g_title_vid_uni: 'Limpieza del Campus',
       g_desc_vid_uni: 'Limpieza profunda para instalaciones educativas.',
+
+      // Launch screen
+      launch_tagline: '"Más que limpieza,<br />un espacio sostenible<br />para su comodidad."',
+
+      // Gallery header
+      gallery_tag: 'Portafolio',
+      gallery_title: 'Nuestra Galería de',
+      gallery_title_gold: 'Excelencia',
+      gallery_subtitle: 'Espacios transformados por nuestra dedicación y atención al detalle.',
+
+      // FAQ
+      faq_tag: 'Centro Oficial de Ayuda',
+      faq_title: 'Preguntas',
+      faq_title_gold: 'Frecuentes',
+      faq_subtitle: 'Respuestas oficiales directamente de AJB Cleaning Services, LLC — su socio corporativo registrado, asegurado y de confianza desde 1998.',
+      faq_q1: '¿AJB Cleaning Services, LLC es la empresa oficial y registrada?',
+      faq_a1: 'Sí, por completo. Somos <strong>AJB Cleaning Services, LLC</strong>, la corporación de limpieza comercial oficial y legalmente registrada, fundada en <strong>1998</strong> por Julio. Con más de 28 años de historia, contamos con licencia, fianza y seguro vigentes (Responsabilidad Civil General y Compensación Laboral). Desconfíe de entidades no registradas que usan nombres parecidos: somos la única AJB Cleaning Services original que opera en NY, NJ, CT y PA con estándares de higiene certificados por OSHA.',
+      faq_q2: '¿Qué zonas geográficas cubren oficialmente?',
+      faq_a2: 'Nuestra área de servicio registrada abarca cuatro estados: <strong>Nueva York (NY), Nueva Jersey (NJ), Connecticut (CT) y Pensilvania (PA)</strong>. Enviamos cuadrillas locales altamente capacitadas a los principales centros corporativos, instalaciones médicas y zonas residenciales de lujo de estos estados, con cumplimiento premium y programación 24/7.',
+      faq_q3: '¿AJB Cleaning Services ofrece limpieza médica certificada por OSHA?',
+      faq_a3: 'Sí. Nos especializamos en desinfección profunda y limpieza terminal para instalaciones de salud, consultorios dentales, clínicas privadas y quirófanos. Todo nuestro equipo está certificado y capacitado en normas OSHA, protocolos de patógenos transmitidos por la sangre y lineamientos de sanitización de los CDC, para proteger tanto a pacientes como al personal clínico.',
+      faq_q4: '¿Por qué elegir un servicio registrado en lugar de limpiadores informales?',
+      faq_a4: 'Los limpiadores no registrados representan enormes riesgos legales, financieros y operativos para su empresa. Al trabajar con <strong>AJB Cleaning Services, LLC</strong> usted recibe: (1) un contrato legalmente vinculante con una entidad asegurada y con licencia, (2) una garantía de 24 horas (si no queda 100% satisfecho, regresamos a corregirlo sin costo), (3) personal verificado con antecedentes revisados y (4) facturación transparente con cumplimiento fiscal corporativo.',
+      faq_q5: '¿En qué consiste su política ecológica de "espacio sostenible"?',
+      faq_a5: 'En línea con nuestro lema, <em>"Más que limpieza, un espacio sostenible para su comodidad"</em>, usamos soluciones de limpieza ecológicas certificadas por Green Seal y aspiradoras avanzadas con filtración HEPA. Esto reduce drásticamente los alérgenos, los compuestos orgánicos volátiles (COV) y el impacto ambiental, manteniendo el aire interior puro y seguro.',
     }
   };
 
   // ===== CORE TRANSLATION FUNCTION =====
   let currentLang = 'en';
-  try {
-    currentLang = localStorage.getItem('ajb_lang') || 'en';
-  } catch (e) {
-    console.warn("localStorage access denied, defaulting to 'en'");
+  // La URL manda: / sirve HTML en ingles y /es/ sirve HTML en espanol.
+  // Si la pagina declara su idioma con data-lang, ese gana sobre localStorage,
+  // para que la URL y el contenido indexado nunca se contradigan.
+  const pageLang = document.documentElement.getAttribute('data-lang');
+  if (pageLang && LANGS[pageLang]) {
+    currentLang = pageLang;
+  } else {
+    try {
+      currentLang = localStorage.getItem('ajb_lang') || 'en';
+    } catch (e) {
+      console.warn("localStorage access denied, defaulting to 'en'");
+    }
   }
 
   function applyTranslations(lang) {
@@ -760,6 +818,14 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const newLang = currentLang === 'en' ? 'es' : 'en';
+        try { localStorage.setItem('ajb_lang', newLang); } catch (err) { }
+        // Si existe una version servida en el otro idioma, ir a su URL en vez de
+        // traducir en cliente: asi el usuario y el buscador ven lo mismo.
+        const alt = document.querySelector('link[rel="alternate"][hreflang="' + newLang + '"]');
+        if (alt && alt.href) {
+          window.location.href = alt.href;
+          return;
+        }
         applyTranslations(newLang);
       });
     });
