@@ -240,6 +240,9 @@
         const newImg = document.createElement('img');
         newImg.src = img.src;
         newImg.alt = img.alt;
+        // conservar las dimensiones intrinsecas del slide original (evita CLS)
+        if (img.hasAttribute('width')) newImg.setAttribute('width', img.getAttribute('width'));
+        if (img.hasAttribute('height')) newImg.setAttribute('height', img.getAttribute('height'));
         featuredContent.appendChild(newImg);
       }
 
@@ -269,6 +272,8 @@
         const thumbImg = document.createElement('img');
         thumbImg.src = img.src;
         thumbImg.loading = 'lazy';
+        if (img.hasAttribute('width')) thumbImg.setAttribute('width', img.getAttribute('width'));
+        if (img.hasAttribute('height')) thumbImg.setAttribute('height', img.getAttribute('height'));
         thumb.appendChild(thumbImg);
 
         if (slide.querySelector('.video-card')) {
