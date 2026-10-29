@@ -26,3 +26,7 @@ AJB_Propuesta_Empresarial_Final.md
 ajb_propuesta_cliente.md
 ajb_propuesta_ejecutiva.md
 ajb_propuesta_visual.doc
+
+# Paquete de despliegue generado localmente
+ajb-site-*.zip
+.unlighthouse/

@@ -1,0 +1,83 @@
+keyword,country,device,city,state,language,batch
+"AJB Cleaning Services",US,mobile,"",CT,en,1
+"AJB Cleaning Services Windsor CT",US,mobile,"",CT,en,1
+"commercial cleaning Windsor CT",US,mobile,"",CT,en,1
+"janitorial services Hartford County CT",US,mobile,"",CT,en,1
+"office cleaning Connecticut",US,mobile,"",CT,en,1
+"post construction cleaning Connecticut",US,mobile,"",CT,en,1
+"medical office cleaning Connecticut",US,mobile,"",CT,en,1
+"limpieza comercial Connecticut",US,mobile,"",CT,es,1
+"limpieza de oficinas Hartford CT",US,mobile,"",CT,es,1
+"servicio de limpieza comercial en Connecticut",US,mobile,"",CT,es,1
+"commercial cleaning Windsor CT",US,mobile,"Windsor",CT,en,2
+"office cleaning Windsor CT",US,mobile,"Windsor",CT,en,2
+"janitorial services Windsor CT",US,mobile,"Windsor",CT,en,2
+"limpieza comercial Windsor CT",US,mobile,"Windsor",CT,es,2
+"limpieza de oficinas Windsor CT",US,mobile,"Windsor",CT,es,2
+"commercial cleaning Hartford CT",US,mobile,"Hartford",CT,en,2
+"office cleaning Hartford CT",US,mobile,"Hartford",CT,en,2
+"janitorial services Hartford CT",US,mobile,"Hartford",CT,en,2
+"limpieza comercial Hartford CT",US,mobile,"Hartford",CT,es,2
+"limpieza de oficinas Hartford CT",US,mobile,"Hartford",CT,es,2
+"commercial cleaning West Hartford CT",US,mobile,"West Hartford",CT,en,2
+"office cleaning West Hartford CT",US,mobile,"West Hartford",CT,en,2
+"janitorial services West Hartford CT",US,mobile,"West Hartford",CT,en,2
+"limpieza comercial West Hartford CT",US,mobile,"West Hartford",CT,es,2
+"limpieza de oficinas West Hartford CT",US,mobile,"West Hartford",CT,es,2
+"commercial cleaning East Hartford CT",US,mobile,"East Hartford",CT,en,2
+"office cleaning East Hartford CT",US,mobile,"East Hartford",CT,en,2
+"janitorial services East Hartford CT",US,mobile,"East Hartford",CT,en,2
+"limpieza comercial East Hartford CT",US,mobile,"East Hartford",CT,es,2
+"limpieza de oficinas East Hartford CT",US,mobile,"East Hartford",CT,es,2
+"commercial cleaning Bloomfield CT",US,mobile,"Bloomfield",CT,en,2
+"office cleaning Bloomfield CT",US,mobile,"Bloomfield",CT,en,2
+"janitorial services Bloomfield CT",US,mobile,"Bloomfield",CT,en,2
+"limpieza comercial Bloomfield CT",US,mobile,"Bloomfield",CT,es,2
+"limpieza de oficinas Bloomfield CT",US,mobile,"Bloomfield",CT,es,2
+"commercial cleaning South Windsor CT",US,mobile,"South Windsor",CT,en,2
+"office cleaning South Windsor CT",US,mobile,"South Windsor",CT,en,2
+"janitorial services South Windsor CT",US,mobile,"South Windsor",CT,en,2
+"limpieza comercial South Windsor CT",US,mobile,"South Windsor",CT,es,2
+"limpieza de oficinas South Windsor CT",US,mobile,"South Windsor",CT,es,2
+"commercial cleaning Windsor Locks CT",US,mobile,"Windsor Locks",CT,en,2
+"office cleaning Windsor Locks CT",US,mobile,"Windsor Locks",CT,en,2
+"janitorial services Windsor Locks CT",US,mobile,"Windsor Locks",CT,en,2
+"limpieza comercial Windsor Locks CT",US,mobile,"Windsor Locks",CT,es,2
+"limpieza de oficinas Windsor Locks CT",US,mobile,"Windsor Locks",CT,es,2
+"commercial cleaning Enfield CT",US,mobile,"Enfield",CT,en,2
+"office cleaning Enfield CT",US,mobile,"Enfield",CT,en,2
+"janitorial services Enfield CT",US,mobile,"Enfield",CT,en,2
+"limpieza comercial Enfield CT",US,mobile,"Enfield",CT,es,2
+"limpieza de oficinas Enfield CT",US,mobile,"Enfield",CT,es,2
+"commercial cleaning Manchester CT",US,mobile,"Manchester",CT,en,2
+"office cleaning Manchester CT",US,mobile,"Manchester",CT,en,2
+"janitorial services Manchester CT",US,mobile,"Manchester",CT,en,2
+"limpieza comercial Manchester CT",US,mobile,"Manchester",CT,es,2
+"limpieza de oficinas Manchester CT",US,mobile,"Manchester",CT,es,2
+"commercial cleaning Glastonbury CT",US,mobile,"Glastonbury",CT,en,2
+"office cleaning Glastonbury CT",US,mobile,"Glastonbury",CT,en,2
+"janitorial services Glastonbury CT",US,mobile,"Glastonbury",CT,en,2
+"limpieza comercial Glastonbury CT",US,mobile,"Glastonbury",CT,es,2
+"limpieza de oficinas Glastonbury CT",US,mobile,"Glastonbury",CT,es,2
+"commercial cleaning Stamford CT",US,mobile,"Stamford",CT,en,3
+"limpieza comercial Stamford CT",US,mobile,"Stamford",CT,es,3
+"commercial cleaning New Haven CT",US,mobile,"New Haven",CT,en,3
+"limpieza comercial New Haven CT",US,mobile,"New Haven",CT,es,3
+"commercial cleaning New York NY",US,mobile,"New York",NY,en,3
+"limpieza comercial New York NY",US,mobile,"New York",NY,es,3
+"commercial cleaning White Plains NY",US,mobile,"White Plains",NY,en,3
+"limpieza comercial White Plains NY",US,mobile,"White Plains",NY,es,3
+"commercial cleaning Yonkers NY",US,mobile,"Yonkers",NY,en,3
+"limpieza comercial Yonkers NY",US,mobile,"Yonkers",NY,es,3
+"commercial cleaning Newark NJ",US,mobile,"Newark",NJ,en,3
+"limpieza comercial Newark NJ",US,mobile,"Newark",NJ,es,3
+"commercial cleaning Jersey City NJ",US,mobile,"Jersey City",NJ,en,3
+"limpieza comercial Jersey City NJ",US,mobile,"Jersey City",NJ,es,3
+"commercial cleaning Princeton NJ",US,mobile,"Princeton",NJ,en,3
+"limpieza comercial Princeton NJ",US,mobile,"Princeton",NJ,es,3
+"commercial cleaning Philadelphia PA",US,mobile,"Philadelphia",PA,en,3
+"limpieza comercial Philadelphia PA",US,mobile,"Philadelphia",PA,es,3
+"commercial cleaning Allentown PA",US,mobile,"Allentown",PA,en,3
+"limpieza comercial Allentown PA",US,mobile,"Allentown",PA,es,3
+"commercial cleaning Scranton PA",US,mobile,"Scranton",PA,en,3
+"limpieza comercial Scranton PA",US,mobile,"Scranton",PA,es,3
