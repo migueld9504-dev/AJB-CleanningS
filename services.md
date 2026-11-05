@@ -9,7 +9,7 @@ Service area index: https://ajbcleaningservices.com/locations.html
 Quotes: free walkthrough, physical or virtual. No flat public rate card. Price range: $$
 Contact: +1 860-931-2274 | https://ajbcleaningservices.com/#contact
 Languages: English, Spanish
-Availability: 24/7 scheduling, 24-hour response guarantee
+Availability: 24/7 scheduling; if something is not right, it is corrected at no cost within 24 hours
 
 ## Commercial and corporate office cleaning
 - URL: https://ajbcleaningservices.com/commercial-cleaning-ny-nj.html
@@ -39,7 +39,7 @@ Availability: 24/7 scheduling, 24-hour response guarantee
 - Area: NY, NJ, CT, PA
 - Facilities: luxury estates, penthouses, private residences
 - Privacy: criminal background checks plus legally binding NDAs signed by all staff
-- Products: Green Seal certified, non-toxic, safe for children, pets and respiratory sensitivities
+- Products: non-toxic, safe for children, pets and respiratory sensitivities
 
 ## Floor stripping and waxing
 - Area: NY, NJ, CT, PA
@@ -48,7 +48,7 @@ Availability: 24/7 scheduling, 24-hour response guarantee
 
 ## Carpet shampoo and deep extraction
 - Area: NY, NJ, CT, PA
-- Scope: hot-water extraction and shampoo of commercial and residential carpets with HEPA-filtered equipment
+- Scope: deep cleaning of fibers to remove tough stains and odors in high-traffic areas
 - Request via: https://ajbcleaningservices.com/#contact
 
 ## Custom cleaning programs

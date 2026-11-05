@@ -574,8 +574,8 @@
 
       data.source = 'AJB Website';
       data.submittedAt = new Date().toLocaleString();
+      if (window.AJBlead) data.message = window.AJBlead.withAttribution(data.message);
 
-      console.log('AJB: Sending data to n8n:', data);
 
       try {
         btn.disabled = true;
@@ -590,6 +590,7 @@
         if (response.ok) {
           console.log('AJB: Success!');
           // Show in-place success message
+          if (window.AJBlead) window.AJBlead.track('generate_lead', { page_path: location.pathname });
           contactForm.style.display = 'none';
           if (formSuccess) formSuccess.classList.add('visible');
         } else {
@@ -599,7 +600,7 @@
         console.error('AJB: Error:', err);
         btn.disabled = false;
         btn.innerHTML = originalText;
-        alert('There was a problem sending your request. Please try again or call us directly.');
+        if (window.AJBlead && !contactForm.querySelector('.lead-status')) contactForm.appendChild(window.AJBlead.failureBox());
       }
     });
   }

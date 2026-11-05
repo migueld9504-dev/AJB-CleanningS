@@ -31,7 +31,7 @@ function copyStaticJsPlugin() {
         mkdirSync(jsOutDir, { recursive: true })
       }
 
-      const files = ['i18n.js', 'main.js', 'testimonials.js']
+      const files = ['i18n.js', 'main.js', 'testimonials.js', 'lead.js']
       files.forEach(file => {
         const src = resolve('js', file)
         const dest = resolve(jsOutDir, file)

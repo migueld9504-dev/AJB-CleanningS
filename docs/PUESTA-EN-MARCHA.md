@@ -1,181 +1,126 @@
-# Puesta en marcha — qué tiene que hacer Miguel
+# Lo que Miguel y Julio tienen que hacer
 
-Estado al 29 de octubre de 2026: **nada de esto está en línea todavía.** El sitio público
-sigue siendo la versión de mayo. Los pasos están en orden de impacto: el 1 y el 3 son los
-que mueven la aguja, el resto son consecuencia.
+Actualizado el 5 de noviembre de 2026. Está en orden: lo primero es lo que más puede explicar que no
+haya clientes. Marca cada casilla al terminar. Lo técnico que falta lo hago yo cuando me avises.
 
----
+## Hoy mismo (30 minutos, gratis)
 
-## Paso 1 — Publicar el sitio nuevo (lo más importante)
+- [ ] **Probar el formulario actual.** Entra a https://ajbcleaningservices.com/#contact, envía una solicitud
+  con tus datos y revisa si llega a `ajbcleanningservicesny@gmail.com`, incluida la carpeta de spam. Yo
+  comprobé que el servidor responde, no que el correo llegue. Si no llega, avísame: es lo primero que se arregla.
+- [ ] **Revisar ese buzón completo.** Busca "Nueva Cotizacion Web". Si hay solicitudes de meses atrás sin
+  responder, llámalas hoy.
+- [ ] **Llamar al +1 860-931-2274 desde otro número.** ¿Contesta una persona? ¿Hay buzón de voz con el nombre de la empresa?
+- [ ] **Mirar Search Console** (https://search.google.com/search-console). Anótame dos cosas: cuántas páginas
+  están indexadas y cuántas impresiones hubo en 3 meses. Si no tienes acceso, dímelo.
 
-Hay 5 commits esperando en la rama `seo-aeo-v2`. Mientras no se publiquen, el trabajo no
-existe para Google.
+## Confirmar los datos del negocio (Julio)
 
-### 1.1 Fusionar el PR
+Están publicados o a punto de publicarse. Si algo es falso es un riesgo legal en Estados Unidos, y también
+de reputación si un cliente lo pregunta. Responde sí o no a cada uno:
 
-1. Abre https://github.com/migueld9504-dev/AJB-CleanningS/pulls
-2. Entra al PR de `seo-aeo-v2` y pulsa **Merge pull request**.
-   (Si nunca llegaste a abrirlo: https://github.com/migueld9504-dev/AJB-CleanningS/pull/new/seo-aeo-v2)
+- [ ] **Los testimonios de la portada** (Dr. Rivera, Sarah M., James L.): ¿son clientes reales que autorizaron
+  su uso? La sección dice "Real Reviews, Real Clients". Si no lo son, hay que quitarlos: la FTC sanciona
+  los testimonios falsos.
+- [ ] **Fundada en 1998 y 28 años de operación.** El dominio es de mayo de 2026; el dato necesita respaldo.
+  ¿La LLC figura en el registro de Connecticut?
+- [ ] **Licencia y seguro:** ¿General Liability y Worker's Comp vigentes? ¿Pueden emitir certificado (COI)?
+- [ ] **"Bonded":** ¿tienen fianza?
+- [ ] **Capacitación OSHA:** ¿hay certificados de los cursos del personal? Yo cambié "OSHA Certified" por "OSHA-trained".
+- [ ] **Verificación federal de antecedentes y acuerdos de confidencialidad (NDA)** del personal: ¿se hacen?
+- [ ] **Aspiradoras HEPA, productos ecológicos y garantía de corrección en 24 horas:** ¿es lo que hacen hoy?
+- [ ] **Servicio 24/7:** la ficha de Google dice que cierra a las 5 p. m. ¿Cuál es el horario real?
+- [ ] **"La única AJB original" y los avisos de imitadores:** ¿hay un caso real detrás? A un cliente nuevo le genera
+  desconfianza y puede traer problemas con la otra empresa. Yo los quitaría.
+- [ ] **Zonas reales:** ¿pueden atender hoy NY, NJ y PA, o solo Connecticut? Si no, retiro esas páginas.
 
-### 1.2 Generar los archivos a subir
+## Publicar el sitio nuevo (lo más urgente del trabajo técnico)
 
-En la carpeta del proyecto:
+Nada de lo hecho desde octubre está en línea. Publicar no depende del PR: basta con subir el ZIP.
 
-```bash
-npm run build
-```
+- [ ] Resuelve antes lo de los testimonios: el ZIP los incluye tal como están hoy.
+- [ ] hPanel → **Copias de seguridad** → crea una manual.
+- [ ] **Administrador de archivos** → `public_html` → descarga una copia del `.htaccess` actual, si existe
+  (activa "mostrar archivos ocultos").
+- [ ] Borra el resto del contenido de `public_html` y sube `ajb-site-2026-11-05.zip`. Usa **Extraer** dentro de `public_html`.
+- [ ] Comprueba que cargan:
+  - https://ajbcleaningservices.com/
+  - https://ajbcleaningservices.com/es/
+  - https://ajbcleaningservices.com/commercial-cleaning-windsor-ct.html
+  - https://www.ajbcleaningservices.com/ (debe redirigir, sin `www`)
+- [ ] **Si el sitio da error 500 o entra en bucle,** renombra `.htaccess` a `.htaccess-off`. Es lo único que no pude
+  probar en un servidor igual al tuyo. Luego avísame.
+- [ ] Envía un formulario de prueba desde la página de Windsor y confirma que el correo trae la línea `Page:`.
+- [ ] **Avísame.** Yo aviso a Bing, mido la velocidad con el sitio real y actualizo la bitácora.
 
-Eso deja todo listo dentro de `dist/`. **Lo que se sube es el contenido de `dist/`, no la
-carpeta `dist` en sí.**
+## Medir
 
-### 1.3 Subirlo a Hostinger
+- [ ] Crea una propiedad en **Google Analytics 4** (gratis) y pásame el ID `G-XXXXXXXXXX`. Lo activo y queda
+  midiendo llamadas, WhatsApp y formularios. Sin esto seguimos sin saber si entra alguien.
+- [ ] En Search Console, reenvía `sitemap.xml` y pide indexar inicio, `/es/`, `/locations.html` y las páginas de Windsor y Hartford.
+- [ ] Anota cada lead en la tabla de `BITACORA.md`.
 
-En hPanel → **Administrador de archivos** → carpeta `public_html`:
+## Ficha de Google (gratis)
 
-1. **Primero haz una copia de seguridad.** hPanel → Copias de seguridad → crear una manual.
-   Si algo sale mal, es tu marcha atrás.
-2. Borra el contenido viejo de `public_html`. Importante: hay que borrar el `sitemap.xml`
-   viejo y el `index.html` viejo, porque si no quedan conviviendo con los nuevos.
-3. Sube `ajb-site.zip` y usa **Extraer** dentro de `public_html`.
-4. Comprueba que en `public_html` quedaron, entre otros: `index.html`, la carpeta `es/`,
-   `locations.html`, `sitemap.xml`, `robots.txt`, `llms.txt`, `services.md` y `assets/`.
+Es la mayor palanca para alguien de Windsor o Hartford que busca limpieza.
 
-> Si prefieres FTP, es el mismo contenido hacia el mismo destino. Y si en hPanel tienes
-> activado el despliegue por Git, se puede automatizar; eso lo vemos aparte.
+- [ ] Busca "AJB Cleaning Services LLC" en Maps → **Reclamar este negocio**, con una cuenta de Google del negocio.
+  A ti te agregan como administrador. No crees una ficha nueva: un duplicado puede dar problemas de suspensión.
+- [ ] Verifica con el método que te ofrezca Google. Según guías de 2026 suele ser un video continuo con la calle,
+  el letrero y prueba de que operan ahí. **Si no hay letrero con el nombre en 80 Lamberton Rd, ponlo antes.**
+- [ ] Si no reciben clientes en esa dirección, marca la ficha como negocio con área de servicio y avísame.
+- [ ] Corrige el horario y sube 20 o 30 fotos reales.
+- [ ] Nombre, dirección y teléfono idénticos al sitio: AJB Cleaning Services, LLC · 80 Lamberton Rd, Windsor, CT 06095 · +1 860-931-2274.
+- [ ] Desconfía de quien llame a cobrar por "activar" la ficha: es gratis.
 
-### 1.4 Comprobar que quedó bien
+## Lo que yo no puedo hacer
 
-Abre estas cinco direcciones. Las cinco deben cargar, hoy las cuatro últimas dan 404:
+| Qué falta | Por qué no puedo | Quién |
+|---|---|---|
+| Reclamar la ficha y grabar el video | Requiere estar en el lugar y una cuenta del negocio | Julio |
+| Conseguir reseñas | Solo pueden darlas clientes reales | Julio |
+| **Vender: llamar y visitar** | Requiere hablar con los clientes en su nombre | Julio o vendedor |
+| Fotos reales de la cuadrilla con uniforme y letrero | La foto principal parece generada por IA; hace falta una real | Julio |
+| Subir el sitio a Hostinger | No tengo acceso ni debo manejar la contraseña | Miguel |
+| Crear GA4 y entrar a Search Console | Son cuentas de ustedes | Miguel |
+| Correo profesional | `ajbcleanningservicesny@gmail.com` tiene un error de escritura y dice NY. El dominio ya tiene correo en Hostinger: crea `info@ajbcleaningservices.com` y me pasas la dirección | Miguel |
+| Perfiles en Yelp, BBB, Angi y Thumbtack | Requieren cuenta y aceptar términos. Yelp y BBB salen en la primera página de Bing para "commercial cleaning Windsor CT" | Miguel |
+| Instagram o Facebook | No me pasaron una cuenta; quité el botón muerto | Miguel |
+| Casos reales con permiso del cliente | Solo ustedes tienen la relación | Julio |
 
-- https://ajbcleaningservices.com/
-- https://ajbcleaningservices.com/es/
-- https://ajbcleaningservices.com/locations.html
-- https://ajbcleaningservices.com/commercial-cleaning-windsor-ct.html
-- https://ajbcleaningservices.com/sitemap.xml  ← debe listar 54 direcciones, no 5
+## Vender directamente: lo que puede traer el primer contrato
 
----
+Los contratos de limpieza comercial suelen cerrarse hablando con quien administra el edificio. El SEO local
+tarda meses, y este dominio tiene seis. Esto puede empezar hoy, gratis, mientras el resto madura.
 
-## Paso 2 — Avisarle a Google que hay sitio nuevo
+**Meta:** 20 contactos a la semana, solo en Windsor, Bloomfield, Hartford y South Windsor. Anótalos todos.
 
-En [Google Search Console](https://search.google.com/search-console), con la propiedad de
-ajbcleaningservices.com:
+**A quién:** administradores de edificios de oficinas, consultorios médicos y dentales, iglesias, colegios
+privados, gimnasios y contratistas que entregan obras. El corredor de Day Hill Road, en Windsor, es un buen punto de partida.
 
-1. **Sitemaps** → envía `sitemap.xml` otra vez. Antes declaraba 5 páginas, ahora 54.
-2. **Inspección de URLs** → pega estas y pulsa *Solicitar indexación* en cada una:
-   - la página de inicio
-   - `/es/`
-   - `/locations.html`
-   - `/commercial-cleaning-windsor-ct.html`
-   - `/commercial-cleaning-hartford-ct.html`
+**Llamada** (adáptala a lo que sea cierto):
 
-   Google rastreará el resto solo; esas cinco son para acelerar el arranque.
-3. Anota la fecha. Es tu punto cero: a partir de ahí las comparaciones tienen sentido.
+> Hi, this is [name] from AJB Cleaning Services, here in Windsor. Who takes care of the cleaning for your
+> building? ... We clean offices and medical spaces around Hartford, licensed and insured. I am not asking you
+> to switch today. Could I stop by for ten minutes, see the space and send you a free quote to compare?
 
----
+**Correo:**
 
-## Paso 3 — Reclamar la ficha de Google (gratis)
+> Subject: Cleaning quote for [building name]
+>
+> Hi [name], I run AJB Cleaning Services in Windsor, close to your building. We clean offices and medical
+> spaces in the Hartford area, licensed and insured. If you ever want a second price to compare, I can do a
+> free ten-minute walkthrough this week. Photos of our work: https://ajbcleaningservices.com/#gallery
+> [name] · +1 860-931-2274
 
-Sigue sin reclamar, con 2 fotos y cero reseñas. Es lo que más pesa para que un cliente de
-Windsor o Hartford te encuentre, más que todo lo del sitio.
+**Cada trabajo:** fotos de antes y después, reseña en Google el mismo día, y pregunta quién más podría necesitarlo.
 
-### 3.1 Reclamarla
+**Si hay presupuesto,** pregúntame antes de gastar. Las opciones a evaluar son los anuncios por zona en Google y las
+plataformas de pago por lead. No conviene pagar por tráfico hasta probar que el formulario y el teléfono responden.
 
-1. Busca "AJB Cleaning Services LLC" en Google Maps.
-2. **Reclamar este negocio** → inicia sesión.
-3. Usa una cuenta de Google **del negocio**, no una personal. Si la reclamas con tu cuenta,
-   el día que te separes del proyecto Julio pierde el activo. A ti te agregan como
-   administrador.
-4. **No crees una ficha nueva.** Si creas un duplicado en lugar de reclamar la existente,
-   Google suspende las dos.
+## Lo que no conviene hacer
 
-### 3.2 Verificar por video
-
-Google retiró la verificación por postal el 3 de julio de 2026. Ahora es video: **una sola
-toma, continua, sin cortes ni edición**, que muestre tres cosas:
-
-| Qué | Cómo |
-|---|---|
-| Dónde estás | La calle, el número, negocios vecinos. Que se reconozca Windsor |
-| Que el negocio existe ahí | **Letrero permanente con "AJB Cleaning Services"** |
-| Que tú lo manejas | Abrir con llave, entrar, mostrar equipo, productos, vehículo rotulado, el registro de la LLC o facturas con el nombre |
-
-**Lo que más rechazos provoca es el letrero.** Si no hay rótulo en 80 Lamberton Rd, ponlo
-antes de grabar: cuesta poco y es lo que decide la verificación.
-
-Antes de grabar, revisa si la ficha debe marcarse como **negocio con área de servicio**
-(atienden en el local del cliente). Muchos rechazos vienen de ese ajuste mal puesto.
-Si deciden ocultar la dirección, avísame: el sitio hoy la muestra en las 54 páginas y hay
-que dejarlos consistentes.
-
-Si rechazan el video, Google dice el motivo en "Problemas de la revisión" en la app de
-Maps. Se corrige y se vuelve a enviar.
-
-### 3.3 Apenas quede verificada
-
-- **Corrige el horario.** La ficha dice que cierra a las 5 p.m. porque lo pusieron usuarios
-  desconocidos; el sitio dice 24/7.
-- **Sube 20 o 30 fotos.** Hay 111 imágenes reales en el repo y la ficha tiene 2.
-- Categoría principal "Servicio de conserjería" está bien; añade secundarias.
-- Comprueba que el nombre, la dirección y el teléfono queden **idénticos** a los del sitio:
-  AJB Cleaning Services, LLC · 80 Lamberton Rd, Windsor, CT 06095 · +1 860-931-2274
-
-> Cuidado: al reclamar la ficha empiezan las llamadas y correos de gente que se hace pasar
-> por Google pidiendo dinero para "activarla". Google no cobra por esto nunca.
-
----
-
-## Paso 4 — Reseñas
-
-Es lo único que no se puede acelerar, así que empieza el mismo día que se verifique.
-
-1. En el panel de la ficha, copia el **enlace corto para reseñas**.
-2. Mándaselo a los clientes actuales. Nadie deja reseña si no se la piden.
-3. Responde todas, también las malas. Google valora la interacción y los clientes leen las
-   respuestas más que las quejas.
-
-Meta realista: 15 o 20 reseñas reales en los primeros 90 días. Con eso ya compites en el
-bloque local de Windsor y alrededores.
-
-No compres reseñas. Google las detecta y la sanción cuesta más que el beneficio.
-
----
-
-## Paso 5 — Medir (cuando los pasos 1 a 3 estén hechos)
-
-Medir un sitio sin publicar no dice nada, por eso va al final.
-
-- **Google Search Console** es gratis, oficial y suficiente durante meses. Impresiones,
-  clics y posición media por consulta.
-- **SerpBear** (opcional) añade seguimiento diario por palabra clave y ubicación. Las 82
-  palabras ya están preparadas en `tools/keywords.csv` y `tools/keywords.txt`, en tres
-  tandas. Empieza por la tanda 1.
-  - Necesita una fuente de datos SERP (ScrapingAnt, ScrapingRobot, SearchApi, SerpApi,
-    HasData o proxies propios). Varias tienen plan gratuito limitado: **verifica el cupo
-    actual antes de comprometerte**, cambian seguido.
-  - No lo instales en tu portátil: solo registraría datos cuando la máquina esté encendida.
-    Va en un servidor. El propio proyecto menciona Fly.io y mogenius con plan gratuito.
-  - Si lo conectas a Search Console, muestra visitas reales por palabra clave.
-
----
-
-## Qué NO hagas
-
-- **No compres reseñas ni enlaces.** Es la vía rápida a una penalización manual.
-- **No pagues por "verificar" la ficha.** Es gratis siempre.
-- **No crees una segunda ficha de Google.** Duplicado = suspensión de ambas.
-- **No cambies la dirección en el sitio sin avisarme.** Las 54 páginas, el schema y la ficha
-  tienen que decir exactamente lo mismo.
-
----
-
-## Cómo regenerar las cosas (referencia técnica)
-
-```bash
-node tools/build-city-pages.mjs   # regenera las 42 páginas de ciudad + los 2 índices
-node tools/build-sitemap.mjs      # regenera el sitemap leyendo el canonical de cada página
-node tools/build-keywords.mjs     # regenera la lista de palabras clave
-npm run build                     # genera dist/ para subir
-```
-
-Las ciudades se editan en `tools/cities.json`. Si agregas una, corre los tres scripts y el
-build: las entradas de Vite y el sitemap se descubren solos.
+- Comprar reseñas o enlaces.
+- Pagar por "verificar" la ficha.
+- Cambiar la dirección en un solo sitio: la ficha, el sitio y los directorios tienen que coincidir.
+- Agregar más páginas o ciudades antes de tener clientes en las primeras.

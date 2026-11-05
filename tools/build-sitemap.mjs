@@ -7,10 +7,11 @@
  * Al leerlo de las propias paginas, el sitemap no puede contradecirlas: si una pagina
  * tiene mal el hreflang, el error sale aqui en vez de quedarse escondido.
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
+import { execSync } from 'child_process';
 
 const SITE = 'https://ajbcleaningservices.com/';
-const EXCLUDE = new Set(['gallery-manager.html', 'google79c9e6f00b6af792.html']);
+const EXCLUDE = new Set(['gallery-manager.html', 'google79c9e6f00b6af792.html', '404.html']);
 
 const files = [
   ...readdirSync('.').filter(f => f.endsWith('.html') && !EXCLUDE.has(f)),
@@ -18,6 +19,16 @@ const files = [
 ];
 
 const today = new Date().toISOString().slice(0, 10);
+
+// lastmod real: Google deja de creerle a un sitemap que marca todo como cambiado hoy
+const dirty = new Set(execSync('git status --porcelain', { encoding: 'utf8' }).split('\n').map(l => l.slice(3).trim().replace(/"/g, '')));
+const lastCommit = {};
+let current = '';
+for (const line of execSync('git log --format=@%cs --name-only', { encoding: 'utf8', maxBuffer: 1 << 26 }).split('\n')) {
+  if (line.startsWith('@')) current = line.slice(1);
+  else if (line && !lastCommit[line]) lastCommit[line] = current;
+}
+const modified = (f) => (dirty.has(f) || !lastCommit[f]) ? today : lastCommit[f];
 const entries = [];
 const problems = [];
 
@@ -34,7 +45,7 @@ for (const f of files) {
   const isCity = /commercial-cleaning-|limpieza-comercial-/.test(f) && !/ny-nj\.html$|oficinas-ny-nj\.html$/.test(f);
   const priority = isHome ? '1.0' : isCity ? '0.7' : '0.8';
 
-  entries.push({ loc: can[1], alts, priority, lastmod: today });
+  entries.push({ loc: can[1], alts, priority, lastmod: modified(f) });
 }
 
 entries.sort((a, b) => (b.priority.localeCompare(a.priority)) || a.loc.localeCompare(b.loc));

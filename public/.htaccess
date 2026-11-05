@@ -1,0 +1,27 @@
+# AJB Cleaning Services - Hostinger (LiteSpeed)
+# Si tras subirlo el sitio falla, renombra este archivo y avisa: es la marcha atras.
+
+# Una sola version del sitio. www servia lo mismo sin redirigir: contenido duplicado.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://ajbcleaningservices.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# Los archivos de assets llevan hash en el nombre: se pueden guardar un ano
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/plain application/xml image/svg+xml
+</IfModule>

@@ -71,7 +71,7 @@
     "@id": "https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html#service",
     "name": "White-Glove Luxury Residential Cleaning",
     "serviceType": "Luxury Residential Cleaning",
-    "description": "Discreet white-glove housekeeping for luxury estates, penthouses and private residences, delivered by NDA-bound, background-checked staff using Green Seal certified products.",
+    "description": "Discreet white-glove housekeeping for luxury estates, penthouses and private residences, delivered by NDA-bound, background-checked staff using eco-friendly products.",
     "image": "https://ajbcleaningservices.com/img/residential_service.jpg",
     "url": "https://ajbcleaningservices.com/luxury-residential-cleaning-white-glove.html",
     "provider": {
@@ -134,7 +134,7 @@
         "name": "Do you use safe products for pets and children?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. We use Green Seal certified, non-toxic, eco-friendly formulas that are safe for children, pets and people with respiratory sensitivities."
+          "text": "Yes. We use non-toxic, eco-friendly formulas that are safe for children, pets and people with respiratory sensitivities."
         }
       }
     ]
@@ -205,8 +205,9 @@
         <li><a href="index.html#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
+        <a class="nav-phone" href="tel:+18609312274">+1 860-931-2274</a>
         <a href="es/limpieza-residencial-lujo-guante-blanco.html" class="nav-lang-link" hreflang="es-US" lang="es" style="color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; margin-right: 14px;">ES</a>
-<a href="index.html#contact" class="btn btn-gold nav-cta">Request a Quote</a>
+<a href="#quote" class="btn btn-gold nav-cta">Request a Quote</a>
       </div>
     </div>
   </nav>
@@ -301,16 +302,44 @@
         </div>
         <div style="background: rgba(255,255,255,0.01); border-left: 4px solid var(--gold); padding: 20px; margin-bottom: 20px; border-radius: 4px;">
           <strong>Do you use safe products for pets and children?</strong>
-          <p style="margin-top: 10px; color: rgba(255,255,255,0.8);">Yes, we strictly use Green Seal certified, non-toxic, eco-friendly cleaning formulas that are completely safe for children, pets, and individuals with respiratory sensitivities.</p>
+          <p style="margin-top: 10px; color: rgba(255,255,255,0.8);">Yes, we strictly use non-toxic, eco-friendly cleaning formulas that are completely safe for children, pets, and individuals with respiratory sensitivities.</p>
         </div>
       </div>
 
       <div style="text-align: center; margin-top: 60px;">
-        <a href="index.html#contact" class="btn btn-gold btn-lg">Schedule an In-Home Assessment</a>
+        <a href="#quote" class="btn btn-gold btn-lg">Schedule an In-Home Assessment</a>
       </div>
 
     </div>
   </section>
+
+  <!-- COTIZACION: el formulario vive en cada pagina, sin mandar al visitante a otra -->
+  <section class="lead-section" id="quote" aria-labelledby="quote-title">
+    <div class="container lead-section__inner">
+      <div class="lead-section__copy">
+        <h2 id="quote-title">Get a free quote</h2>
+        <p>Tell us about your building. We schedule a physical or virtual walkthrough and send you a proposal.</p>
+        <p class="lead-section__alt">Prefer to talk? <a href="tel:+18609312274">+1 860-931-2274</a></p>
+      </div>
+      <form class="lead-form" novalidate>
+        <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+        <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required /></label>
+        <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+        <label>What do you need cleaned?<select name="service">
+          <option value="Offices">Offices or commercial space</option>
+          <option value="Healthcare">Clinic or medical office</option>
+          <option value="Post-construction">Post-construction cleanup</option>
+          <option value="Floors and carpets">Floors or carpets</option>
+          <option value="Residential" selected>Residential</option>
+          <option value="Other">Something else</option>
+        </select></label>
+        <label>Building size, schedule, anything useful (optional)<textarea name="message" rows="3"></textarea></label>
+        <label class="lead-form__trap" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        <button type="submit" class="btn btn-gold btn-lg">Request my free quote</button>
+      </form>
+    </div>
+  </section>
+
   <!-- RELATED SERVICES (SEO: enlazado interno entre landings) -->
   <section class="section" aria-labelledby="related-services-title" style="padding: 70px 0; border-top: 1px solid rgba(255,255,255,0.06);">
     <div class="container" style="max-width: 1000px;">
@@ -343,6 +372,14 @@
     </div>
   </footer>
 
+
+  <!-- Barra fija en movil: llamar y cotizar siempre a un toque -->
+  <div class="ajb-callbar" role="navigation" aria-label="Contact">
+    <a class="ajb-callbar__call" href="tel:+18609312274">Call now</a>
+    <a class="ajb-callbar__quote" href="#quote">Free quote</a>
+  </div>
+
+  <script src="js/lead.js?v=1" defer></script>
 </body>
 
 </html>
