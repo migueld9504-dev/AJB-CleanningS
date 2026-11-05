@@ -51,6 +51,8 @@ Son las que se violaron aquí y costaron retrabajo.
 3. Una métrica sin datos no es cero. Si la API no devuelve nada, se reporta "sin medir".
 4. Un envío de prueba interceptado valida el código, no la entrega. La entrega solo se prueba con uno real.
 5. Las imágenes referenciadas con URL absoluta deben existir en `dist/`, no solo en el repo.
+6. Un ZIP hecho en Windows puede llevar rutas con `\`, que en un servidor Linux no crean carpetas.
+   Antes de entregarlo, comprobar que las entradas usan `/`, como `es/index.html`.
 
 ## Tablero mensual
 

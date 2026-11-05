@@ -74,6 +74,8 @@ Quedan aquí para que nadie los repita al replicar el método.
    gobierno y salud desde 2023. Sigue siendo útil para motores de IA, no como estrellas o desplegables.
 7. **Afirmé sin fuente que un duplicado de ficha suspende ambas.** Es un riesgo conocido, no una regla
    que haya verificado. Quedó redactado así en la lista de tareas.
+8. **El ZIP del 29 de octubre tenía rutas con `\`.** Extraído en Hostinger podía romper las carpetas.
+   Nunca se subió. Usa solo `ajb-site-2026-11-05.zip`, ya comprobado.
 
 ## Falsas alarmas descartadas
 
