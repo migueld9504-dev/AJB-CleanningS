@@ -42,7 +42,7 @@ Nada de lo hecho desde octubre está en línea. Publicar no depende del PR: bast
 - [ ] hPanel → **Copias de seguridad** → crea una manual.
 - [ ] **Administrador de archivos** → `public_html` → descarga una copia del `.htaccess` actual, si existe
   (activa "mostrar archivos ocultos").
-- [ ] Borra el resto del contenido de `public_html` y sube `ajb-site-2026-11-05.zip`. Usa **Extraer** dentro de `public_html`.
+- [ ] Borra el resto del contenido de `public_html` y sube `ajb-site-2026-11-17.zip`. Usa **Extraer** dentro de `public_html`.
 - [ ] Comprueba que cargan:
   - https://ajbcleaningservices.com/
   - https://ajbcleaningservices.com/es/
@@ -52,6 +52,23 @@ Nada de lo hecho desde octubre está en línea. Publicar no depende del PR: bast
   probar en un servidor igual al tuyo. Luego avísame.
 - [ ] Envía un formulario de prueba desde la página de Windsor y confirma que el correo trae la línea `Page:`.
 - [ ] **Avísame.** Yo aviso a Bing, mido la velocidad con el sitio real y actualizo la bitácora.
+
+## Seguridad del formulario (n8n) — urgente
+
+El formulario envía a tu servidor n8n, y ese servidor es público. Revisado el 17 de noviembre de 2026.
+
+- [ ] **Mira la versión de n8n**: en n8n, menú de ayuda o Settings → About. Desde afuera no se puede ver.
+  - Si es menor que **1.123.17** (rama 1.x) o menor que **2.5.2** (rama 2.x), actualiza ya. Ahí están corregidos dos
+    fallos críticos de webhooks públicos: CVE-2026-21858 (arreglado en 1.121.0) y CVE-2026-25049 (arreglado en 1.123.17 y 2.5.2).
+  - Si usas el Chat Trigger en algún flujo de Dykan, apunta a **1.123.89 o superior** (CVE-2026-126389).
+  - En Easypanel suele bastar con cambiar la etiqueta de la imagen a la versión nueva y redesplegar. Haz copia antes.
+- [ ] **Importa el workflow corregido** `ajb_workflow.json`: en n8n, abre el flujo actual, menú → Import from File, y actívalo.
+  Añade el nodo "Validar y limpiar", que escapa el HTML y descarta envíos sin nombre, correo o teléfono válidos.
+  Después de importarlo, revisa que los dos nodos de correo sigan con su credencial SMTP y envía un formulario de prueba.
+- [ ] **Decide sobre el correo de confirmación al cliente.** Aunque ya no permite inyectar HTML, cualquiera puede
+  hacer que tu servidor mande ese correo a cualquier dirección válida, desde `soporte@dykanproject.com`. Si alguien
+  lo abusa, ese dominio puede acabar en listas de spam. Opciones: apagar ese nodo (lo más simple) o añadir
+  Cloudflare Turnstile, que es gratis (yo lo programo si me pasas las claves).
 
 ## Medir
 

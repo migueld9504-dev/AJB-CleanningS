@@ -27,6 +27,23 @@ sitio y que seis meses es poco para un dominio nuevo sin enlaces ni reseñas.
 
 ## Cambios
 
+### 17 de noviembre de 2026: revisión de seguridad (rama `seo-aeo-v2`, sin publicar)
+
+| Hallazgo | Riesgo real | Qué se hizo |
+|---|---|---|
+| Workflow n8n: nombre, mensaje y correo del visitante iban sin escapar a correos HTML enviados desde `soporte@dykanproject.com` | **Alto.** Cualquiera podía mandar a cualquier dirección un correo con la marca AJB y enlaces de phishing | Nodo "Validar y limpiar": escapa HTML, recorta longitudes y descarta envíos inválidos. Probado con ataques simulados; **falta importarlo en n8n** |
+| Versión de n8n desconocida; tres CVE de 2026, dos críticos en webhooks | **Crítico** si está desactualizado: el webhook es público | No se puede ver desde afuera; tarea para Miguel |
+| Correo de confirmación a cualquier dirección válida | Medio: abuso para enviar spam con tu dominio | Pendiente de decisión |
+| Vite 5.4.21 con 16 avisos (esbuild, launch-editor, path traversal, postcss, nanoid) | Bajo: solo afectan el servidor de desarrollo en el portátil, no el sitio publicado, que es HTML estático | Vite 6.4.6 y `npm audit fix`; build idéntico (56 páginas, 134 archivos, 0 enlaces rotos) |
+| `picomatch` <= 4.0.7 (ReDoS), dentro de Vite | Bajo: solo se explota si un atacante controla los patrones de archivos del build, que escribimos nosotros | Sin parche publicado; aceptado |
+| Sitio en vivo sin cabeceras de seguridad | Bajo-medio | HSTS, X-Frame-Options, nosniff, Referrer-Policy y Permissions-Policy en `.htaccess` |
+| Enlaces externos sin `rel="noopener"` | Bajo | Añadido en 6 enlaces |
+| Secretos en el repo público | Ninguno encontrado en el historial completo; `.env` y `.git` dan 403 en el servidor | Nada |
+| Reseñas que escribe el visitante | Sin XSS: se escapan y solo viven en su propio navegador | Nada; ver nota sobre "Verified" |
+
+Nota: las reseñas que deja cualquier visitante se muestran con la etiqueta "✅ Verified" aunque nadie las verifica.
+No es una falla de seguridad, pero es engañoso.
+
 ### 5 de noviembre de 2026: conversión y veracidad (rama `seo-aeo-v2`, sin publicar)
 
 | Cambio | Por qué |

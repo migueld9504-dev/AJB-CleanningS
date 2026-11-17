@@ -11,6 +11,17 @@
 
 ErrorDocument 404 /404.html
 
+# Cabeceras de seguridad. El sitio en vivo no enviaba ninguna (revisado el 17-nov-2026).
+<IfModule mod_headers.c>
+  # Solo HTTPS durante un ano. Sin includeSubDomains: otros subdominios no se tocan.
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Nadie puede meter el sitio en un iframe ajeno para engañar al visitante
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+</IfModule>
+
 # Los archivos de assets llevan hash en el nombre: se pueden guardar un ano
 <IfModule mod_expires.c>
   ExpiresActive On

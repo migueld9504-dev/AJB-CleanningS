@@ -1,16 +1,23 @@
 {
-  "meta": { "instanceId": "ajb_premium_v7" },
+  "meta": {
+    "instanceId": "ajb_premium_v7"
+  },
   "nodes": [
     {
       "id": "webhook-01",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [200, 300],
+      "position": [
+        200,
+        300
+      ],
       "parameters": {
         "httpMethod": "POST",
         "path": "ajb-contact-form",
-        "options": { "responseMode": "onReceived" }
+        "options": {
+          "responseMode": "onReceived"
+        }
       }
     },
     {
@@ -18,7 +25,10 @@
       "name": "Notificacion para AJB",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2,
-      "position": [500, 180],
+      "position": [
+        720,
+        180
+      ],
       "parameters": {
         "fromEmail": "soporte@dykanproject.com",
         "toEmail": "ajbcleanningservicesny@gmail.com",
@@ -32,22 +42,58 @@
       "name": "Confirmacion para el Cliente",
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2,
-      "position": [500, 420],
+      "position": [
+        720,
+        420
+      ],
       "parameters": {
         "fromEmail": "soporte@dykanproject.com",
-        "toEmail": "={{ $json.body.email || $json.email }}",
+        "toEmail": "={{ $json.emailTo }}",
         "subject": "Confirmacion de tu Solicitud - AJB Cleaning Services",
         "emailFormat": "html",
         "html": "=<html><body style=\"margin:0;padding:0;background:#f0ede8;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td align=\"center\" style=\"padding:30px 0;\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:10px;overflow:hidden;\"><tr><td bgcolor=\"#0d1310\" style=\"padding:40px;text-align:center;\"><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\"><tr><td style=\"border:2px solid #c6a56a;padding:15px 35px;\"><span style=\"color:#c6a56a;font-family:Georgia,serif;font-size:32px;letter-spacing:10px;\">A J B</span></td></tr><tr><td align=\"center\" style=\"padding-top:12px;\"><span style=\"color:#b9b19f;font-size:11px;letter-spacing:3px;font-family:Arial,sans-serif;\">CLEANING SERVICES</span></td></tr></table></td></tr><tr><td style=\"padding:50px 40px;text-align:center;font-family:Arial,sans-serif;\"><h2 style=\"color:#0d1310;margin:0 0 20px;\">Gracias, {{ $json.body.name || $json.name }}!</h2><p style=\"color:#555555;line-height:1.7;font-size:15px;margin:0 0 15px;\">Hemos recibido correctamente tu solicitud para:</p><table cellpadding=\"0\" cellspacing=\"0\" align=\"center\" style=\"margin:0 auto 25px;\"><tr><td bgcolor=\"#0d1310\" style=\"border-radius:6px;padding:12px 28px;\"><span style=\"color:#c6a56a;font-weight:bold;letter-spacing:1px;font-family:Arial,sans-serif;\">{{ $json.body.service || $json.service }}</span></td></tr></table><p style=\"color:#555555;line-height:1.7;margin:0 0 30px;\">Un especialista revisara tu solicitud y te contactara dentro de las proximas <strong>24 horas</strong> para coordinar una evaluacion personalizada completamente gratuita y sin compromiso.</p><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid #c6a56a;border-radius:8px;margin:0 0 25px;\"><tr><td style=\"padding:25px;text-align:center;\"><p style=\"color:#0d1310;font-weight:bold;margin:0 0 20px;font-size:15px;\">Necesitas atencion inmediata?</p><table cellpadding=\"0\" cellspacing=\"8\" align=\"center\"><tr><td bgcolor=\"#25D366\" style=\"border-radius:6px;padding:13px 22px;\"><a href=\"https://wa.me/18609312274\" style=\"color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;font-family:Arial,sans-serif;\">WhatsApp +1 860 931 2274</a></td></tr><tr><td bgcolor=\"#128C7E\" style=\"border-radius:6px;padding:13px 22px;\"><a href=\"https://wa.me/18603350967\" style=\"color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;font-family:Arial,sans-serif;\">WhatsApp +1 860 335 0967</a></td></tr></table></td></tr></table><p style=\"color:#999999;font-size:13px;font-style:italic;margin:0;\">More than cleaning, a sustainable space for your comfort.</p></td></tr><tr><td bgcolor=\"#0d1310\" style=\"padding:25px 40px;text-align:center;\"><p style=\"color:#c6a56a;font-size:12px;margin:0 0 6px;font-family:Arial,sans-serif;\">AJB Cleaning Services, LLC</p><p style=\"color:#b9b19f;font-size:11px;margin:0;font-family:Arial,sans-serif;\">NY - NJ - CT - PA | 2026 Todos los derechos reservados.</p></td></tr></table></td></tr></table></body></html>"
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "const esc = (s) => String(s ?? '').replace(/[&<>\"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', \"'\": '&#39;' }[c]));\nconst out = [];\nfor (const item of $input.all()) {\n  const b = item.json.body || item.json;\n  const name = String(b.name || '').trim().slice(0, 80);\n  const emailTo = String(b.email || '').trim().toLowerCase().slice(0, 120);\n  const phone = String(b.phone || '').trim().slice(0, 30);\n  const digits = phone.replace(/\\D/g, '');\n\n  // Sin nombre, correo y telefono validos no se manda ningun correo: corta el abuso\n  if (name.length < 2) continue;\n  if (!/^[^\\s@<>\"]+@[^\\s@<>\"]+\\.[a-z]{2,}$/i.test(emailTo)) continue;\n  if (digits.length < 10 || digits.length > 11) continue;\n\n  const clean = {\n    name: esc(name),\n    email: esc(emailTo),\n    phone: esc(phone),\n    service: esc(String(b.service || '').slice(0, 60)),\n    message: esc(String(b.message || '').slice(0, 2000)).replace(/\\n/g, '<br>'),\n    submittedAt: esc(String(b.submittedAt || '').slice(0, 40)),\n    source: esc(String(b.source || '').slice(0, 40))\n  };\n  // body se repite para que las plantillas existentes ($json.body.x) sigan funcionando\n  out.push({ json: { ...clean, body: clean, emailTo } });\n}\nreturn out;"
+      },
+      "name": "Validar y limpiar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        300
+      ]
     }
   ],
   "connections": {
     "Webhook": {
-      "main": [[
-        { "node": "Notificacion para AJB", "type": "main", "index": 0 },
-        { "node": "Confirmacion para el Cliente", "type": "main", "index": 0 }
-      ]]
+      "main": [
+        [
+          {
+            "node": "Validar y limpiar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar y limpiar": {
+      "main": [
+        [
+          {
+            "node": "Notificacion para AJB",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Confirmacion para el Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   }
 }
