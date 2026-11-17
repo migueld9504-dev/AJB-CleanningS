@@ -19,7 +19,7 @@
     tp_title_gold: 'Real Clients',
     tp_subtitle: '28+ years of trusted cleaning across NY, NJ, CT & PA. Here\'s what our clients say.',
     tp_avg_label: 'Average Rating',
-    tp_review_count: 'Based on verified client reviews',
+    tp_review_count: 'Based on client reviews',
     tp_grid_tag: 'What They Say',
     tp_grid_title: 'Client',
     tp_no_reviews: 'No community reviews yet. Be the first to share your experience!',
@@ -55,7 +55,7 @@
     tp_title_gold: 'Clientes Reales',
     tp_subtitle: 'Más de 28 años de limpieza de confianza en NY, NJ, CT y PA. Esto es lo que dicen nuestros clientes.',
     tp_avg_label: 'Calificación Promedio',
-    tp_review_count: 'Basado en reseñas verificadas de clientes',
+    tp_review_count: 'Basado en reseñas de clientes',
     tp_grid_tag: 'Lo Que Dicen',
     tp_grid_title: 'Testimonios de',
     tp_no_reviews: '¡Aún no hay reseñas de la comunidad. Sé el primero en compartir tu experiencia!',
@@ -176,7 +176,7 @@
             <span>${escapeHtml(rv.role || rv.location || '')}</span>
             <div class="testi-stars">${starString(rv.rating)}</div>
           </div>
-          <div class="testi-type-badge badge-community">✅ Verified</div>
+          <div class="testi-type-badge badge-community">${((window.AJBi18n && window.AJBi18n.getCurrentLang()) || 'en') === 'es' ? 'Comunidad' : 'Community'}</div>
         </div>
         <p>"${escapeHtml(rv.review)}"</p>
         <div class="testi-meta">
